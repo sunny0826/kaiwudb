@@ -1168,6 +1168,78 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(0.95);
 }
 
+/* 为什么选择我们 (Why Choose Us) */
+.why-choose-us {
+    padding: 80px 0;
+    background-color: var(--color-bg-secondary);
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+.why-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: var(--transition-smooth);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+}
+
+.why-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--color-border-hover);
+}
+
+.why-icon {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, #0066E8 0%, #0056D2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 16px rgba(0, 86, 210, 0.2);
+    transition: var(--transition-smooth);
+}
+
+.why-icon svg {
+    width: 36px;
+    height: 36px;
+    color: #FFFFFF;
+    stroke-width: 2;
+}
+
+.why-card:hover .why-icon {
+    transform: scale(1.1);
+    box-shadow: 0 6px 24px rgba(0, 86, 210, 0.3);
+}
+
+.why-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.why-desc {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
 /* 产品矩阵 (Product Matrix) */
 .products {
     padding: var(--spacing-xl) 0;
@@ -2148,15 +2220,26 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Medium Screens (768px - 1199px) */
 @media (max-width: 1199px) {
+    /* Why Choose Us Responsive */
+    .why-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        padding: 0 24px;
+    }
+
+    .why-card {
+        padding: 32px 24px;
+    }
+
     .navbar {
         gap: 16px;
         padding: 0 1.5%;
     }
-    
+
     .nav-links {
         gap: 12px;
     }
-    
+
     .nav-link {
         font-size: 0.75rem;
         padding: 6px 8px;
@@ -2191,6 +2274,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Small Screens (≤767px) */
 @media (max-width: 767px) {
+    /* Why Choose Us Responsive */
+    .why-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .why-card {
+        padding: 32px 24px;
+    }
+
     .navbar {
         height: 60px;
         justify-content: space-between;
