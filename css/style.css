@@ -953,9 +953,9 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 80px 5% 80px 8%;
+    padding: 80px 2% 80px 12%;
     min-height: 600px;
     text-align: left;
     position: relative;
@@ -964,7 +964,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-text {
     flex: 0 0 auto;
-    max-width: 500px;
+    max-width: 450px;
     position: relative;
     z-index: 3;
 }
