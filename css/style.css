@@ -953,18 +953,19 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 80px 2% 80px 12%;
+    max-width: none;
+    width: 100%;
+    padding: 80px 80px 80px 180px;
     min-height: 600px;
     text-align: left;
     position: relative;
     z-index: 3;
+    box-sizing: border-box;
 }
 
 .hero-text {
     flex: 0 0 auto;
-    max-width: 450px;
+    max-width: 500px;
     position: relative;
     z-index: 3;
 }
