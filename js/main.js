@@ -53,13 +53,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. 初始化导航栏逻辑 (Initial Navbar Logic)
     const initNavbarLogic = () => {
+        // 工具函数：debounce 和 throttle
+        const debounce = (func, wait) => {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        };
+
+        const throttle = (func, limit) => {
+            let inThrottle;
+            return function(...args) {
+                if (!inThrottle) {
+                    func.apply(this, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            };
+        };
+
+        // 更新下拉菜单位置
+        const updateDropdownTop = () => {
+            const navbar = document.querySelector('.navbar');
+            if (!navbar) return;
+
+            const navbarHeight = navbar.offsetHeight;
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.style.top = navbarHeight + 'px';
+            });
+        };
+
         // 顶部通知栏关闭逻辑
         const notification = document.getElementById('top-notification');
         const closeBtn = document.querySelector('.notification-close');
-        
+
         if (closeBtn && notification) {
             closeBtn.addEventListener('click', () => {
                 notification.style.display = 'none';
+                // 通知栏关闭后，更新下拉菜单位置
+                setTimeout(updateDropdownTop, 100);
             });
         }
 
@@ -72,8 +109,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     navbar.classList.remove('scrolled');
                 }
+                // 滚动时更新下拉菜单位置
+                updateDropdownTop();
             });
         }
+
+        // 下拉菜单 hover 状态管理
+        const navItemsWithDropdown = document.querySelectorAll('.nav-item.has-dropdown');
+        navItemsWithDropdown.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                if (navbar) navbar.classList.add('has-dropdown-open');
+                updateDropdownTop();
+            });
+            item.addEventListener('mouseleave', () => {
+                if (navbar) navbar.classList.remove('has-dropdown-open');
+            });
+        });
+
+        // 窗口 resize 时更新下拉菜单位置
+        window.addEventListener('resize', debounce(updateDropdownTop, 100));
 
         // 移动端菜单切换 (Mobile Menu Toggle)
         const hamburger = document.querySelector('.hamburger');
