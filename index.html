@@ -310,14 +310,149 @@
         </section>
         
         <!-- 客户案例 (简化版) -->
-        <section class="container" id="cases" style="padding: 4rem 2rem;">
-            <h2 class="section-title">客户案例</h2>
-            <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; opacity: 0.7;">
-                <!-- 占位 Logo -->
-                <div style="padding: 1rem 2rem; border: 1px solid var(--color-text-secondary); border-radius: 4px;">重工集团</div>
-                <div style="padding: 1rem 2rem; border: 1px solid var(--color-text-secondary); border-radius: 4px;">市大数据局</div>
-                <div style="padding: 1rem 2rem; border: 1px solid var(--color-text-secondary); border-radius: 4px;">电网能源</div>
-                <div style="padding: 1rem 2rem; border: 1px solid var(--color-text-secondary); border-radius: 4px;">超级工厂</div>
+        <section class="customer-cases" id="cases">
+            <div class="container">
+                <h2 class="section-title">客户案例</h2>
+                <div class="cases-logos">
+                    <!-- 占位 Logo -->
+                    <div class="case-logo">重工集团</div>
+                    <div class="case-logo">市大数据局</div>
+                    <div class="case-logo">电网能源</div>
+                    <div class="case-logo">超级工厂</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 产品动态 -->
+        <section class="product-updates" id="product-updates">
+            <!-- 动态背景层 -->
+            <div class="updates-bg-grid" aria-hidden="true"></div>
+            <div class="updates-bg-glow" aria-hidden="true"></div>
+
+            <div class="container">
+                <!-- 标题区域 -->
+                <div class="updates-header">
+                    <h2 class="updates-title">产品动态</h2>
+                    <div class="updates-title-decoration"></div>
+                </div>
+
+                <!-- 宣传横幅 - 带打字机效果 -->
+                <div class="promo-banner">
+                    <span class="promo-icon">⚡</span>
+                    <a href="#" class="promo-link">
+                        <span class="promo-text">KaiwuDB 2.0 正式发布，全新架构性能提升300%！</span>
+                    </a>
+                    <span class="promo-arrow">→</span>
+                </div>
+
+                <!-- 不对称内容网格 -->
+                <div class="updates-grid">
+                    <!-- 左侧主卡片 - 大尺寸 -->
+                    <article class="update-card featured">
+                        <div class="update-card-inner">
+                            <div class="update-card-front">
+                                <span class="update-tag primary">
+                                    <span class="tag-glow"></span>
+                                    最新活动
+                                </span>
+                                <h3 class="update-title">
+                                    <a href="#">
+                                        <span class="title-text">KaiwuDB 2.0 正式发布</span>
+                                        <span class="title-sub">全新架构性能提升300%！</span>
+                                    </a>
+                                </h3>
+                                <div class="update-meta">
+                                    <time class="update-date">
+                                        <span class="date-icon">📅</span>
+                                        2025.12.29
+                                    </time>
+                                    <span class="update-indicator"></span>
+                                </div>
+                            </div>
+                            <div class="update-card-shine"></div>
+                        </div>
+                    </article>
+
+                    <!-- 右侧第1个卡片 -->
+                    <article class="update-card">
+                        <div class="update-card-inner">
+                            <div class="update-card-front">
+                                <span class="update-tag accent">
+                                    <span class="tag-glow"></span>
+                                    重磅发布
+                                </span>
+                                <h3 class="update-title">
+                                    <a href="#">KaiwuDB 开源社区突破10万开发者</a>
+                                </h3>
+                                <div class="update-meta">
+                                    <time class="update-date">2025.12.15</time>
+                                    <span class="update-indicator"></span>
+                                </div>
+                            </div>
+                            <div class="update-card-shine"></div>
+                        </div>
+                    </article>
+
+                    <!-- 右侧第2个卡片 -->
+                    <article class="update-card">
+                        <div class="update-card-inner">
+                            <div class="update-card-front">
+                                <span class="update-tag subtle">
+                                    <span class="tag-glow"></span>
+                                    解决方案
+                                </span>
+                                <h3 class="update-title">
+                                    <a href="#">工业物联网数据管理最佳实践</a>
+                                </h3>
+                                <div class="update-meta">
+                                    <time class="update-date">2025.11.20</time>
+                                    <span class="update-indicator"></span>
+                                </div>
+                            </div>
+                            <div class="update-card-shine"></div>
+                        </div>
+                    </article>
+
+                    <!-- 右侧第3个卡片 -->
+                    <article class="update-card">
+                        <div class="update-card-inner">
+                            <div class="update-card-front">
+                                <span class="update-tag accent">
+                                    <span class="tag-glow"></span>
+                                    产品方案
+                                </span>
+                                <h3 class="update-title">
+                                    <a href="#">分布式架构实现高可用部署</a>
+                                </h3>
+                                <div class="update-meta">
+                                    <time class="update-date">2025.10.18</time>
+                                    <span class="update-indicator"></span>
+                                </div>
+                            </div>
+                            <div class="update-card-shine"></div>
+                        </div>
+                    </article>
+
+                    <!-- 右侧第4个卡片 -->
+                    <article class="update-card">
+                        <div class="update-card-inner">
+                            <div class="update-card-front">
+                                <span class="update-tag subtle">
+                                    <span class="tag-glow"></span>
+                                    技术分享
+                                </span>
+                                <h3 class="update-title">
+                                    <a href="#">时序数据库在能源领域的应用</a>
+                                </h3>
+                                <div class="update-meta">
+                                    <time class="update-date">2025.09.25</time>
+                                    <span class="update-indicator"></span>
+                                </div>
+                            </div>
+                            <div class="update-card-shine"></div>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
