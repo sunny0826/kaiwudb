@@ -231,6 +231,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroCarousel) {
         new HeroCarousel(heroCarousel, { interval: 10000 });
     }
+
+    // 6. 初始化 KaiwuDB 优势区域手风琴
+    initAdvantagesAccordion();
 });
 
 /**
@@ -348,5 +351,73 @@ class HeroCarousel {
     destroy() {
         this.stopAutoPlay();
         // 移除事件监听器（简化版，实际应保存引用后移除）
+    }
+}
+
+/**
+ * ========================================
+ * KaiwuDB 优势区域手风琴功能
+ * ========================================
+ */
+
+/**
+ * 初始化 KaiwuDB 优势区域手风琴功能
+ */
+function initAdvantagesAccordion() {
+    const accordion = document.querySelector('.advantages-accordion');
+    if (!accordion) return;
+
+    const headers = accordion.querySelectorAll('.accordion-header');
+
+    headers.forEach(header => {
+        // 点击事件
+        header.addEventListener('click', () => {
+            toggleAccordion(header);
+        });
+
+        // 键盘事件 (Enter/Space)
+        header.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleAccordion(header);
+            }
+        });
+    });
+}
+
+/**
+ * 切换手风琴状态
+ * @param {HTMLElement} header - 被点击的手风琴头部元素
+ */
+function toggleAccordion(header) {
+    const isActive = header.classList.contains('active');
+    const content = header.nextElementSibling;
+    const accordion = header.closest('.advantages-accordion');
+    const allHeaders = accordion.querySelectorAll('.accordion-header');
+
+    // 收起所有其他项
+    allHeaders.forEach(h => {
+        if (h !== header && h.classList.contains('active')) {
+            h.classList.remove('active');
+            h.setAttribute('aria-expanded', 'false');
+            const otherContent = h.nextElementSibling;
+            otherContent.style.maxHeight = null;
+            otherContent.hidden = true;
+        }
+    });
+
+    // 切换当前项
+    if (isActive) {
+        // 收起
+        header.classList.remove('active');
+        header.setAttribute('aria-expanded', 'false');
+        content.style.maxHeight = null;
+        content.hidden = true;
+    } else {
+        // 展开
+        header.classList.add('active');
+        header.setAttribute('aria-expanded', 'true');
+        content.hidden = false;
+        content.style.maxHeight = content.scrollHeight + 'px';
     }
 }
