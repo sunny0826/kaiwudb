@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. 初始化 Hero 轮播
     const heroCarousel = document.getElementById('heroCarousel');
     if (heroCarousel) {
-        new HeroCarousel(heroCarousel, { interval: 5000 });
+        new HeroCarousel(heroCarousel, { interval: 10000 });
     }
 });
 
