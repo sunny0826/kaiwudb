@@ -2439,3 +2439,140 @@ h1, h2, h3, h4, h5, h6 {
     from { transform: translateY(-10px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+
+/* ========================================
+   KaiwuDB 优势区域
+   ======================================== */
+
+.kaiwu-advantages {
+    padding: 5rem 0;
+    background: var(--color-bg-primary);
+}
+
+/* 两列布局 */
+.advantages-layout {
+    display: grid;
+    grid-template-columns: 3fr 2fr;  /* 60% : 40% */
+    gap: 4rem;
+    align-items: start;
+}
+
+/* 手风琴容器 */
+.advantages-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* 手风琴项目 */
+.accordion-item {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* 手风琴头部 */
+.accordion-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: #F8F9FA;
+    border: none;
+    border-bottom: 1px solid #E5E7EB;
+    font-size: 16px;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.accordion-header:hover {
+    background: #F3F4F6;
+}
+
+.accordion-header:focus {
+    outline: 2px solid #0056D2;
+    outline-offset: 2px;
+}
+
+/* 激活状态 */
+.accordion-header.active {
+    background: #EEF2FF;
+    color: #0056D2;
+    border-left: 3px solid #0056D2;
+    border-bottom: none;
+    font-weight: 600;
+}
+
+/* 箭头图标 */
+.accordion-icon {
+    transition: transform 0.3s ease;
+    font-size: 12px;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+/* 手风琴内容区 */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.accordion-inner {
+    padding: 1.5rem;
+    color: #4B5563;
+    line-height: 1.7;
+}
+
+.accordion-inner p {
+    margin-bottom: 1rem;
+}
+
+.accordion-inner p:last-child {
+    margin-bottom: 0;
+}
+
+/* 右侧视觉区域 */
+.advantages-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.advantages-shape {
+    width: 280px;
+    height: 280px;
+    border-color: #0056D2;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .advantages-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .advantages-visual {
+        display: none;
+    }
+
+    .kaiwu-advantages {
+        padding: 3rem 0;
+    }
+
+    .accordion-header {
+        padding: 0.875rem 1.25rem;
+        font-size: 15px;
+    }
+
+    .accordion-inner {
+        padding: 1.25rem;
+    }
+}
