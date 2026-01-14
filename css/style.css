@@ -949,6 +949,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Hero Carousel - 轮播内容布局和主题样式 */
+/* 覆盖 container 的宽度限制 */
+.hero-carousel .container {
+    max-width: none;
+    width: 100%;
+    padding: 0;
+}
+
 .hero-carousel .hero-content {
     display: flex;
     align-items: center;
