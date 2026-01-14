@@ -946,7 +946,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Hero Carousel - 轮播内容布局和主题样式 */
-.hero-content.carousel-layout {
+.hero-carousel .hero-content {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -1577,7 +1577,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Carousel 响应式 */
 @media (max-width: 1024px) {
-    .hero-content.carousel-layout {
+    .hero-carousel .hero-content {
         justify-content: center;
     }
 
@@ -1633,7 +1633,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     /* Hero Carousel 移动端样式 */
-    .hero-content.carousel-layout {
+    .hero-carousel .hero-content {
         padding: 80px 20px 60px;
         min-height: 60vh;
     }
