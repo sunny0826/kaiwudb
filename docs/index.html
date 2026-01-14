@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaiwuDB 文档中心</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/comments.css">
+    <link rel="stylesheet" href="css/docs.css">
+</head>
+<body>
+
+    <!-- 导航栏占位符 -->
+    <div id="navbar-placeholder"></div>
+
+    <div class="docs-container">
+        <!-- 左侧侧边栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-nav">
+                <div class="sidebar-group">
+                    <h3 class="sidebar-title">入门指南</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#" class="sidebar-link active">文档概览</a></li>
+                        <li><a href="#" class="sidebar-link">快速安装</a></li>
+                        <li><a href="#" class="sidebar-link">连接数据库</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar-group">
+                    <h3 class="sidebar-title">核心概念</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#" class="sidebar-link">多模架构</a></li>
+                        <li><a href="#" class="sidebar-link">时序引擎</a></li>
+                        <li><a href="#" class="sidebar-link">数据模型</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar-group">
+                    <h3 class="sidebar-title">开发指南</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#" class="sidebar-link">SQL 语法</a></li>
+                        <li><a href="#" class="sidebar-link">RESTful API</a></li>
+                        <li><a href="#" class="sidebar-link">SDK 参考</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar-group">
+                    <h3 class="sidebar-title">运维管理</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#" class="sidebar-link">集群部署</a></li>
+                        <li><a href="#" class="sidebar-link">监控告警</a></li>
+                        <li><a href="#" class="sidebar-link">备份恢复</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 中间内容区域 -->
+        <main class="content">
+            <div class="breadcrumb">
+                <span>文档中心</span> / <span>入门指南</span> / <span>文档概览</span>
+            </div>
+
+            <h1 class="page-title">KaiwuDB 文档概览</h1>
+            <p class="page-desc">欢迎使用 KaiwuDB。本文档将帮助您快速了解 KaiwuDB 的核心功能，并指引您完成从安装到开发的完整流程。</p>
+
+            <!-- 旅程地图 -->
+            <section class="journey-map-section">
+                <h2>📚 文档旅程地图</h2>
+                <div class="journey-container">
+                    <div class="journey-step">
+                        <div class="step-icon">⬇️</div>
+                        <h3>安装部署</h3>
+                        <p>支持 Docker、RPM、源码编译等多种安装方式。</p>
+                        <a href="#" class="step-link">查看指南 &rarr;</a>
+                    </div>
+                    <div class="journey-connector"></div>
+                    <div class="journey-step">
+                        <div class="step-icon">⚙️</div>
+                        <h3>配置连接</h3>
+                        <p>初始化集群，配置用户权限，建立安全连接。</p>
+                        <a href="#" class="step-link">查看指南 &rarr;</a>
+                    </div>
+                    <div class="journey-connector"></div>
+                    <div class="journey-step">
+                        <div class="step-icon">💻</div>
+                        <h3>应用开发</h3>
+                        <p>使用 SQL 或 API 进行数据写入与查询开发。</p>
+                        <a href="#" class="step-link">查看指南 &rarr;</a>
+                    </div>
+                    <div class="journey-connector"></div>
+                    <div class="journey-step">
+                        <div class="step-icon">📊</div>
+                        <h3>运维监控</h3>
+                        <p>使用可视化平台监控集群状态与性能指标。</p>
+                        <a href="#" class="step-link">查看指南 &rarr;</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 示例部分 -->
+            <section class="example-section">
+                <h2>🚀 快速开始示例</h2>
+                
+                <div class="code-example">
+                    <h3>1. 连接数据库 (Go)</h3>
+                    <p>使用标准的 Go database/sql 接口连接 KaiwuDB。</p>
+                    <pre><code class="language-go">package main
+
+import (
+    "database/sql"
+    "fmt"
+    _ "github.com/lib/pq"
+)
+
+func main() {
+    // 配置连接字符串
+    connStr := "postgres://root@localhost:26257/defaultdb?sslmode=disable"
+    
+    // 打开连接
+    db, err := sql.Open("postgres", connStr)
+    if err != nil {
+        panic(err)
+    }
+    defer db.Close()
+
+    // 验证连接
+    if err := db.Ping(); err != nil {
+        panic(err)
+    }
+    
+    fmt.Println("Successfully connected to KaiwuDB!")
+}</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <h3>2. 创建时序表 (SQL)</h3>
+                    <p>创建一个用于存储物联网传感器数据的时序表。</p>
+                    <pre><code class="language-sql">-- 创建数据库
+CREATE DATABASE iot_data;
+
+-- 切换数据库
+USE iot_data;
+
+-- 创建时序表
+CREATE TABLE sensors (
+    ts TIMESTAMP NOT NULL,
+    device_id INT NOT NULL TAG,
+    location VARCHAR(64) TAG,
+    temperature FLOAT,
+    humidity FLOAT
+) PRIMARY TAGS(device_id, location);</code></pre>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 右侧大纲 -->
+        <aside class="toc">
+            <h4 class="toc-title">本页内容</h4>
+            <ul class="toc-list">
+                <li><a href="#" class="toc-link active">文档旅程地图</a></li>
+                <li><a href="#" class="toc-link">快速开始示例</a></li>
+                <li><a href="#" class="toc-link">连接数据库 (Go)</a></li>
+                <li><a href="#" class="toc-link">创建时序表 (SQL)</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <script src="js/docs.js"></script>
+    <script src="../js/comments.js"></script>
+
+    <!-- 底部操作区域 -->
+    <section class="pre-footer-cta">
+        <div class="cta-container">
+            <h2 class="cta-title">准备好开启您的数据之旅了吗？</h2>
+            <div class="cta-buttons">
+                <a href="../register.html" class="btn-cta-primary">立即开始使用</a>
+                <a href="../community.html" class="btn-cta-secondary">体验社区版</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <!-- 底部 -->
+    <footer class="footer" id="footer-placeholder">
+        <!-- Footer will be loaded here via JS -->
+    </footer>
+
+    <!-- 引入外部 JS -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

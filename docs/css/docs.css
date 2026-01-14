@@ -1,0 +1,383 @@
+/* 
+ * 文档中心专用样式 (Docs CSS)
+ * 继承主站风格并适配文档阅读体验
+ */
+
+:root {
+    --sidebar-width: 280px;
+    --toc-width: 240px;
+    --header-height: 72px; /* Match style.css navbar height */
+    --doc-content-max-width: 900px;
+}
+
+body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    /* Font family inherited from global style.css via HTML link */
+}
+
+/* 
+ * 复写/适配导航栏 (Navbar Override/Adaptation)
+ * 文档中心可能需要特定的导航栏微调，或者直接使用 style.css 的
+ * 这里我们主要确保它固定在顶部且层级正确
+ */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid var(--color-border);
+    /* Background and backdrop-filter are handled in style.css */
+}
+
+/* 
+ * 布局容器 (Layout Container)
+ * 采用 CSS Grid 实现三栏布局
+ */
+.docs-container {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr var(--toc-width);
+    padding-top: var(--header-height);
+    min-height: 100vh;
+    max-width: 1600px; /* Wider for docs to accommodate 3 cols */
+    margin: 0 auto;
+}
+
+/* 
+ * 左侧侧边栏 (Sidebar)
+ */
+.sidebar {
+    position: sticky;
+    top: var(--header-height);
+    height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+    border-right: 1px solid var(--color-border);
+    padding: 2rem 1.5rem;
+    background-color: var(--color-bg-secondary); /* Light gray background for sidebar */
+}
+
+/* 侧边栏滚动条美化 */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+
+.search-box input {
+    padding: 8px 12px 8px 36px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background-color: var(--color-bg-secondary);
+    font-size: 0.9rem;
+    width: 240px;
+    transition: all 0.2s;
+}
+
+.sidebar-group {
+    margin-bottom: 2rem;
+}
+
+.sidebar-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    padding-left: 12px;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 8px 12px;
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: var(--transition-standard);
+    border-radius: var(--radius-sm);
+    margin-bottom: 2px;
+}
+
+.sidebar-link:hover {
+    color: var(--color-accent);
+    background-color: rgba(0, 86, 210, 0.05);
+}
+
+.sidebar-link.active {
+    color: var(--color-accent);
+    font-weight: 600;
+    background-color: rgba(0, 86, 210, 0.08);
+}
+
+/* 
+ * 中间内容区 (Main Content)
+ */
+.content {
+    padding: 3rem 4rem;
+    min-width: 0; /* Prevent grid blowout */
+    background-color: var(--color-bg-primary);
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.page-desc {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 800px;
+}
+
+/* 
+ * 旅程地图 (Journey Map)
+ * 重新设计为卡片风格
+ */
+.journey-map-section {
+    margin-bottom: 4rem;
+    padding: 2.5rem;
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+}
+
+.journey-map-section h2 {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+    font-weight: 700;
+}
+
+.journey-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.journey-step {
+    flex: 1;
+    background-color: #FFFFFF;
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    text-align: center;
+    transition: var(--transition-standard);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.journey-step:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--color-accent);
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-secondary);
+    border-radius: 50%;
+}
+
+.journey-step h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-primary);
+}
+
+.journey-step p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.step-link {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    background-color: rgba(0, 86, 210, 0.05);
+    transition: var(--transition-standard);
+}
+
+.step-link:hover {
+    background-color: var(--color-accent);
+    color: #FFFFFF;
+}
+
+.journey-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    position: relative;
+}
+
+.journey-connector::before {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-border);
+}
+
+.journey-connector::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid var(--color-border);
+    border-right: 2px solid var(--color-border);
+    transform: rotate(45deg);
+}
+
+/* 
+ * 代码示例 (Code Examples)
+ */
+.example-section {
+    margin-bottom: 4rem;
+}
+
+.code-example {
+    margin-bottom: 3rem;
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.code-example h3 {
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+    background-color: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.code-example p {
+    padding: 1rem 1.5rem 0;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+pre {
+    background-color: #1E1E1E; /* Keep dark theme for code */
+    color: #D4D4D4;
+    padding: 1.5rem;
+    margin: 1.5rem;
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    font-family: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* 
+ * 右侧大纲 (Table of Contents)
+ */
+.toc {
+    position: sticky;
+    top: var(--header-height);
+    height: calc(100vh - var(--header-height));
+    padding: 3rem 1.5rem;
+    border-left: 1px solid var(--color-border);
+    background-color: var(--color-bg-primary);
+}
+
+.toc-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.toc-link {
+    display: block;
+    padding: 6px 0 6px 12px;
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: var(--transition-standard);
+}
+
+.toc-link:hover {
+    color: var(--color-accent);
+}
+
+.toc-link.active {
+    color: var(--color-accent);
+    border-left-color: var(--color-accent);
+    font-weight: 500;
+}
+
+/* 
+ * 响应式适配 (Responsive)
+ */
+@media (max-width: 1200px) {
+    .docs-container {
+        grid-template-columns: 240px 1fr 200px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .docs-container {
+        grid-template-columns: 240px 1fr;
+    }
+    .toc {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .docs-container {
+        display: block;
+    }
+    .sidebar {
+        display: none; /* Mobile handling required (e.g., hamburger) */
+    }
+    .content {
+        padding: 2rem 1.5rem;
+    }
+    .journey-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .journey-connector {
+        display: none;
+    }
+}

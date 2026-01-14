@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 / 注册 - KaiwuDB</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/comments.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <!-- 左侧品牌区域 -->
+        <div class="auth-sidebar">
+            <div class="brand-header">
+                <a href="index.html" class="logo-link">
+                    <div class="auth-logo">KaiwuDB</div>
+                </a>
+            </div>
+            
+            <div class="brand-content">
+                <h1>欢迎来到 KaiwuDB</h1>
+                <p class="brand-slogan">用原生分布式多模数据库，构建你的现代数据架构</p>
+                
+                <ul class="feature-list">
+                    <li>
+                        <span class="bullet"></span>
+                        <span>原生分布式，应用透明无缝扩缩容</span>
+                    </li>
+                    <li>
+                        <span class="bullet"></span>
+                        <span>多模融合，同时支持时序、关系与图数据</span>
+                    </li>
+                    <li>
+                        <span class="bullet"></span>
+                        <span>一体化架构，多场景融合统一技术栈</span>
+                    </li>
+                    <li>
+                        <span class="bullet"></span>
+                        <span>AI 赋能，自适应优化与智能运维</span>
+                    </li>
+                    <li>
+                        <span class="bullet"></span>
+                        <span>高压缩引擎，充分利用每一份资源</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 背景装饰 -->
+            <div class="auth-bg-pattern"></div>
+        </div>
+
+        <!-- 右侧表单区域 -->
+        <div class="auth-main">
+            <div class="auth-form-wrapper">
+                <h2 class="auth-title">登录</h2>
+                
+                <!-- Tab 切换 -->
+                <div class="auth-tabs">
+                    <button class="tab-item active" data-target="sms">验证码登录</button>
+                    <button class="tab-item" data-target="password">密码登录</button>
+                </div>
+
+                <!-- 验证码登录表单 -->
+                <form class="auth-form active" id="form-sms">
+                    <div class="form-group">
+                        <label for="phone" class="form-label">手机号</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="请输入手机号码" maxlength="11">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="verify-code" class="form-label">验证码</label>
+                        <div class="input-group">
+                            <input type="text" id="verify-code" class="form-input" placeholder="请输入 6 位验证码" maxlength="6">
+                            <button type="button" class="btn-verify" id="get-code-btn">获取验证码</button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">登录 / 注册</button>
+                    <p class="auth-tip">未注册的手机，验证登录后将自动注册</p>
+                </form>
+
+                <!-- 密码登录表单 (默认隐藏) -->
+                <form class="auth-form" id="form-password" style="display: none;">
+                    <div class="form-group">
+                        <label for="account" class="form-label">账号</label>
+                        <input type="text" id="account" class="form-input" placeholder="请输入手机号/邮箱">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pwd" class="form-label">密码</label>
+                        <input type="password" id="pwd" class="form-input" placeholder="请输入密码">
+                    </div>
+
+                    <div class="form-footer">
+                        <a href="#" class="link-forget">忘记密码？</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">登录</button>
+                </form>
+
+                <!-- 底部其他方式 -->
+                <div class="auth-others">
+                    <a href="javascript:void(0)" class="other-item" title="微信登录" aria-label="微信登录">
+                        <div class="icon-circle">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.8 8.38 8.38 0 0 1 3.8.9L21 3.5l-1.9 4.9a8.38 8.38 0 0 1 .9 3.1z"></path>
+                            </svg>
+                        </div>
+                        <span>微信</span>
+                    </a>
+                    <a href="javascript:void(0)" class="other-item" title="Gitee 登录" aria-label="Gitee 登录">
+                        <div class="icon-circle">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <span>Gitee</span>
+                    </a>
+                    <a href="javascript:void(0)" class="other-item" title="GitHub 登录" aria-label="GitHub 登录">
+                        <div class="icon-circle">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </div>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="javascript:void(0)" class="other-item" title="邮箱注册" aria-label="邮箱注册">
+                        <div class="icon-circle">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <span>邮箱</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/comments.js"></script>
+</body>
+</html>
