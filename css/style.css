@@ -837,6 +837,142 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--color-bg-secondary);
 }
 
+/* Cases Dropdown - Industry Panel Layout */
+.cases-dropdown {
+    min-height: 320px;
+    background-color: #FFFFFF;
+}
+
+.cases-dropdown-layout {
+    display: flex;
+    gap: 0;
+    min-height: 320px;
+}
+
+/* 左侧行业价值面板 */
+.cases-industry-panel {
+    width: 320px;
+    flex-shrink: 0;
+    padding: 32px 24px;
+    margin-left: 80px;
+    background: rgba(255, 255, 255, 0.95);
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px 0 0 12px;
+    backdrop-filter: blur(10px);
+}
+
+.industry-panel-content {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.industry-panel-content.fade-out {
+    opacity: 0;
+}
+
+.industry-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--color-text-primary);
+    line-height: 1.3;
+}
+
+.industry-description {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+}
+
+.industry-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.industry-highlights li {
+    font-size: 14px;
+    color: var(--color-text-primary);
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.industry-highlights li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, var(--color-accent), #0066FF);
+    border-radius: 50%;
+    opacity: 0.15;
+}
+
+.industry-highlights li::after {
+    content: '✓';
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+/* 右侧行业列表 */
+.cases-industry-list {
+    flex: 1;
+    min-width: 0;
+}
+
+.cases-dropdown .mega-menu-list {
+    max-width: none;
+    margin: 0;
+}
+
+/* 让客户案例下拉框占据全宽 */
+.cases-dropdown .container {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 案例链接样式 */
+.case-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.case-link:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.case-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-accent), #0066FF);
+    transition: width 0.2s ease;
+}
+
+.case-link:hover::after {
+    width: 100%;
+}
+
 /* Hero 区域 - 网格与微光 (Grid & Glow) */
 .hero {
     min-height: 80vh;
@@ -1782,6 +1918,15 @@ h1, h2, h3, h4, h5, h6 {
 
     .product-col {
         padding: 0 12px;
+    }
+
+    /* Cases dropdown responsive - hide panel on tablet */
+    .cases-industry-panel {
+        display: none;
+    }
+
+    .cases-industry-list {
+        width: 100%;
     }
 
     /* 页脚响应式 */

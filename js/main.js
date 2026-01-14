@@ -214,6 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 如果是加载导航栏，初始化其逻辑
                 if (placeholderId === 'navbar-placeholder') {
                     initNavbarLogic();
+                    initCasesDropdownPanel();
                 }
             }
         } catch (error) {
@@ -354,6 +355,105 @@ class HeroCarousel {
     destroy() {
         this.stopAutoPlay();
         // 移除事件监听器（简化版，实际应保存引用后移除）
+    }
+}
+
+/**
+ * ========================================
+ * 客户案例下拉框行业价值面板功能
+ * ========================================
+ */
+
+/**
+ * 行业内容数据
+ */
+const industryContent = {
+    default: {
+        title: "赋能千行百业数字化转型",
+        description: "KaiwuDB 作为分布式多模融合数据库，为各行业客户提供一站式数据存储、管理与分析的基座，助力企业实现数字化转型。",
+        highlights: ["多模融合，一库多用", "分布式架构，弹性扩展", "AI 智能优化，越用越快"]
+    },
+    iot: {
+        title: "物联网行业",
+        description: "针对工业物联网海量设备、高并发写入场景，提供设备全生命周期管理解决方案，实现预测性维护与生产全流程监控。",
+        highlights: ["百万级 TPS 写入", "毫秒级实时查询", "智能数据压缩"]
+    },
+    energy: {
+        title: "能源电力行业",
+        description: "面向新能源发电、智能电网、数字能源等领域，高效处理海量测点数据，支持削峰填谷智能调度与精准碳计量。",
+        highlights: ["源网荷储一体化", "发电预测与负荷调度", "碳计量数据管理"]
+    },
+    automotive: {
+        title: "车联网行业",
+        description: "针对车辆实时监控、远程诊断、智慧交通等场景，提供 V2X 数据处理与车辆状态分析能力。",
+        highlights: ["V2X 实时数据交互", "车辆状态实时监控", "智慧交通管理"]
+    },
+    metallurgy: {
+        title: "金属冶炼行业",
+        description: "服务于钢铁、有色金属等冶炼企业，实现生产全流程数字化监控、质量追溯与工艺参数优化。",
+        highlights: ["生产全流程监控", "质量追溯体系", "工艺参数优化"]
+    }
+};
+
+/**
+ * 初始化客户案例下拉框面板功能
+ */
+function initCasesDropdownPanel() {
+    const casesDropdown = document.querySelector('.cases-dropdown');
+    if (!casesDropdown) return;
+
+    const panelContent = casesDropdown.querySelector('.industry-panel-content');
+    if (!panelContent) return;
+
+    const industryItems = casesDropdown.querySelectorAll('[data-industry]');
+
+    // 内容更新函数（带淡入淡出）
+    function updatePanelContent(industryKey) {
+        const content = industryContent[industryKey] || industryContent.default;
+
+        // 淡出
+        panelContent.classList.add('fade-out');
+
+        // 等待淡出动画完成后更新内容并淡入
+        setTimeout(() => {
+            // 更新标题
+            const titleEl = panelContent.querySelector('.industry-title');
+            if (titleEl) titleEl.textContent = content.title;
+
+            // 更新描述
+            const descEl = panelContent.querySelector('.industry-description');
+            if (descEl) descEl.textContent = content.description;
+
+            // 更新亮点列表
+            const highlightsEl = panelContent.querySelector('.industry-highlights');
+            if (highlightsEl) {
+                highlightsEl.innerHTML = content.highlights.map(h => `<li>${h}</li>`).join('');
+            }
+
+            // 淡入
+            panelContent.classList.remove('fade-out');
+        }, 300);
+    }
+
+    // 为每个行业项添加鼠标悬停事件
+    industryItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const industryKey = item.dataset.industry;
+            if (industryKey) {
+                updatePanelContent(industryKey);
+            }
+        });
+    });
+
+    // 下拉框关闭时重置为默认内容
+    const navItem = casesDropdown.closest('.nav-item');
+    if (navItem) {
+        navItem.addEventListener('mouseleave', () => {
+            // 延迟重置，避免鼠标移出时闪烁
+            setTimeout(() => {
+                updatePanelContent('default');
+            }, 200);
+        });
     }
 }
 

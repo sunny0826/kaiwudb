@@ -196,99 +196,101 @@
                         <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </a>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu cases-dropdown">
                     <div class="container">
-                        <div class="mega-menu-list">
-                        <a href="javascript:void(0)" class="dropdown-item has-submenu">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <div class="item-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                                    </svg>
-                                </div>
-                                <div class="item-content">
-                                    <span class="item-title">物联网</span>
-                                    <span class="item-desc">大型工业集团落地实践</span>
+                        <div class="cases-dropdown-layout">
+                            <!-- 左侧行业价值展示面板 -->
+                            <div class="cases-industry-panel">
+                                <div class="industry-panel-content">
+                                    <h3 class="industry-title">赋能千行百业数字化转型</h3>
+                                    <p class="industry-description">KaiwuDB 作为分布式多模融合数据库，为各行业客户提供一站式数据存储、管理与分析的基座，助力企业实现数字化转型。</p>
+                                    <ul class="industry-highlights">
+                                        <li>多模融合，一库多用</li>
+                                        <li>分布式架构，弹性扩展</li>
+                                        <li>AI 智能优化，越用越快</li>
+                                    </ul>
                                 </div>
                             </div>
-                            <svg class="submenu-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                            <div class="submenu">
-                                <a href="#" class="submenu-item">重工集团</a>
-                                <a href="#" class="submenu-item">大数据中心</a>
-                                <a href="#" class="submenu-item">纸业</a>
-                            </div>
-                        </a>
-                        <a href="javascript:void(0)" class="dropdown-item has-submenu">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <div class="item-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                                    </svg>
+
+                            <!-- 右侧行业列表 -->
+                            <div class="cases-industry-list">
+                                <div class="mega-menu-list">
+                                <div class="dropdown-item" data-industry="iot">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div class="item-icon">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="item-content">
+                                            <span class="item-title">物联网</span>
+                                            <span class="item-desc">
+                                                <a href="index.html#success-stories" class="case-link" data-nav-link>重工集团</a> |
+                                                <a href="index.html#success-stories" class="case-link" data-nav-link>大数据中心</a> |
+                                                <a href="index.html#success-stories" class="case-link" data-nav-link>纸业</a>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="item-content">
-                                    <span class="item-title">能源电力</span>
-                                    <span class="item-desc">新型电力系统建设案例</span>
+                                <div class="dropdown-item" data-industry="energy">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div class="item-icon">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                            </svg>
+                                        </div>
+                                        <div class="item-content">
+                                            <span class="item-title">能源电力</span>
+                                            <span class="item-desc">
+                                                <a href="index.html#success-stories" class="case-link" data-nav-link>江西电建</a> |
+                                                <a href="index.html#success-stories" class="case-link" data-nav-link>内蒙碳计量中心</a> |
+                                                <a href="index.html#success-stories" class="case-link" data-nav-link>超级工厂</a> |
+                                                <a href="index.html#success-stories" class="case-link" data-nav-link>电网能源</a> |
+                                                <a href="index.html#success-stories" class="case-link" data-nav-link>风电企业</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item" data-industry="automotive">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div class="item-icon">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <rect x="1" y="3" width="15" height="13"></rect>
+                                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                            </svg>
+                                        </div>
+                                        <div class="item-content">
+                                            <span class="item-title">车联网</span>
+                                            <span class="item-desc">
+                                                <a href="index.html#success-stories" class="case-link" data-nav-link>临沂大数据局</a> |
+                                                <a href="index.html#success-stories" class="case-link" data-nav-link>市车辆管理</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item" data-industry="metallurgy">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div class="item-icon">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"></path>
+                                                <path d="M4 10V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6"></path>
+                                                <line x1="12" y1="22" x2="12" y2="10"></line>
+                                            </svg>
+                                        </div>
+                                        <div class="item-content">
+                                            <span class="item-title">金属冶炼</span>
+                                            <span class="item-desc">
+                                                <a href="index.html#success-stories" class="case-link" data-nav-link>市钢铁冶炼</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
-                            <svg class="submenu-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                            <div class="submenu">
-                                <a href="#" class="submenu-item">江西电建</a>
-                                <a href="#" class="submenu-item">内蒙碳计量中心</a>
-                                <a href="#" class="submenu-item">超级工厂</a>
-                                <a href="#" class="submenu-item">电网能源</a>
-                                <a href="#" class="submenu-item">风电企业</a>
-                            </div>
-                        </a>
-                        <a href="javascript:void(0)" class="dropdown-item has-submenu">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <div class="item-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="1" y="3" width="15" height="13"></rect>
-                                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                                        <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                                        <circle cx="18.5" cy="18.5" r="2.5"></circle>
-                                    </svg>
-                                </div>
-                                <div class="item-content">
-                                    <span class="item-title">车联网</span>
-                                    <span class="item-desc">智慧交通与车辆管理</span>
-                                </div>
-                            </div>
-                            <svg class="submenu-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                            <div class="submenu">
-                                <a href="#" class="submenu-item">临沂大数据局</a>
-                                <a href="#" class="submenu-item">市车辆管理</a>
-                            </div>
-                        </a>
-                        <a href="javascript:void(0)" class="dropdown-item has-submenu">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <div class="item-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"></path>
-                                        <path d="M4 10V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6"></path>
-                                        <line x1="12" y1="22" x2="12" y2="10"></line>
-                                    </svg>
-                                </div>
-                                <div class="item-content">
-                                    <span class="item-title">金属冶炼</span>
-                                    <span class="item-desc">冶炼行业数字化转型</span>
-                                </div>
-                            </div>
-                            <svg class="submenu-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                            <div class="submenu">
-                                <a href="#" class="submenu-item">市钢铁冶炼</a>
-                            </div>
-                        </a>
                         </div>
                     </div>
                 </div>
