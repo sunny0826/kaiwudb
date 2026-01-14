@@ -372,10 +372,38 @@ function initAdvantagesAccordion() {
 
     const headers = accordion.querySelectorAll('.accordion-header');
 
+    // 默认打开第一个手风琴项
+    if (headers.length > 0) {
+        const firstHeader = headers[0];
+        const firstContent = firstHeader.nextElementSibling;
+        // 只有在没有 active 类时才设置
+        if (!firstHeader.classList.contains('active')) {
+            firstHeader.classList.add('active');
+            firstHeader.setAttribute('aria-expanded', 'true');
+        }
+        if (firstContent.hidden) {
+            firstContent.hidden = false;
+        }
+        // 使用 setTimeout 确保 DOM 渲染后再设置 maxHeight
+        setTimeout(() => {
+            if (!firstContent.style.maxHeight) {
+                firstContent.style.maxHeight = firstContent.scrollHeight + 'px';
+            }
+        }, 0);
+    }
+
     headers.forEach(header => {
         // 点击事件
         header.addEventListener('click', () => {
             toggleAccordion(header);
+        });
+
+        // 鼠标悬停事件 - 自动展开
+        header.addEventListener('mouseenter', () => {
+            const isActive = header.classList.contains('active');
+            if (!isActive) {
+                toggleAccordion(header);
+            }
         });
 
         // 键盘事件 (Enter/Space)
