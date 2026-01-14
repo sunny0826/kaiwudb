@@ -529,6 +529,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     width: 100vw;
+    height: 380px; /* 统一固定高度 */
     background-color: #FFFFFF;
     border-top: 1px solid rgba(0,0,0,0.08);
     box-shadow: 0 12px 32px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
@@ -539,6 +540,25 @@ h1, h2, h3, h4, h5, h6 {
                 transform 0.2s ease,
                 visibility 0s linear 0.2s;
     z-index: 1002;
+    overflow-y: auto; /* 内容超出时显示滚动条 */
+}
+
+/* 自定义滚动条样式 - Webkit浏览器 */
+.dropdown-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.25);
 }
 
 .nav-item:hover .dropdown-menu {
@@ -558,7 +578,7 @@ h1, h2, h3, h4, h5, h6 {
 .mega-menu .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 24px 32px;
+    padding: 32px;
 }
 
 .mega-menu-grid {
@@ -570,33 +590,34 @@ h1, h2, h3, h4, h5, h6 {
 .mega-menu-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 4px;
+    gap: 12px;
 }
 
 .dropdown-item {
     display: flex;
     align-items: flex-start;
-    padding: 12px;
-    border-radius: var(--radius-sm);
+    padding: 16px;
+    border-radius: var(--radius-md);
     color: var(--color-text-primary);
     text-decoration: none;
-    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    gap: 12px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 14px;
 }
 
 .dropdown-item:hover {
     background-color: var(--color-bg-secondary);
     transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .item-icon {
     flex-shrink: 0;
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
     background: #FFFFFF;
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-    border-radius: var(--radius-sm);
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -614,24 +635,71 @@ h1, h2, h3, h4, h5, h6 {
 .item-content {
     display: flex;
     flex-direction: column;
+    gap: 4px;
 }
 
 .item-title {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    margin-bottom: 2px;
     color: var(--color-text-primary);
+    line-height: 1.4;
 }
 
 .item-desc {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--color-text-secondary);
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 /* Community Dropdown Specifics */
 .community-dropdown .mega-menu-list {
     grid-template-columns: repeat(4, 1fr);
+}
+
+/* 内容较少的下拉框优化 - 应用场景、客户案例、社区 */
+.dropdown-menu:not(.product-mega-menu) {
+    height: auto;
+    min-height: 280px;
+    max-height: 420px;
+    overflow-y: visible;
+    padding: 40px 0; /* 增加上下内边距减少局促感 */
+}
+
+.dropdown-menu:not(.product-mega-menu) .container {
+    width: 100%;
+}
+
+.dropdown-menu:not(.product-mega-menu) .mega-menu-list {
+    max-width: 1100px;
+    margin: 0 auto; /* 水平居中 */
+}
+
+/* 优化内容较少下拉框的项目样式 */
+.dropdown-menu:not(.product-mega-menu) .dropdown-item {
+    padding: 20px; /* 增加内边距让项目更舒适 */
+    gap: 16px;
+}
+
+.dropdown-menu:not(.product-mega-menu) .item-icon {
+    width: 52px; /* 增大图标尺寸 */
+    height: 52px;
+    border-radius: var(--radius-lg);
+}
+
+.dropdown-menu:not(.product-mega-menu) .item-title {
+    font-size: 1rem; /* 增大标题字体 */
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.dropdown-menu:not(.product-mega-menu) .item-desc {
+    font-size: 0.875rem; /* 增大描述字体 */
+    line-height: 1.6;
+}
+
+.dropdown-menu:not(.product-mega-menu) .dropdown-item:hover {
+    background-color: var(--color-bg-secondary);
+    transform: translateX(6px);
 }
 
 /* Product Mega Menu Three-Column Layout */
@@ -1696,6 +1764,8 @@ h1, h2, h3, h4, h5, h6 {
         left: auto;
         right: 0;
         top: 100%;
+        height: auto; /* 移动端恢复自动高度 */
+        max-height: 460px; /* 设置最大高度 */
     }
 
     .mega-menu-list {
