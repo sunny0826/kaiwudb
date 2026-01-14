@@ -15,59 +15,86 @@
     <div id="navbar-placeholder"></div>
 
     <main role="main">
-        <!-- 首屏 Hero 区域 -->
-        <section class="hero" id="home">
-            <div class="hero-bg-grid"></div>
-            <!-- 新增动态粒子/光效容器 -->
-            <div class="hero-glow-effect"></div>
-            
-            <div class="hero-content">
-                <span class="hero-pre">Kaiwu Distributed Multimodel Database</span>
-                <h1 class="hero-title">分布式多模数据库<br>多模一库，快人一步</h1>
-                <p class="hero-subtitle">面向工业物联网、数字能源、车联网等核心场景，提供高性能、高可用、高扩展的一站式数据服务解决方案。</p>
-                <div class="cta-group">
-                    <a href="register.html" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">免费试用</a>
-                    <a href="#" class="btn btn-outline" style="padding: 1rem 2rem; font-size: 1.1rem; margin-left: 15px;">了解更多</a>
+        <!-- 首屏 Hero 轮播区域 -->
+        <section class="hero-carousel" id="heroCarousel">
+            <!-- Banner 1 -->
+            <div class="hero-slide light-theme active">
+                <div class="slide-background light">
+                    <img src="img/banner-background1.jpg" alt="" class="bg-image">
                 </div>
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1>多模一库，快人一步</h1>
+                            <p class="subtitle">简优智省的数据管理新体验</p>
+                            <a href="products.html" class="btn btn-primary">立即体验</a>
+                            <a href="register.html" class="btn btn-primary">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <!-- 3个产品特性展示 (Hero Footer) -->
-                <div class="hero-features">
-                    <a href="#products" class="hero-feature-item">
-                        <div class="feature-icon-wrapper">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                            </svg>
-                        </div>
-                        <div class="feature-text-wrapper">
-                            <span class="feature-title">多模融合</span>
-                            <span class="feature-desc">时序/关系/图数据统一存储</span>
-                        </div>
-                    </a>
-                    <a href="#products" class="hero-feature-item">
-                        <div class="feature-icon-wrapper">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-                            </svg>
-                        </div>
-                        <div class="feature-text-wrapper">
-                            <span class="feature-title">极致性能</span>
-                            <span class="feature-desc">千万级并发写入，毫秒级响应</span>
-                        </div>
-                    </a>
-                    <a href="#products" class="hero-feature-item">
-                        <div class="feature-icon-wrapper">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <line x1="2" y1="12" x2="22" y2="12"></line>
-                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                            </svg>
-                        </div>
-                        <div class="feature-text-wrapper">
-                            <span class="feature-title">原生分布式</span>
-                            <span class="feature-desc">弹性扩缩容，高可用架构</span>
-                        </div>
-                    </a>
+            <!-- Banner 2 -->
+            <div class="hero-slide light-theme">
+                <div class="slide-background light">
+                    <img src="img/banner-background2.jpg" alt="" class="bg-image">
                 </div>
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1>安全可控，极致性能</h1>
+                            <p class="subtitle">让中国物联网企业用上放心的数据产品</p>
+                            <a href="register.html" class="btn btn-primary">场景方案</a>
+                            <a href="register.html" class="btn btn-primary">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner 3 -->
+            <div class="hero-slide light-theme">
+                <div class="slide-background light">
+                    <img src="img/banner-background1.jpg" alt="" class="bg-image">
+                </div>
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1>Powered by KaiwuDB</h1>
+                            <p class="subtitle">以数据，见未来</p>
+                            <a href="products.html" class="btn btn-primary">案例</a>
+                            <a href="register.html" class="btn btn-primary">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner 4 -->
+            <div class="hero-slide light-theme">
+                <div class="slide-background light">
+                    <img src="img/banner-background2.jpg" alt="" class="bg-image">
+                </div>
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1>开放、开拓、开创</h1>
+                            <p class="subtitle">开源共建物联数字基座</p>
+                            <a href="register.html" class="btn btn-primary">社区</a>
+                            <a href="register.html" class="btn btn-primary">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 轮播控制组件 -->
+            <div class="carousel-controls">
+                <button class="carousel-arrow prev" aria-label="上一张">←</button>
+                <div class="carousel-indicators">
+                    <button class="indicator active" aria-label="Banner 1"></button>
+                    <button class="indicator" aria-label="Banner 2"></button>
+                    <button class="indicator" aria-label="Banner 3"></button>
+                    <button class="indicator" aria-label="Banner 4"></button>
+                </div>
+                <button class="carousel-arrow next" aria-label="下一张">→</button>
             </div>
         </section>
 

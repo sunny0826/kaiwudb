@@ -225,4 +225,128 @@ document.addEventListener('DOMContentLoaded', () => {
     initCommon();
     loadComponent('navbar-placeholder', 'components/navbar.html');
     loadComponent('footer-placeholder', 'components/footer.html');
+
+    // 5. 初始化 Hero 轮播
+    const heroCarousel = document.getElementById('heroCarousel');
+    if (heroCarousel) {
+        new HeroCarousel(heroCarousel, { interval: 10000 });
+    }
 });
+
+/**
+ * Hero 轮播组件
+ * 支持自动播放、手动控制、淡入淡出过渡
+ */
+class HeroCarousel {
+    constructor(container, options = {}) {
+        this.container = container;
+        this.slides = container.querySelectorAll('.hero-slide');
+        this.indicators = container.querySelectorAll('.indicator');
+        this.arrows = container.querySelectorAll('.carousel-arrow');
+
+        this.currentIndex = 0;
+        this.interval = options.interval || 5000;
+        this.isPlaying = true;
+        this.timer = null;
+
+        this.init();
+    }
+
+    init() {
+        this.showSlide(0);
+        this.startAutoPlay();
+        this.bindEvents();
+    }
+
+    showSlide(index) {
+        // 移除所有激活状态
+        this.slides.forEach(slide => slide.classList.remove('active'));
+        this.indicators.forEach(dot => dot.classList.remove('active'));
+
+        // 激活当前幻灯片
+        this.slides[index].classList.add('active');
+        this.indicators[index].classList.add('active');
+        this.currentIndex = index;
+    }
+
+    next() {
+        const nextIndex = (this.currentIndex + 1) % this.slides.length;
+        this.showSlide(nextIndex);
+    }
+
+    prev() {
+        const prevIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+        this.showSlide(prevIndex);
+    }
+
+    goTo(index) {
+        this.showSlide(index);
+    }
+
+    startAutoPlay() {
+        this.timer = setInterval(() => this.next(), this.interval);
+        this.isPlaying = true;
+    }
+
+    stopAutoPlay() {
+        clearInterval(this.timer);
+        this.isPlaying = false;
+    }
+
+    bindEvents() {
+        // 箭头控制
+        this.arrows.forEach(arrow => {
+            arrow.addEventListener('click', () => {
+                this.stopAutoPlay();
+                if (arrow.classList.contains('next')) {
+                    this.next();
+                } else {
+                    this.prev();
+                }
+                this.startAutoPlay();
+            });
+        });
+
+        // 指示点控制
+        this.indicators.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                this.stopAutoPlay();
+                this.goTo(index);
+                this.startAutoPlay();
+            });
+        });
+
+        // 鼠标悬停暂停
+        this.container.addEventListener('mouseenter', () => this.stopAutoPlay());
+        this.container.addEventListener('mouseleave', () => {
+            if (this.isPlaying) this.startAutoPlay();
+        });
+
+        // 页面可见性检测
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                this.stopAutoPlay();
+            } else if (this.isPlaying) {
+                this.startAutoPlay();
+            }
+        });
+
+        // 键盘控制
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                this.stopAutoPlay();
+                this.prev();
+                this.startAutoPlay();
+            } else if (e.key === 'ArrowRight') {
+                this.stopAutoPlay();
+                this.next();
+                this.startAutoPlay();
+            }
+        });
+    }
+
+    destroy() {
+        this.stopAutoPlay();
+        // 移除事件监听器（简化版，实际应保存引用后移除）
+    }
+}

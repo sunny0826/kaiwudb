@@ -163,20 +163,46 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-    background-color: var(--color-accent);
+    background: linear-gradient(135deg, #0066E8 0%, #0056D2 100%);
     color: #FFFFFF;
-    /* 内阴影增加质感 */
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 1px 2px rgba(0,0,0,0.1); 
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 2px 8px rgba(0, 86, 210, 0.2),
+        0 4px 16px rgba(0, 86, 210, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
 }
 
 .btn-primary:hover {
-    background-color: var(--color-accent-hover);
-    transform: translateY(-1px);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 12px rgba(0, 86, 210, 0.25);
+    background: linear-gradient(135deg, #0077FF 0%, #0066E8 100%);
+    transform: translateY(-2px);
+    box-shadow:
+        0 4px 16px rgba(0, 86, 210, 0.3),
+        0 8px 24px rgba(0, 86, 210, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary:active {
     transform: translateY(0);
+    box-shadow:
+        0 2px 8px rgba(0, 86, 210, 0.2),
+        inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn-outline {
@@ -784,6 +810,77 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 0;
 }
 
+/* Hero Carousel - 轮播容器 */
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+/* 幻灯片 */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+    z-index: 1;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+/* 背景层 */
+.slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.slide-background.light {
+    /* 浅色渐变叠加层（半透明） */
+    background: linear-gradient(to right, rgba(232, 244, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.3) 100%);
+}
+
+.slide-background.dark {
+    /* 深色渐变叠加层（半透明） */
+    background: linear-gradient(to right, rgba(10, 22, 40, 0.95) 0%, rgba(26, 39, 68, 0.7) 50%, rgba(26, 39, 68, 0.3) 100%);
+}
+
+/* 背景图 - 贯通整个 hero */
+.bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    opacity: 1;
+    z-index: 1;
+}
+
+.bg-texture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .hero-content {
     position: relative;
     z-index: 1;
@@ -875,6 +972,200 @@ h1, h2, h3, h4, h5, h6 {
 .feature-desc {
     font-size: 0.85rem;
     color: var(--color-text-secondary);
+}
+
+/* Hero Carousel - 轮播内容布局和主题样式 */
+/* 覆盖 container 的宽度限制 */
+.hero-carousel .container {
+    max-width: none;
+    width: 100%;
+    padding: 0;
+}
+
+.hero-carousel .hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: none;
+    width: 100%;
+    padding: 80px 80px 80px 15%;
+    min-height: 600px;
+    text-align: left;
+    position: relative;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+.hero-text {
+    flex: 0 0 auto;
+    max-width: 600px;
+    position: relative;
+    z-index: 3;
+}
+
+/* 浅色主题文字样式 */
+.hero-slide.light-theme .hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #1A1A1A;
+    margin-bottom: 16px;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.hero-slide.light-theme .hero-text .subtitle {
+    font-size: 1.25rem;
+    color: #666666;
+    margin-bottom: 32px;
+}
+
+/* 深色主题文字样式 */
+.hero-slide.dark-theme .hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.hero-slide.dark-theme .hero-text .subtitle {
+    font-size: 1.25rem;
+    color: #B8C5D6;
+    margin-bottom: 32px;
+}
+
+/* 深色主题按钮特殊样式 */
+.hero-slide.dark-theme .btn-primary {
+    background-color: #0056D2;
+    border: 2px solid #FFFFFF;
+}
+
+.hero-slide.dark-theme .btn-primary:hover {
+    background-color: #FFFFFF;
+    color: #0056D2;
+}
+
+/* 轮播控制组件 */
+.carousel-controls {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 轮播箭头按钮 - 精致圆形设计 */
+.carousel-arrow {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(0, 86, 210, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #0056D2;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 2px 12px rgba(0, 86, 210, 0.08),
+        0 4px 24px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-arrow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0056D2 0%, #0066E8 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    transform: scale(1.08);
+    border-color: rgba(0, 86, 210, 0.3);
+    box-shadow:
+        0 4px 20px rgba(0, 86, 210, 0.15),
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.carousel-arrow:hover::before {
+    opacity: 1;
+}
+
+.carousel-arrow:hover > * {
+    color: #FFFFFF;
+    position: relative;
+    z-index: 1;
+}
+
+.carousel-arrow:active {
+    transform: scale(1);
+    box-shadow:
+        0 2px 8px rgba(0, 86, 210, 0.1),
+        inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* 轮播指示器 - 精致圆点设计 */
+.carousel-indicators {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0, 86, 210, 0.25);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.indicator::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.indicator:hover {
+    background: rgba(0, 86, 210, 0.5);
+    transform: scale(1.2);
+}
+
+.indicator.active {
+    width: 32px;
+    height: 10px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #0056D2 0%, #0066E8 100%);
+    box-shadow:
+        0 2px 8px rgba(0, 86, 210, 0.2),
+        0 0 0 2px rgba(0, 86, 210, 0.1);
+}
+
+.indicator.active::after {
+    inset: -6px;
+    border-color: rgba(0, 86, 210, 0.2);
+}
+
+.indicator:active {
+    transform: scale(0.95);
 }
 
 /* 产品矩阵 (Product Matrix) */
@@ -1389,6 +1680,23 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--color-text-primary);
 }
 
+/* Hero Carousel 响应式 */
+@media (max-width: 1024px) {
+    .hero-carousel .hero-content {
+        justify-content: center;
+        padding: 60px 24px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-slide.light-theme .hero-text h1,
+    .hero-slide.dark-theme .hero-text h1 {
+        font-size: 2.5rem;
+    }
+}
+
 /* 响应式微调 */
 @media (max-width: 768px) {
     /* 移动端隐藏下拉菜单 */
@@ -1424,6 +1732,52 @@ h1, h2, h3, h4, h5, h6 {
 
     .btn-ask-ai span {
         display: none;
+    }
+
+    /* Hero Carousel 移动端样式 */
+    .hero-carousel .hero-content {
+        padding: 60px 20px;
+        min-height: 500px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-slide.light-theme .hero-text h1,
+    .hero-slide.dark-theme .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-slide.light-theme .hero-text .subtitle,
+    .hero-slide.dark-theme .hero-text .subtitle {
+        font-size: 1rem;
+    }
+
+    /* 移动端轮播控制 */
+    .carousel-arrow {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
+
+    .carousel-indicators {
+        gap: 8px;
+    }
+
+    .indicator {
+        width: 8px;
+        height: 8px;
+    }
+
+    .indicator.active {
+        width: 24px;
+        height: 8px;
+    }
+
+    .carousel-controls {
+        bottom: 20px;
+        gap: 12px;
     }
 }
 
