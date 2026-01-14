@@ -962,7 +962,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: flex-start;
     max-width: none;
     width: 100%;
-    padding: 80px 80px 80px 120px;
+    padding: 80px 80px 80px 15%;
     min-height: 600px;
     text-align: left;
     position: relative;
