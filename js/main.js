@@ -853,6 +853,16 @@ function toggleAccordion(header) {
         header.setAttribute('aria-expanded', 'true');
         content.hidden = false;
         content.style.maxHeight = content.scrollHeight + 'px';
+
+        // 更新右侧视觉图形
+        const index = header.dataset.index;
+        const visualShape = document.querySelector('#advantagesVisual .abstract-shape');
+        if (visualShape && index) {
+            // 移除所有 state-X 类
+            visualShape.className = 'abstract-shape advantages-shape';
+            // 添加新的 state 类
+            visualShape.classList.add(`state-${index}`);
+        }
     }
 }
 
@@ -986,6 +996,43 @@ function initSuccessStories() {
     if (industryTabsConfig.length > 0) {
         switchIndustryTab(industryTabsConfig[0].key);
     }
+
+    // 为案例卡片添加事件委托 (支持点击跳转和无障碍操作)
+    const gridContainer = document.querySelector('.industry-case-grid');
+    if (gridContainer) {
+        gridContainer.addEventListener('click', (e) => {
+            const card = e.target.closest('.case-card-grid-item');
+            const link = e.target.closest('a');
+            
+            // 如果点击的是链接本身，让链接原生行为处理，不触发卡片逻辑
+            if (link) return;
+
+            if (card) {
+                const url = card.dataset.href;
+                if (url && url !== '#') {
+                    // 支持 Ctrl/Cmd + 点击在新标签页打开
+                    if (e.ctrlKey || e.metaKey) {
+                        window.open(url, '_blank');
+                    } else {
+                        window.location.href = url;
+                    }
+                }
+            }
+        });
+
+        gridContainer.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const card = e.target.closest('.case-card-grid-item');
+                if (card) {
+                    e.preventDefault();
+                    const url = card.dataset.href;
+                    if (url && url !== '#') {
+                        window.location.href = url;
+                    }
+                }
+            }
+        });
+    }
 }
 
 /**
@@ -1056,11 +1103,15 @@ function switchIndustryTab(key) {
         
         setTimeout(() => {
             let html = displayCases.map(item => `
-                <div class="case-card-grid-item">
+                <div class="case-card-grid-item" 
+                     data-href="${item.ctaLink || '#'}" 
+                     role="button" 
+                     tabindex="0" 
+                     aria-label="查看 ${item.customer} 的案例详情">
                     <div class="case-card-header">
                         <div class="case-card-logo">${item.logo}</div>
                         <div class="case-card-title">${item.customer}</div>
-                        <a href="${item.ctaLink || '#'}" class="case-card-link">查看详情 <i data-lucide="arrow-right" size="14"></i></a>
+                        <a href="${item.ctaLink || '#'}" class="case-card-link" tabindex="-1">查看详情 <i data-lucide="arrow-right" size="14"></i></a>
                     </div>
                     <p class="case-card-desc">${item.summary}</p>
                 </div>
@@ -1077,7 +1128,15 @@ function switchIndustryTab(key) {
             }
 
             gridContainer.innerHTML = html;
+            
+            // 为新生成的卡片绑定点击事件 (使用委托更佳，但在切换Tab时重新绑定也行)
+            // 这里我们采用事件委托的方式在 initSuccessStories 中绑定
+            
             gridContainer.style.opacity = '1';
+            // 重新渲染 Lucide 图标
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
         }, 300);
     }
 }

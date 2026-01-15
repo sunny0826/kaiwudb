@@ -106,6 +106,7 @@
         <section class="why-choose-us" id="why-choose-us">
             <div class="container">
                 <h2 class="section-title">为什么选择我们</h2>
+                <p class="section-subtitle" >KWDB 是 KaiwuDB 的社区版，是一款面向 AIoT 场景的分布式多模数据库产品，支持在同一实例同时建立时序库和关系库并融合处理多模数据，具备千万级设备接入、百万级数据秒级写入、亿级数据秒级读取等时序数据高效处理能力，具有稳定安全、高可用、易运维等特点，一站式满足 AIoT 等场景下数据管理需求及关键行业核心系统的自主可控需求。</p>
                 <div class="why-grid">
                     <!-- 卡片 1: 多模融合 -->
                     <article class="why-card">
@@ -141,13 +142,13 @@
         <section class="kaiwu-advantages" id="kaiwu-advantages">
             <div class="container">
                 <h2 class="section-title">KaiwuDB的优势</h2>
-
+                <p class="section-subtitle" >KWDB 是 KaiwuDB 的社区版，是一款面向 AIoT 场景的分布式多模数据库产品，支持在同一实例同时建立时序库和关系库并融合处理多模数据，具备千万级设备接入、百万级数据秒级写入、亿级数据秒级读取等时序数据高效处理能力，具有稳定安全、高可用、易运维等特点，一站式满足 AIoT 等场景下数据管理需求及关键行业核心系统的自主可控需求。</p>
                 <div class="advantages-layout">
                     <!-- 左侧：手风琴列表 -->
                     <div class="advantages-accordion">
                         <!-- 项目1 -->
                         <div class="accordion-item">
-                            <button class="accordion-header active" aria-expanded="true">
+                            <button class="accordion-header active" aria-expanded="true" data-index="1">
                                 <span class="accordion-title">多模融合，一库多用</span>
                                 <span class="accordion-icon"><i data-lucide="chevron-down"></i></span>
                             </button>
@@ -161,7 +162,7 @@
 
                         <!-- 项目2 -->
                         <div class="accordion-item">
-                            <button class="accordion-header" aria-expanded="false">
+                            <button class="accordion-header" aria-expanded="false" data-index="2">
                                 <span class="accordion-title">高性能分布式架构</span>
                                 <span class="accordion-icon"><i data-lucide="chevron-down"></i></span>
                             </button>
@@ -175,7 +176,7 @@
 
                         <!-- 项目3 -->
                         <div class="accordion-item">
-                            <button class="accordion-header" aria-expanded="false">
+                            <button class="accordion-header" aria-expanded="false" data-index="3">
                                 <span class="accordion-title">AI智能优化引擎</span>
                                 <span class="accordion-icon"><i data-lucide="chevron-down"></i></span>
                             </button>
@@ -189,7 +190,7 @@
 
                         <!-- 项目4 -->
                         <div class="accordion-item">
-                            <button class="accordion-header" aria-expanded="false">
+                            <button class="accordion-header" aria-expanded="false" data-index="4">
                                 <span class="accordion-title">企业级安全可靠</span>
                                 <span class="accordion-icon"><i data-lucide="chevron-down"></i></span>
                             </button>
@@ -203,7 +204,7 @@
 
                         <!-- 项目5 -->
                         <div class="accordion-item">
-                            <button class="accordion-header" aria-expanded="false">
+                            <button class="accordion-header" aria-expanded="false" data-index="5">
                                 <span class="accordion-title">开源开放生态</span>
                                 <span class="accordion-icon"><i data-lucide="chevron-down"></i></span>
                             </button>
@@ -217,8 +218,14 @@
                     </div>
 
                     <!-- 右侧：抽象图形 -->
-                    <div class="advantages-visual">
-                        <div class="abstract-shape advantages-shape"></div>
+                    <div class="advantages-visual" id="advantagesVisual">
+                        <div class="visual-container">
+                            <div class="abstract-shape advantages-shape state-1">
+                                <div class="shape-element element-1"></div>
+                                <div class="shape-element element-2"></div>
+                                <div class="shape-element element-3"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -271,7 +278,7 @@
                         </div>
                     </a>
                     <a href="#" class="action-card">
-                        <div class="action-icon"><i data-lucide="message-circle"></i></div>
+                        <div class="action-icon"><i data-lucide="terminal"></i></div>
                         <h3 class="action-title">开发者专区</h3>
                         <p class="action-desc">了解 KWDB 开发者工具、文档、社区积分系统，开启您的开发之旅。</p>
                         <div class="action-link">
@@ -309,23 +316,19 @@
                     <article class="update-card featured">
                         <div class="update-card-inner">
                             <div class="update-card-front">
-                                <span class="update-tag primary">
-                                    <span class="tag-glow"></span>
-                                    最新活动
-                                </span>
+                                <div class="update-card-header">
+                                    <span class="update-tag primary">最新活动</span>
+                                    <time class="update-date">
+                                        <span class="date-icon"><i data-lucide="calendar"></i></span>
+                                        2025.12.29
+                                    </time>
+                                </div>
                                 <h3 class="update-title">
                                     <a href="#">
                                         <span class="title-text">KaiwuDB 2.0 正式发布</span>
                                         <span class="title-sub">全新架构性能提升300%！</span>
                                     </a>
                                 </h3>
-                                <div class="update-meta">
-                                    <time class="update-date">
-                                        <span class="date-icon"><i data-lucide="calendar"></i></span>
-                                        2025.12.29
-                                    </time>
-                                    <span class="update-indicator"></span>
-                                </div>
                             </div>
                             <div class="update-card-shine"></div>
                         </div>
@@ -335,17 +338,13 @@
                     <article class="update-card">
                         <div class="update-card-inner">
                             <div class="update-card-front">
-                                <span class="update-tag accent">
-                                    <span class="tag-glow"></span>
-                                    重磅发布
-                                </span>
+                                <div class="update-card-header">
+                                    <span class="update-tag accent">重磅发布</span>
+                                    <time class="update-date">2025.12.15</time>
+                                </div>
                                 <h3 class="update-title">
                                     <a href="#">KaiwuDB 开源社区突破10万开发者</a>
                                 </h3>
-                                <div class="update-meta">
-                                    <time class="update-date">2025.12.15</time>
-                                    <span class="update-indicator"></span>
-                                </div>
                             </div>
                             <div class="update-card-shine"></div>
                         </div>
@@ -355,17 +354,13 @@
                     <article class="update-card">
                         <div class="update-card-inner">
                             <div class="update-card-front">
-                                <span class="update-tag subtle">
-                                    <span class="tag-glow"></span>
-                                    解决方案
-                                </span>
+                                <div class="update-card-header">
+                                    <span class="update-tag subtle">解决方案</span>
+                                    <time class="update-date">2025.11.20</time>
+                                </div>
                                 <h3 class="update-title">
                                     <a href="#">工业物联网数据管理最佳实践</a>
                                 </h3>
-                                <div class="update-meta">
-                                    <time class="update-date">2025.11.20</time>
-                                    <span class="update-indicator"></span>
-                                </div>
                             </div>
                             <div class="update-card-shine"></div>
                         </div>
@@ -375,17 +370,13 @@
                     <article class="update-card">
                         <div class="update-card-inner">
                             <div class="update-card-front">
-                                <span class="update-tag accent">
-                                    <span class="tag-glow"></span>
-                                    产品方案
-                                </span>
+                                <div class="update-card-header">
+                                    <span class="update-tag accent">产品方案</span>
+                                    <time class="update-date">2025.10.18</time>
+                                </div>
                                 <h3 class="update-title">
                                     <a href="#">分布式架构实现高可用部署</a>
                                 </h3>
-                                <div class="update-meta">
-                                    <time class="update-date">2025.10.18</time>
-                                    <span class="update-indicator"></span>
-                                </div>
                             </div>
                             <div class="update-card-shine"></div>
                         </div>
@@ -395,17 +386,13 @@
                     <article class="update-card">
                         <div class="update-card-inner">
                             <div class="update-card-front">
-                                <span class="update-tag subtle">
-                                    <span class="tag-glow"></span>
-                                    技术分享
-                                </span>
+                                <div class="update-card-header">
+                                    <span class="update-tag subtle">技术分享</span>
+                                    <time class="update-date">2025.09.25</time>
+                                </div>
                                 <h3 class="update-title">
                                     <a href="#">时序数据库在能源领域的应用</a>
                                 </h3>
-                                <div class="update-meta">
-                                    <time class="update-date">2025.09.25</time>
-                                    <span class="update-indicator"></span>
-                                </div>
                             </div>
                             <div class="update-card-shine"></div>
                         </div>
@@ -421,8 +408,8 @@
         <div class="cta-container">
             <h2 class="cta-title">准备好开启您的数据之旅了吗？</h2>
             <div class="cta-buttons">
-                <a href="register.html" class="btn-cta-primary">立即开始使用</a>
-                <a href="community.html" class="btn-cta-secondary">体验社区版</a>
+                <a href="register.html" class="btn-cta-primary">立即咨询</a>
+                <a href="community.html" class="btn-cta-secondary">免费试用</a>
             </div>
         </div>
     </section>
