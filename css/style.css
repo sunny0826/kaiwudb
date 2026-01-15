@@ -1738,14 +1738,22 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 1.5fr repeat(4, 1fr);
-    gap: 40px;
+    /* Brand 8fr, Middle Cols 3fr each, Contact Col 6fr (2x Middle) */
+    /* Total: 8 + 3 + 3 + 3 + 6 = 23 parts */
+    grid-template-columns: 8fr 3fr 3fr 3fr 6fr; 
+    column-gap: 32px; /* 保持间距 */
+}
+
+.footer-container {
+    width: 80%; /* 占据 80% 宽度 */
+    max-width: none; /* 取消最大宽度限制 */
 }
 
 .footer-brand {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding-right: 60px; /* 增加品牌列与导航列之间的间距区隔 */
 }
 
 .footer-logo {
@@ -1805,7 +1813,13 @@ h1, h2, h3, h4, h5, h6 {
 .social-link:hover {
     background: var(--color-accent) !important;
     color: #FFFFFF !important;
-    transform: translateY(-2px);
+    transform: translateY(-4px); /* 稍微增加上移幅度 */
+    box-shadow: 0 4px 12px rgba(0, 86, 210, 0.3);
+}
+
+.social-link:active {
+    transform: translateY(-2px) scale(0.92); /* 点击时的按压缩放效果 */
+    transition: all 0.1s ease;
 }
 
 .wechat-qr-popup {
@@ -1918,14 +1932,18 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     /* 页脚响应式 */
+    .footer-container {
+        width: 90%; /* 移动端稍微放宽一点，避免太窄 */
+    }
     .footer-content {
         grid-template-columns: 1fr 1fr;
-        gap: 60px;
+        gap: 40px; /* 移动端减小间距 */
     }
     .footer-brand {
         grid-column: span 2;
         align-items: center;
         text-align: center;
+        padding-right: 0; /* 移除桌面端的右边距 */
     }
     .footer-desc {
         max-width: 100%;
