@@ -1427,11 +1427,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: center;
     margin-bottom: 40px;
     letter-spacing: -0.02em;
     color: var(--color-text-primary);
+    font-weight: 800;
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    max-width: 900px;
+    margin: -24px auto 60px;
+    line-height: 1.8;
+    font-weight: 400;
 }
 
 .product-grid {
@@ -2646,7 +2657,7 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     grid-template-columns: 3fr 2fr;  /* 60% : 40% */
     gap: 4rem;
-    align-items: start;
+    align-items: stretch; /* 让左右两列等高 */
 }
 
 /* 手风琴容器 */
@@ -2736,12 +2747,242 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 400px;
 }
 
-.advantages-shape {
-    width: 280px;
-    height: 280px;
-    border-color: #0056D2;
+.visual-container {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #FFFFFF 0%, var(--color-bg-secondary) 100%);
+    border: 1px solid var(--color-border);
+    border-radius: 32px; /* 更加优雅的方形大圆角 */
+    overflow: hidden;
+    box-shadow: 
+        var(--shadow-md),
+        inset 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+/* 添加一个微弱的网格背景，增强科技感 */
+.visual-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(var(--color-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.abstract-shape {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.shape-element {
+    position: absolute;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+    opacity: 0; /* 默认隐藏，只有在对应状态下显示 */
+}
+
+/* State 1: 多模融合 (Multi-model) - 几何堆叠与旋转 */
+.state-1 .element-1, .state-1 .element-2, .state-1 .element-3 { opacity: 0.8; }
+.state-1 .element-1 {
+    width: 160px;
+    height: 160px;
+    border: 2px solid var(--color-accent);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-radius: 24px;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.state-1 .element-2 {
+    width: 140px;
+    height: 140px;
+    background: var(--color-accent-subtle);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.state-1 .element-3 {
+    width: 180px;
+    height: 180px;
+    border: 1px dashed var(--color-accent);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: spin 10s linear infinite;
+}
+
+/* State 2: 高性能分布式 (Performance) - 粒子与扩散 */
+.state-2 .element-1, .state-2 .element-2, .state-2 .element-3 { opacity: 0.8; }
+.state-2 .element-1 {
+    width: 80px;
+    height: 80px;
+    background: var(--color-accent);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: 0 0 40px var(--color-accent-border);
+}
+
+.state-2 .element-2 {
+    width: 240px;
+    height: 240px;
+    border: 1px solid var(--color-accent-border);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: scale-up 2s ease-out infinite;
+}
+
+.state-2 .element-3 {
+    width: 160px;
+    height: 160px;
+    border: 1px solid var(--color-accent-border);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: scale-up 2s ease-out infinite 0.5s;
+}
+
+/* State 3: AI智能 (AI Engine) - 核心与光晕 */
+.state-3 .element-1, .state-3 .element-2, .state-3 .element-3 { opacity: 0.8; }
+.state-3 .element-1 {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--color-accent), #00A3FF);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    animation: morph 8s ease-in-out infinite;
+}
+
+.state-3 .element-2 {
+    width: 200px;
+    height: 200px;
+    border: 2px solid var(--color-accent-subtle);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.state-3 .element-3 {
+    width: 10px;
+    height: 10px;
+    background: #00A3FF;
+    border-radius: 50%;
+    top: 30%;
+    left: 70%;
+    box-shadow: 0 0 20px #00A3FF;
+    animation: float 4s ease-in-out infinite;
+}
+
+/* State 4: 安全可靠 (Security) - 盾牌与锁定 */
+.state-4 .element-1, .state-4 .element-2, .state-4 .element-3 { opacity: 0.8; }
+.state-4 .element-1 {
+    width: 140px;
+    height: 180px;
+    border: 4px solid var(--color-accent);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0 0 70px 70px;
+    background: var(--color-accent-subtle);
+}
+
+.state-4 .element-2 {
+    width: 60px;
+    height: 60px;
+    border: 3px solid var(--color-accent);
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+}
+
+.state-4 .element-3 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid var(--color-accent-border);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+/* State 5: 开源生态 (Ecosystem) - 节点与连接 */
+.state-5 .element-1, .state-5 .element-2, .state-5 .element-3 { opacity: 0.8; }
+.state-5 .element-1 {
+    width: 40px;
+    height: 40px;
+    background: var(--color-accent);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.state-5 .element-2 {
+    width: 20px;
+    height: 20px;
+    background: var(--color-accent-border);
+    top: 20%;
+    left: 30%;
+    border-radius: 50%;
+    animation: float 5s ease-in-out infinite;
+}
+
+.state-5 .element-3 {
+    width: 25px;
+    height: 25px;
+    background: var(--color-accent-border);
+    top: 70%;
+    left: 75%;
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite reverse;
+}
+
+/* 关键帧动画 */
+@keyframes morph {
+    0%, 100% { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; }
+    33% { border-radius: 62% 38% 37% 63% / 56% 59% 41% 44%; }
+    66% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+}
+
+@keyframes scale-up {
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(10px, -20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+    50% { transform: translate(-50%, -50%) rotate(45deg) scale(1.05); }
 }
 
 /* 响应式设计 */
@@ -2970,26 +3211,26 @@ h1, h2, h3, h4, h5, h6 {
     background: #FFFFFF;
     border-radius: 16px;
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
 }
 
 .update-card-inner {
     position: relative;
-    padding: 28px;
+    padding: 20px 24px; /* 压缩内边距 */
     min-height: 100%;
     display: flex;
     flex-direction: column;
     background: linear-gradient(135deg, #FFFFFF 0%, #FAFBFF 100%);
     border: 1px solid rgba(0, 86, 210, 0.08);
     border-radius: 16px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .update-card:hover .update-card-inner {
     border-color: rgba(0, 86, 210, 0.2);
-    box-shadow: 0 12px 40px rgba(0, 86, 210, 0.12);
-    transform: translateY(-4px) rotateX(2deg);
+    box-shadow: 0 8px 24px rgba(0, 86, 210, 0.08); /* 优化阴影 */
+    transform: translateY(-4px);
 }
 
 /* 卡片光泽效果 */
@@ -3002,7 +3243,7 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.3),
         transparent
     );
     transition: left 0.6s ease;
@@ -3020,8 +3261,8 @@ h1, h2, h3, h4, h5, h6 {
 .update-card.featured .update-card-inner {
     background: linear-gradient(135deg, #0056D2 0%, #00A3FF 100%);
     border: none;
-    padding: 36px;
-    justify-content: space-between;
+    padding: 28px 32px; /* 压缩内边距 */
+    justify-content: flex-start; /* 改为起始对齐 */
 }
 
 .update-card.featured .update-title a,
@@ -3029,67 +3270,50 @@ h1, h2, h3, h4, h5, h6 {
     color: #FFFFFF;
 }
 
-.update-card.featured .update-indicator {
-    background: rgba(255, 255, 255, 0.3);
+/* 顶部元数据容器 */
+.update-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
 }
 
 /* 标签系统 */
 .update-tag {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    border-radius: 20px;
+    padding: 4px 12px;
+    border-radius: 6px; /* 调整圆角 */
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em;
     position: relative;
-    overflow: hidden;
-    margin-bottom: 16px;
-}
-
-.tag-glow {
-    position: absolute;
-    inset: 0;
-    background: inherit;
-    filter: blur(8px);
-    opacity: 0.5;
-    animation: tagGlow 2s ease-in-out infinite;
-}
-
-@keyframes tagGlow {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 0.8; }
-}
-
-.update-tag span:not(.tag-glow) {
-    position: relative;
-    z-index: 1;
+    transition: var(--transition-fast);
 }
 
 .update-tag.primary {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.2);
     color: #FFFFFF;
     backdrop-filter: blur(10px);
 }
 
 .update-tag.accent {
-    background: linear-gradient(135deg, #0056D2 0%, #00A3FF 100%);
-    color: #FFFFFF;
+    background: rgba(0, 86, 210, 0.06);
+    color: #0056D2;
 }
 
 .update-tag.subtle {
-    background: linear-gradient(135deg, #F0F4FF 0%, #E8F0FF 100%);
+    background: #F0F4FF;
     color: #0056D2;
 }
 
 /* 标题样式 */
 .update-title {
-    margin: 0 0 16px;
-    font-size: 16px;
+    margin: 0;
+    font-size: 15px; /* 压缩字体大小 */
     font-weight: 700;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 .update-title a {
@@ -3105,6 +3329,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .update-card.featured .update-title {
     font-size: 20px;
+    margin-top: auto; /* 在主卡片中将标题推到底部 */
 }
 
 .title-text {
@@ -3114,52 +3339,25 @@ h1, h2, h3, h4, h5, h6 {
 
 .title-sub {
     display: block;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     opacity: 0.9;
 }
 
-/* 元数据区域 */
-.update-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-}
-
+/* 日期样式 */
 .update-date {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     color: #8A91A0;
+    white-space: nowrap;
 }
 
 .date-icon {
     font-size: 14px;
-}
-
-.update-indicator {
-    width: 8px;
-    height: 8px;
-    background: rgba(0, 86, 210, 0.2);
-    border-radius: 50%;
-    position: relative;
-}
-
-.update-indicator::after {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border: 1px solid rgba(0, 86, 210, 0.1);
-    border-radius: 50%;
-    animation: indicatorPulse 2s ease-in-out infinite;
-}
-
-@keyframes indicatorPulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.5); opacity: 0; }
+    opacity: 0.7;
 }
 
 /* 平板端适配 */

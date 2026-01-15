@@ -136,17 +136,29 @@
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 24px;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
     height: 100%;
-    position: relative; /* 为绝对定位做准备，虽然这里主要是flex布局 */
+    position: relative;
+    cursor: pointer; /* 添加手型光标 */
+    outline: none; /* 移除默认轮廓，后面自定义 focus 样式 */
 }
 
 .case-card-grid-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border-color: var(--primary-light, #e6f0ff);
+    transform: translateY(-8px) scale(1.01); /* 微妙的缩放 */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* 更明显的阴影 */
+    border-color: var(--primary, #0056D2);
+}
+
+.case-card-grid-item:active {
+    transform: translateY(-4px) scale(0.98); /* 点击时的按压反馈 */
+    transition: all 0.1s ease;
+}
+
+.case-card-grid-item:focus-visible {
+    box-shadow: 0 0 0 3px rgba(0, 86, 210, 0.3); /* 无障碍聚焦样式 */
+    border-color: var(--primary, #0056D2);
 }
 
 .case-card-header {
