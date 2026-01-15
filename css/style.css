@@ -840,6 +840,21 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--color-bg-secondary);
 }
 
+/* About Dropdown Layout Modification */
+@media (min-width: 768px) {
+    .about-dropdown {
+        display: grid;
+        grid-template-columns: 2fr 1fr; /* 调整比例为 2:1，使左侧区域变宽，内容自然右移且有更多空间 */
+    }
+
+    .about-dropdown .container {
+        grid-column: 1;
+        width: 100%;
+        margin: 0 auto;
+        min-width: 0; 
+    }
+}
+
 /* Cases & Scenarios Dropdown - Industry Panel Layout */
 .cases-dropdown,
 .scenarios-dropdown {

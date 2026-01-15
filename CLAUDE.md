@@ -40,37 +40,83 @@ Shared components (`navbar.html`, `footer.html`) are **dynamically loaded via Ja
 
 **Important**: When adding new shared components, update `main.js` to load them.
 
-### JavaScript Modules
+### JavaScript Architecture
 
-The codebase uses logical separation (not ES modules):
+The codebase uses a modular pattern with global functions and classes (not ES modules):
 
-- **js/main.js**: Core page interactions (tabs, navbar scroll effects, mobile menu, smooth scrolling, component loading)
-- **js/comments.js**: Full-featured collaboration/comment system with element-level annotation, LocalStorage persistence, and URL sharing
+- **js/main.js**: Core page interactions including:
+  - Tab switching (`.tab-btn` / `.tab-content`)
+  - Navbar scroll effects and mega-menu positioning
+  - Mobile hamburger menu and dropdown management
+  - Smooth scrolling for anchor links
+  - Component loading (`loadComponent()`)
+  - Hero carousel (`HeroCarousel` class)
+  - Industry panels for scenarios/cases dropdowns
+  - Success stories industry tab switching
+  - Community section with stats animation and feed pagination
+
 - **js/auth.js**: Authentication forms (SMS verification, tab switching)
+
+- **docs/js/docs.js**: Documentation-specific logic (TOC scroll highlighting)
+
+**Key Pattern**: Most features are initialized via `init*()` functions called from `DOMContentLoaded`. When adding new features, follow this pattern by creating an `initFeatureName()` function and calling it from the main initialization block.
 
 ### CSS Architecture
 
-The design system uses **CSS custom properties** (`:root`) for complete design tokens:
+The design system uses **CSS custom properties** (`:root`) for complete design tokens. See `css/style.css:6-57` for the full design system definition:
 
 - **Primary Blue**: `#0056D2` (brand color)
 - **Typography**: Inter, SF Pro Text, system-ui
 - **Shadows**: Diffused shadows (not hard shadows) with glassmorphism effects
 - **Responsive**: Mobile-first with built-in breakpoints
+- **Transitions**: Cubic-bezier easing for polished feel (`--transition-fast`, `--transition-smooth`)
 
 See `DESIGN_GUIDE.md` for the complete color palette and accessibility guidelines (WCAG AA/AAA compliant).
 
+**CSS Organization**:
+- `css/style.css`: Core design system and global styles
+- `css/products.css`: Product page specific styles
+- `css/community.css`: Community page styles
+- `css/auth.css`: Authentication/registration page styles
+- `css/success-stories.css`: Success stories section styles
+- `docs/css/docs.css`: Documentation hub styles
+
 ### Page Structure
 
-- **index.html**: Homepage with hero section, product matrix, tabbed application scenarios, customer cases
+- **index.html**: Homepage with hero carousel, advantages accordion, success stories tabs, community feed
 - **about.html**: Company introduction and contact information
 - **products.html**: Product details with vertical sidebar navigation and tab-based content
 - **community.html**: Community/open source page
 - **register.html**: Authentication/registration page
 - **docs/index.html**: Documentation hub with three-column layout (sidebar nav, main content, TOC)
 
-### Comment/Collaboration System
+### Interactive Component Patterns
 
-A unique feature: floating toolbar for element-level commenting with visual pins, LocalStorage persistence, JSON import/export, and URL-based sharing (Base64 encoded comments in hash). Keyboard shortcuts: `C` for comment mode, `F` for toolbar collapse.
+**Hero Carousel** (`HeroCarousel` class in js/main.js:436-548):
+- Auto-play with mouse pause and visibility detection
+- Arrow controls and dot indicators
+- Keyboard navigation (ArrowLeft/ArrowRight)
+
+**Advantages Accordion** (js/main.js:772-867):
+- Click and hover-to-expand behavior
+- Only one item open at a time (exclusive accordion)
+- Synchronizes with visual shape state changes
+
+**Success Stories** (js/main.js:869-1142):
+- Industry-based tab filtering
+- Dynamic content rendering with fade transitions
+- Data-driven from `successCasesData` and `industryTabsConfig`
+
+**Community Feed** (js/main.js:257-430):
+- Pagination with `loadMoreFeed()`
+- Animated stat counters using IntersectionObserver
+- Like button interactions with global `window.toggleLike()` function
+
+**Mega-Menus** (js/main.js:553-761):
+- `initScenariosDropdownPanel()`: Solution/industry hover panels
+- `initCasesDropdownPanel()`: Customer case industry panels
+- Dynamic content updates with fade transitions
+- Dropdown positioning adjusts based on navbar height
 
 ## Navigation Architecture
 
@@ -83,12 +129,15 @@ The navbar (`components/navbar.html`) implements complex mega-menus with nested 
 - Language switcher (i18n dropdown)
 - "Ask AI" button (placeholder)
 
+**Important**: Dropdown positioning is dynamically calculated in `updateDropdownTop()` to account for navbar height changes (scroll state, notification bar close).
+
 ## Code Style
 
 - Clean, well-commented Chinese comments throughout
 - BEM-like CSS naming conventions
 - ES6+ JavaScript with modern patterns (classes, async/await, arrow functions, template literals)
 - No linting/formatting tools configured
+- Global functions used for cross-component communication (e.g., `window.toggleLike()`)
 
 ## Testing
 
