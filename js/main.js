@@ -560,6 +560,30 @@ function toggleAccordion(header) {
  */
 
 /**
+ * 行业分类配置
+ */
+const industryTabsConfig = [
+    { 
+        key: 'iot', 
+        label: '工业物联网', 
+        title: '工业物联网解决方案', 
+        desc: '针对重工制造场景，提供设备全生命周期管理解决方案，实现预测性维护与生产全流程监控。' 
+    },
+    { 
+        key: 'energy', 
+        label: '数字能源', 
+        title: '数字能源解决方案', 
+        desc: '面向新能源发电、智能电网等领域，高效处理海量测点数据，支持削峰填谷智能调度与精准碳计量。' 
+    },
+    { 
+        key: 'smart-industry', 
+        label: '智慧产业', 
+        title: '智慧产业解决方案', 
+        desc: '赋能矿山、水务等传统产业数字化转型，实现安全生产监控与精细化运营管理。' 
+    }
+];
+
+/**
  * 案例数据
  */
 const successCasesData = [
@@ -570,12 +594,6 @@ const successCasesData = [
         scenario: "工业物联网",
         scenarioTag: "iot",
         summary: "针对重工制造场景，提供设备全生命周期管理解决方案，实现预测性维护与生产全流程监控。",
-        highlights: [
-            { icon: "📊", label: "1000+ 台设备接入" },
-            { icon: "⚡", label: "毫秒级实时监控" },
-            { icon: "🎯", label: "故障预测准确率 95%" },
-            { icon: "📉", label: "运维成本降低 30%" }
-        ],
         ctaLink: "products.html"
     },
     {
@@ -585,12 +603,6 @@ const successCasesData = [
         scenario: "数字能源",
         scenarioTag: "energy",
         summary: "为城市数字能源管理提供数据支撑，实现精准碳计量与能源调度优化。",
-        highlights: [
-            { icon: "🏙️", label: "覆盖 500+ 公共建筑" },
-            { icon: "🌱", label: "碳计量精度 99.9%" },
-            { icon: "⚡", label: "节能效率提升 25%" },
-            { icon: "📈", label: "日均处理 10TB 数据" }
-        ],
         ctaLink: "products.html"
     },
     {
@@ -600,12 +612,6 @@ const successCasesData = [
         scenario: "数字能源",
         scenarioTag: "energy",
         summary: "面向风电、光伏、电网等领域，高效处理海量测点数据，支持削峰填谷智能调度。",
-        highlights: [
-            { icon: "⚡", label: "接入 10000+ 测点" },
-            { icon: "🔄", label: "数据采集频率 100Hz" },
-            { icon: "📊", label: "调度响应时间 <100ms" },
-            { icon: "🎯", label: "负荷预测准确率 96%" }
-        ],
         ctaLink: "products.html"
     },
     {
@@ -615,12 +621,6 @@ const successCasesData = [
         scenario: "工业物联网",
         scenarioTag: "iot",
         summary: "为大型制造企业提供综合能源管理，实现生产用能优化与碳排放追踪。",
-        highlights: [
-            { icon: "🏭", label: "管理 50+ 生产线" },
-            { icon: "⚡", label: "能耗降低 18%" },
-            { icon: "🎯", label: "异常检测响应 <5s" },
-            { icon: "📊", label: "月度能耗报告自动化" }
-        ],
         ctaLink: "products.html"
     },
     {
@@ -630,12 +630,6 @@ const successCasesData = [
         scenario: "智慧产业",
         scenarioTag: "smart-industry",
         summary: "赋能矿山安全生产监控，实现人员定位、设备监测与环境感知一体化。",
-        highlights: [
-            { icon: "⛰️", label: "覆盖 20km² 作业区" },
-            { icon: "👷", label: "实时定位 500+ 人员" },
-            { icon: "🚨", label: "危险预警准确率 98%" },
-            { icon: "📡", label: "井下信号全覆盖" }
-        ],
         ctaLink: "products.html"
     },
     {
@@ -645,271 +639,142 @@ const successCasesData = [
         scenario: "智慧产业",
         scenarioTag: "smart-industry",
         summary: "通过管网压力、流量数据分析，实现漏损监测与智能调度，降低产销差。",
-        highlights: [
-            { icon: "💧", label: "管网长度 5000+ km" },
-            { icon: "🔍", label: "漏损检测精度 95%" },
-            { icon: "📉", label: "产销差降低 15%" },
-            { icon: "⚡", label: "异常定位时间 <10min" }
-        ],
+        ctaLink: "products.html"
+    },
+    {
+        id: 7,
+        customer: "智能制造",
+        logo: "制造",
+        scenario: "工业物联网",
+        scenarioTag: "iot",
+        summary: "构建数字孪生工厂，实时映射生产线状态，大幅缩短新产品试制周期。",
+        ctaLink: "products.html"
+    },
+    {
+        id: 8,
+        customer: "光伏电站",
+        logo: "光伏",
+        scenario: "数字能源",
+        scenarioTag: "energy",
+        summary: "集中管理分布式光伏逆变器数据，提升发电效率与运维响应速度。",
+        ctaLink: "products.html"
+    },
+    {
+        id: 9,
+        customer: "智慧园区",
+        logo: "园区",
+        scenario: "智慧产业",
+        scenarioTag: "smart-industry",
+        summary: "集成安防、能耗、停车等多系统数据，打造绿色高效的智慧园区管理平台。",
         ctaLink: "products.html"
     }
 ];
 
 /**
- * 当前选中的案例索引
- */
-let currentCaseIndex = 0;
-
-/**
  * 初始化成功案例功能
  */
 function initSuccessStories() {
-    const successStoriesSection = document.querySelector('.success-stories');
-    if (!successStoriesSection) return;
+    const container = document.querySelector('.success-stories');
+    if (!container) return;
 
-    // 渲染案例列表
-    renderCaseList();
-
-    // 渲染初始案例详情
-    renderCaseDetail(0);
-
-    // 绑定案例卡片点击事件
-    bindCaseCardEvents();
-
-    // 检测移动端，添加模态框支持
-    initMobileModal();
+    renderIndustryTabs();
+    
+    // 默认显示第一个行业
+    if (industryTabsConfig.length > 0) {
+        switchIndustryTab(industryTabsConfig[0].key);
+    }
 }
 
 /**
- * 渲染案例列表
+ * 渲染行业 Tab
  */
-function renderCaseList() {
-    const caseListContainer = document.querySelector('.case-list');
-    if (!caseListContainer) return;
+function renderIndustryTabs() {
+    const tabsContainer = document.querySelector('.industry-tabs');
+    if (!tabsContainer) return;
 
-    caseListContainer.innerHTML = successCasesData.map((caseItem, index) => `
-        <div class="case-card ${index === 0 ? 'active' : ''}" data-case-id="${caseItem.id}" data-index="${index}">
-            <div class="case-card-logo">${caseItem.logo}</div>
-            <div class="case-card-content">
-                <div class="case-card-name">${caseItem.customer}</div>
-                <div class="case-card-scenario">${caseItem.scenario}</div>
-            </div>
-        </div>
+    tabsContainer.innerHTML = industryTabsConfig.map((tab, index) => `
+        <button class="industry-tab-btn ${index === 0 ? 'active' : ''}" 
+                data-industry="${tab.key}">
+            ${tab.label}
+        </button>
     `).join('');
+
+    // 绑定点击事件
+    tabsContainer.querySelectorAll('.industry-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // 更新选中状态
+            tabsContainer.querySelectorAll('.industry-tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // 切换内容
+            switchIndustryTab(btn.dataset.industry);
+        });
+    });
 }
 
 /**
- * 渲染案例详情
- * @param {number} index - 案例索引
+ * 切换行业 Tab 内容
+ * @param {string} key - 行业 Key
  */
-function renderCaseDetail(index) {
-    const detailPanel = document.querySelector('.case-detail-panel');
-    if (!detailPanel) return;
+function switchIndustryTab(key) {
+    const config = industryTabsConfig.find(c => c.key === key);
+    if (!config) return;
 
-    const caseItem = successCasesData[index];
-    if (!caseItem) return;
+    // 1. 更新左侧解决方案面板
+    const solutionContainer = document.querySelector('.industry-solution');
+    if (solutionContainer) {
+        // 简单的淡入淡出效果
+        solutionContainer.style.opacity = '0';
+        solutionContainer.style.transform = 'translateY(10px)';
+        solutionContainer.style.transition = 'all 0.3s ease';
+        
+        setTimeout(() => {
+            solutionContainer.innerHTML = `
+                <h3 class="industry-solution-title">${config.title}</h3>
+                <p class="industry-solution-desc">${config.desc}</p>
+                <img src="img/diagram.png" alt="${config.title}架构图" class="industry-solution-img" onerror="this.style.display='none'">
+                <a href="products.html" class="industry-solution-cta">了解更多解决方案 →</a>
+            `;
+            
+            solutionContainer.style.opacity = '1';
+            solutionContainer.style.transform = 'translateY(0)';
+        }, 300);
+    }
 
-    // 重新触发动画
-    detailPanel.style.animation = 'none';
-    detailPanel.offsetHeight; // 触发重排
-    detailPanel.style.animation = 'fadeInSlide 0.4s ease forwards';
+    // 2. 更新右侧案例网格
+    const gridContainer = document.querySelector('.industry-case-grid');
+    if (gridContainer) {
+        const filteredCases = successCasesData.filter(c => c.scenarioTag === key);
+        const displayCases = filteredCases.slice(0, 3); // 最多显示 3 个
+        const hasMore = filteredCases.length > 3;
 
-    detailPanel.innerHTML = `
-        <div class="case-detail-logo">${caseItem.logo}</div>
-        <h2 class="case-detail-title">${caseItem.customer}</h2>
-        <span class="case-detail-scenario" data-scenario-tag="${caseItem.scenarioTag}">${caseItem.scenario}</span>
-        <p class="case-detail-summary">${caseItem.summary}</p>
-        <div class="case-detail-highlights">
-            ${caseItem.highlights.map(h => `
-                <div class="highlight-item">
-                    <span class="highlight-icon">${h.icon}</span>
-                    <span class="highlight-text">${h.label}</span>
+        gridContainer.style.opacity = '0';
+        gridContainer.style.transition = 'opacity 0.3s ease';
+        
+        setTimeout(() => {
+            let html = displayCases.map(item => `
+                <div class="case-card-grid-item">
+                    <div class="case-card-header">
+                        <div class="case-card-logo">${item.logo}</div>
+                        <div class="case-card-title">${item.customer}</div>
+                        <a href="${item.ctaLink || '#'}" class="case-card-link">查看详情 →</a>
+                    </div>
+                    <p class="case-card-desc">${item.summary}</p>
                 </div>
-            `).join('')}
-        </div>
-        <a href="${caseItem.ctaLink}" class="case-detail-cta">了解更多案例详情 →</a>
-    `;
-}
+            `).join('');
 
-/**
- * 绑定案例卡片点击事件
- */
-function bindCaseCardEvents() {
-    const caseCards = document.querySelectorAll('.case-card');
-    caseCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const index = parseInt(card.dataset.index);
-            switchToCase(index);
-        });
-
-        // 键盘支持
-        card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                const index = parseInt(card.dataset.index);
-                switchToCase(index);
+            if (hasMore) {
+                html += `
+                    <div class="view-more-container">
+                        <a href="products.html" class="view-more-btn">查看更多 ${config.label} 案例</a>
+                    </div>
+                `;
+            } else if (displayCases.length === 0) {
+                 html = `<div style="grid-column: 1/-1; text-align: center; color: #999; padding: 40px;">暂无相关案例</div>`;
             }
-        });
-    });
 
-    // 场景标签点击筛选
-    document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('case-detail-scenario')) {
-            const scenarioTag = e.target.dataset.scenarioTag;
-            filterByScenario(scenarioTag);
-        }
-    });
-
-    // 键盘方向键支持
-    document.addEventListener('keydown', (e) => {
-        const successStoriesSection = document.querySelector('.success-stories');
-        if (!successStoriesSection) return;
-
-        // 只在用户聚焦于案例区域时响应
-        const activeCard = document.querySelector('.case-card.active');
-        if (!activeCard) return;
-
-        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-            e.preventDefault();
-            const nextIndex = (currentCaseIndex + 1) % successCasesData.length;
-            switchToCase(nextIndex);
-        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-            e.preventDefault();
-            const prevIndex = (currentCaseIndex - 1 + successCasesData.length) % successCasesData.length;
-            switchToCase(prevIndex);
-        }
-    });
-}
-
-/**
- * 切换到指定案例
- * @param {number} index - 案例索引
- */
-function switchToCase(index) {
-    if (index < 0 || index >= successCasesData.length) return;
-
-    currentCaseIndex = index;
-
-    // 更新卡片激活状态
-    const caseCards = document.querySelectorAll('.case-card');
-    caseCards.forEach((card, i) => {
-        if (i === index) {
-            card.classList.add('active');
-        } else {
-            card.classList.remove('active');
-        }
-    });
-
-    // 更新详情面板
-    renderCaseDetail(index);
-}
-
-/**
- * 按场景筛选案例
- * @param {string} scenarioTag - 场景标签
- */
-function filterByScenario(scenarioTag) {
-    const filteredIndex = successCasesData.findIndex(c => c.scenarioTag === scenarioTag);
-    if (filteredIndex !== -1) {
-        switchToCase(filteredIndex);
+            gridContainer.innerHTML = html;
+            gridContainer.style.opacity = '1';
+        }, 300);
     }
 }
-
-/**
- * 初始化移动端模态框
- */
-function initMobileModal() {
-    // 检查是否为移动端
-    const isMobile = () => window.innerWidth < 768;
-
-    // 为移动端创建模态框结构
-    if (isMobile() && !document.querySelector('.case-detail-modal')) {
-        const modal = document.createElement('div');
-        modal.className = 'case-detail-modal';
-        modal.innerHTML = `
-            <button class="modal-close" aria-label="关闭">×</button>
-            <div class="modal-content">
-                <div class="case-detail-panel-inner"></div>
-            </div>
-        `;
-        document.body.appendChild(modal);
-
-        // 关闭按钮事件
-        modal.querySelector('.modal-close').addEventListener('click', closeModal);
-
-        // 点击背景关闭
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // ESC 键关闭
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                closeModal();
-            }
-        });
-    }
-
-    // 移动端点击卡片打开模态框
-    const caseCards = document.querySelectorAll('.case-card');
-    caseCards.forEach((card, index) => {
-        card.addEventListener('click', (e) => {
-            if (isMobile()) {
-                e.preventDefault();
-                openModal(index);
-            }
-        });
-    });
-}
-
-/**
- * 打开模态框
- * @param {number} index - 案例索引
- */
-function openModal(index) {
-    const modal = document.querySelector('.case-detail-modal');
-    if (!modal) return;
-
-    const caseItem = successCasesData[index];
-    const contentInner = modal.querySelector('.case-detail-panel-inner');
-
-    contentInner.innerHTML = `
-        <div class="case-detail-logo">${caseItem.logo}</div>
-        <h2 class="case-detail-title">${caseItem.customer}</h2>
-        <span class="case-detail-scenario">${caseItem.scenario}</span>
-        <p class="case-detail-summary">${caseItem.summary}</p>
-        <div class="case-detail-highlights">
-            ${caseItem.highlights.map(h => `
-                <div class="highlight-item">
-                    <span class="highlight-icon">${h.icon}</span>
-                    <span class="highlight-text">${h.label}</span>
-                </div>
-            `).join('')}
-        </div>
-        <a href="${caseItem.ctaLink}" class="case-detail-cta">了解更多案例详情 →</a>
-    `;
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-/**
- * 关闭模态框
- */
-function closeModal() {
-    const modal = document.querySelector('.case-detail-modal');
-    if (!modal) return;
-
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-// 监听窗口大小变化
-window.addEventListener('resize', () => {
-    const modal = document.querySelector('.case-detail-modal');
-    if (window.innerWidth >= 768 && modal && modal.classList.contains('active')) {
-        closeModal();
-    }
-});
