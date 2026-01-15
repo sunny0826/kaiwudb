@@ -21,10 +21,11 @@
 }
 
 .community-section {
-    padding: 100px 0;
-    background: linear-gradient(to bottom, var(--community-card-bg) 0%, var(--community-bg) 100%);
+    padding: 2rem 0; /* 再次大幅减少上下内边距 */
+    background: transparent; /* 移除渐变背景 */
     position: relative;
     overflow: hidden;
+    margin-top: 0; /* 移除顶部外边距 */
 }
 
 /* 背景装饰 */
@@ -54,8 +55,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-bottom: 60px;
-    gap: 32px;
+    margin-bottom: 32px; /* 减少底部间距 */
+    gap: 20px; /* 减少内部元素间距 */
 }
 
 .community-title-group {
@@ -63,17 +64,17 @@
 }
 
 .community-title {
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--community-text-main);
-    margin-bottom: 16px;
+    font-size: 2.25rem; /* 统一为 36px */
+    font-weight: 700;   /* 统一为 700 */
+    color: var(--color-text-primary); /* 使用全局变量 */
+    margin-bottom: 1rem; /* 统一间距 */
     letter-spacing: -0.02em;
     line-height: 1.2;
 }
 
 .community-subtitle {
-    font-size: 18px;
-    color: var(--community-text-sub);
+    font-size: 1.125rem; /* 统一为 18px */
+    color: var(--color-text-secondary); /* 使用全局变量 */
     line-height: 1.6;
 }
 
@@ -108,14 +109,14 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    margin-bottom: 80px;
+    margin-bottom: 0; /* 移除底部间距 */
 }
 
 .action-card {
     background: var(--community-card-bg);
     border: 1px solid var(--community-border);
     border-radius: 16px;
-    padding: 32px;
+    padding: 24px; /* 减少内边距 */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: flex;
     flex-direction: column;

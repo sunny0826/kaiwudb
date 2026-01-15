@@ -62,6 +62,7 @@ See `DESIGN_GUIDE.md` for the complete color palette and accessibility guideline
 ### Page Structure
 
 - **index.html**: Homepage with hero section, product matrix, tabbed application scenarios, customer cases
+- **about.html**: Company introduction and contact information
 - **products.html**: Product details with vertical sidebar navigation and tab-based content
 - **community.html**: Community/open source page
 - **register.html**: Authentication/registration page

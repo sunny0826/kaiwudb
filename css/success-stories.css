@@ -6,7 +6,7 @@
 /* Section 容器 */
 .success-stories {
     padding: 80px 0;
-    background: #fff;
+    background: transparent; /* 移除白色背景 */
 }
 
 .success-stories .container {
@@ -15,14 +15,8 @@
     padding: 0 20px;
 }
 
-/* Section 标题 */
-.success-stories .section-title {
-    text-align: center;
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--text-primary, #1a1a1a);
-    margin-bottom: 40px;
-}
+/* Section 标题 - 继承自全局样式，此处仅做特殊调整（如有） */
+/* .section-title 已在 style.css 中定义 */
 
 /* ===================================
    行业分类 Tab
