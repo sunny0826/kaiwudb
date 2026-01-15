@@ -6,17 +6,23 @@
 /* 核心变量 */
 :root {
     --community-bg: #f8fafc;
-    --community-card-bg: #ffffff;
+    --community-card-bg: #fff;
     --community-primary: #0056D2;
     --community-text-main: #1a1a1a;
     --community-text-sub: #64748b;
     --community-border: #e2e8f0;
+    --community-border-light: #cbd5e1;
+    --community-bg-light: #f1f5f9;
+    --community-text-light: #94a3b8;
+    --community-text-medium: #475569;
+    --community-text-dark: #334155;
+    --community-danger: #ef4444;
     --community-hover-shadow: 0 20px 40px -12px rgba(0, 86, 210, 0.15);
 }
 
 .community-section {
     padding: 100px 0;
-    background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+    background: linear-gradient(to bottom, var(--community-card-bg) 0%, var(--community-bg) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -43,9 +49,6 @@
 
 /* 头部区域：标题 + 统计数据 */
 .community-header {
-    /* 方案一：使用 Flexbox 实现水平垂直居中 */
-    /* Flexbox 方案原理：通过 flex-direction: column 将子元素纵向排列，
-       align-items: center 实现水平居中，text-align: center 确保文本内容居中。 */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,19 +58,8 @@
     gap: 32px;
 }
 
-/* 
-方案二：使用 CSS Grid 实现居中 (备选方案)
-.community-header {
-    display: grid;
-    place-items: center; // 水平垂直同时居中
-    text-align: center;
-    margin-bottom: 60px;
-    gap: 32px;
-}
-*/
-
 .community-title-group {
-    max-width: 800px; /* 增加宽度以适应居中布局 */
+    max-width: 800px;
 }
 
 .community-title {
@@ -178,7 +170,7 @@
 
 .action-card:hover .action-icon {
     background: var(--community-primary);
-    color: #fff;
+    color: var(--community-card-bg);
 }
 
 .action-title {
@@ -250,7 +242,7 @@
 
 /* 动态卡片 */
 .feed-card {
-    background: #fff;
+    background: var(--community-card-bg);
     border: 1px solid var(--community-border);
     border-radius: 12px;
     padding: 24px;
@@ -260,7 +252,7 @@
 }
 
 .feed-card:hover {
-    border-color: #cbd5e1;
+    border-color: var(--community-border-light);
     box-shadow: 0 4px 12px rgba(0,0,0,0.04);
 }
 
@@ -274,14 +266,14 @@
 
 .feed-tag {
     padding: 4px 10px;
-    background: #f1f5f9;
-    color: #475569;
+    background: var(--community-bg-light);
+    color: var(--community-text-medium);
     border-radius: 20px;
     font-weight: 600;
 }
 
 .feed-date {
-    color: #94a3b8;
+    color: var(--community-text-light);
 }
 
 .feed-content-title {
@@ -311,7 +303,7 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 16px;
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid var(--community-bg-light);
 }
 
 .feed-author {
@@ -319,7 +311,7 @@
     align-items: center;
     gap: 8px;
     font-size: 14px;
-    color: #334155;
+    color: var(--community-text-dark);
     font-weight: 500;
 }
 
@@ -327,12 +319,12 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #e2e8f0;
+    background: var(--community-border);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 10px;
-    color: #64748b;
+    color: var(--community-text-sub);
 }
 
 .feed-interactions {
@@ -347,7 +339,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #64748b;
+    color: var(--community-text-sub);
     font-size: 14px;
     transition: all 0.2s;
     padding: 4px 8px;
@@ -355,16 +347,16 @@
 }
 
 .interaction-btn:hover {
-    background: #f1f5f9;
+    background: var(--community-bg-light);
     color: var(--community-primary);
 }
 
 .interaction-btn.active {
-    color: #ef4444; /* 点赞红 */
+    color: var(--community-danger);
 }
 
 .interaction-btn.active svg {
-    fill: #ef4444;
+    fill: var(--community-danger);
 }
 
 /* 加载更多 */
@@ -377,7 +369,7 @@
     align-items: center;
     gap: 8px;
     padding: 12px 32px;
-    background: #fff;
+    background: var(--community-card-bg);
     border: 1px solid var(--community-border);
     color: var(--community-text-main);
     font-size: 15px;
@@ -389,8 +381,8 @@
 }
 
 .load-more-btn:hover {
-    background: #f8fafc;
-    border-color: #cbd5e1;
+    background: var(--community-bg);
+    border-color: var(--community-border-light);
     transform: translateY(-1px);
 }
 
@@ -402,7 +394,7 @@
 .spinner {
     width: 16px;
     height: 16px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--community-border);
     border-top-color: var(--community-text-main);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
@@ -422,7 +414,6 @@
    =================================== */
 @media (max-width: 1023px) {
     .community-header {
-        /* 保持居中布局的一致性 */
         align-items: center;
         gap: 32px;
     }
