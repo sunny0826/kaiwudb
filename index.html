@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/comments.css">
     <link rel="stylesheet" href="css/success-stories.css">
+    <link rel="stylesheet" href="css/community.css">
+    <!-- 引入 Lucide 图标库 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
@@ -88,14 +91,14 @@
 
             <!-- 轮播控制组件 -->
             <div class="carousel-controls">
-                <button class="carousel-arrow prev" aria-label="上一张">←</button>
+                <button class="carousel-arrow prev" aria-label="上一张"><i data-lucide="chevron-left"></i></button>
                 <div class="carousel-indicators">
                     <button class="indicator active" aria-label="Banner 1"></button>
                     <button class="indicator" aria-label="Banner 2"></button>
                     <button class="indicator" aria-label="Banner 3"></button>
                     <button class="indicator" aria-label="Banner 4"></button>
                 </div>
-                <button class="carousel-arrow next" aria-label="下一张">→</button>
+                <button class="carousel-arrow next" aria-label="下一张"><i data-lucide="chevron-right"></i></button>
             </div>
         </section>
 
@@ -107,9 +110,7 @@
                     <!-- 卡片 1: 多模融合 -->
                     <article class="why-card">
                         <div class="why-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
-                            </svg>
+                            <i data-lucide="database"></i>
                         </div>
                         <h3 class="why-title">多模融合</h3>
                         <p class="why-desc">一站式支持时序、关系、图等多种数据模型，满足复杂业务场景需求</p>
@@ -118,9 +119,7 @@
                     <!-- 卡片 2: 高性能 -->
                     <article class="why-card">
                         <div class="why-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
+                            <i data-lucide="zap"></i>
                         </div>
                         <h3 class="why-title">高性能</h3>
                         <p class="why-desc">分布式架构支撑海量数据高并发写入，毫秒级响应实时查询</p>
@@ -129,9 +128,7 @@
                     <!-- 卡片 3: AI 赋能 -->
                     <article class="why-card">
                         <div class="why-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                            </svg>
+                            <i data-lucide="brain-circuit"></i>
                         </div>
                         <h3 class="why-title">AI 赋能</h3>
                         <p class="why-desc">智能优化与自学习能力，让数据库越用越懂业务</p>
@@ -152,7 +149,7 @@
                         <div class="accordion-item">
                             <button class="accordion-header active" aria-expanded="true">
                                 <span class="accordion-title">多模融合，一库多用</span>
-                                <span class="accordion-icon">▼</span>
+                                <span class="accordion-icon"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="accordion-content">
                                 <div class="accordion-inner">
@@ -166,7 +163,7 @@
                         <div class="accordion-item">
                             <button class="accordion-header" aria-expanded="false">
                                 <span class="accordion-title">高性能分布式架构</span>
-                                <span class="accordion-icon">▼</span>
+                                <span class="accordion-icon"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="accordion-content" hidden>
                                 <div class="accordion-inner">
@@ -180,7 +177,7 @@
                         <div class="accordion-item">
                             <button class="accordion-header" aria-expanded="false">
                                 <span class="accordion-title">AI智能优化引擎</span>
-                                <span class="accordion-icon">▼</span>
+                                <span class="accordion-icon"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="accordion-content" hidden>
                                 <div class="accordion-inner">
@@ -194,7 +191,7 @@
                         <div class="accordion-item">
                             <button class="accordion-header" aria-expanded="false">
                                 <span class="accordion-title">企业级安全可靠</span>
-                                <span class="accordion-icon">▼</span>
+                                <span class="accordion-icon"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="accordion-content" hidden>
                                 <div class="accordion-inner">
@@ -208,7 +205,7 @@
                         <div class="accordion-item">
                             <button class="accordion-header" aria-expanded="false">
                                 <span class="accordion-title">开源开放生态</span>
-                                <span class="accordion-icon">▼</span>
+                                <span class="accordion-icon"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="accordion-content" hidden>
                                 <div class="accordion-inner">
@@ -251,6 +248,66 @@
             </div>
         </section>
 
+        <!-- 社区板块 / Community Section -->
+        <section class="community-section" id="community-section">
+            <div class="community-bg-decoration"></div>
+            <div class="container">
+                <!-- 头部区域 -->
+                <div class="community-header">
+                    <div class="community-title-group">
+                        <h2 class="community-title">活跃的开源社区</h2>
+                        <p class="community-subtitle">连接全球开发者，共同打造下一代分布式多模数据库标准。加入我们，让数据创造无限可能。</p>
+                    </div>
+                </div>
+
+                <!-- 核心入口 -->
+                <div class="community-actions">
+                    <a href="#" class="action-card">
+                        <div class="action-icon"><i data-lucide="rocket"></i></div>
+                        <h3 class="action-title">快速入门</h3>
+                        <p class="action-desc">5分钟完成 KaiwuDB 部署，探索分布式数据库的无限可能。</p>
+                        <div class="action-link">
+                            查看文档 <span><i data-lucide="arrow-right" size="14"></i></span>
+                        </div>
+                    </a>
+                    <a href="#" class="action-card">
+                        <div class="action-icon"><i data-lucide="message-circle"></i></div>
+                        <h3 class="action-title">深度交流</h3>
+                        <p class="action-desc">与数万位社区用户交流最佳实践，获取技术专家的实时解答。</p>
+                        <div class="action-link">
+                            加入讨论 <span><i data-lucide="arrow-right" size="14"></i></span>
+                        </div>
+                    </a>
+                    <a href="#" class="action-card">
+                        <div class="action-icon"><i data-lucide="wrench"></i></div>
+                        <h3 class="action-title">参与共建</h3>
+                        <p class="action-desc">提交 PR、反馈 Issue，与 750+ 技术伙伴共同推动根技术创新。</p>
+                        <div class="action-link">
+                            前往 GitHub <span><i data-lucide="arrow-right" size="14"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 社区动态 Feed -->
+                <div class="community-feed">
+                    <div class="community-feed-header">
+                        <h3 class="feed-title">社区动态</h3>
+                    </div>
+                    
+                    <div class="community-feed-grid" id="communityFeedGrid">
+                        <!-- 动态内容由 JS 生成 -->
+                    </div>
+
+                    <div class="load-more-container">
+                        <button class="load-more-btn" id="loadMoreBtn">
+                            加载更多动态
+                            <div class="spinner"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 产品动态 -->
         <section class="product-updates" id="product-updates">
             <!-- 动态背景层 -->
@@ -266,11 +323,11 @@
 
                 <!-- 宣传横幅 - 带打字机效果 -->
                 <div class="promo-banner">
-                    <span class="promo-icon">⚡</span>
+                    <span class="promo-icon"><i data-lucide="zap"></i></span>
                     <a href="#" class="promo-link">
                         <span class="promo-text">KaiwuDB 2.0 正式发布，全新架构性能提升300%！</span>
                     </a>
-                    <span class="promo-arrow">→</span>
+                    <span class="promo-arrow"><i data-lucide="arrow-right" size="16"></i></span>
                 </div>
 
                 <!-- 不对称内容网格 -->
@@ -291,7 +348,7 @@
                                 </h3>
                                 <div class="update-meta">
                                     <time class="update-date">
-                                        <span class="date-icon">📅</span>
+                                        <span class="date-icon"><i data-lucide="calendar"></i></span>
                                         2025.12.29
                                     </time>
                                     <span class="update-indicator"></span>
