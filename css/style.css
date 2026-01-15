@@ -605,12 +605,11 @@ h1, h2, h3, h4, h5, h6 {
 .dropdown-item {
     display: flex;
     align-items: flex-start;
-    padding: 16px;
+    padding: 12px 16px;
     border-radius: var(--radius-md);
     color: var(--color-text-primary);
     text-decoration: none;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    gap: 14px;
 }
 
 .dropdown-item:hover {
@@ -619,26 +618,9 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
+/* 移除图标相关的样式，保持代码整洁 */
 .item-icon {
-    flex-shrink: 0;
-    width: 42px;
-    height: 42px;
-    background: #FFFFFF;
-    border: 1px solid rgba(0,0,0,0.08);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-primary);
-    transition: var(--transition-fast);
-}
-
-.dropdown-item:hover .item-icon {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-    background: #FFFFFF;
-    box-shadow: 0 2px 8px rgba(0, 86, 210, 0.15);
+    display: none;
 }
 
 .item-content {
@@ -685,20 +667,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* 优化内容较少下拉框的项目样式 */
 .dropdown-menu:not(.product-mega-menu) .dropdown-item {
-    padding: 20px; /* 增加内边距让项目更舒适 */
-    gap: 16px;
-}
-
-.dropdown-menu:not(.product-mega-menu) .item-icon {
-    width: 52px; /* 增大图标尺寸 */
-    height: 52px;
-    border-radius: var(--radius-lg);
+    padding: 12px 20px; /* 减小内边距，因为没有图标了 */
 }
 
 .dropdown-menu:not(.product-mega-menu) .item-title {
-    font-size: 1rem; /* 增大标题字体 */
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .dropdown-menu:not(.product-mega-menu) .item-desc {
@@ -773,26 +748,12 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-text-primary);
     font-size: 14px;
     transition: var(--transition-fast);
-    gap: 10px;
-}
-
-.product-list-item .item-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    color: var(--color-accent);
-    opacity: 0.8;
 }
 
 .product-list-item:hover {
     background-color: var(--color-bg-secondary);
     color: var(--color-accent);
-}
-
-.product-list-item:hover .item-icon {
-    opacity: 1;
+    transform: translateX(4px); /* 添加微小的位移动画，替代图标缺失的视觉反馈 */
 }
 
 /* Submenu Styles */
@@ -846,8 +807,9 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--color-bg-secondary);
 }
 
-/* Cases Dropdown - Industry Panel Layout */
-.cases-dropdown {
+/* Cases & Scenarios Dropdown - Industry Panel Layout */
+.cases-dropdown,
+.scenarios-dropdown {
     min-height: 320px;
     background-color: #FFFFFF;
 }
@@ -941,13 +903,15 @@ h1, h2, h3, h4, h5, h6 {
     min-width: 0;
 }
 
-.cases-dropdown .mega-menu-list {
+.cases-dropdown .mega-menu-list,
+.scenarios-dropdown .mega-menu-list {
     max-width: none;
     margin: 0;
 }
 
-/* 让客户案例下拉框占据全宽 */
-.cases-dropdown .container {
+/* 让客户案例和解决方案下拉框占据全宽 */
+.cases-dropdown .container,
+.scenarios-dropdown .container {
     max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;

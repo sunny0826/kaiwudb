@@ -214,7 +214,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 如果是加载导航栏，初始化其逻辑
                 if (placeholderId === 'navbar-placeholder') {
                     initNavbarLogic();
+                    initScenariosDropdownPanel();
                     initCasesDropdownPanel();
+                    initConsultationLogic();
                 }
             }
         } catch (error) {
@@ -253,70 +255,6 @@ document.addEventListener('DOMContentLoaded', () => {
  * 社区板块功能 (Community Section)
  * ========================================
  */
-
-// 模拟社区动态数据
-const communityFeedData = [
-    {
-        id: 1,
-        title: "KaiwuDB 2.0 版本核心特性深度解析",
-        excerpt: "本文详细介绍了 KaiwuDB 2.0 在多模融合架构、分布式事务处理及 AI 智能优化等方面的重大突破...",
-        tag: "技术解读",
-        date: "2025-12-28",
-        author: "技术团队",
-        likes: 128,
-        comments: 45
-    },
-    {
-        id: 2,
-        title: "如何基于 KaiwuDB 构建千万级设备监控平台",
-        excerpt: "实战分享：某大型制造企业如何利用 KaiwuDB 解决海量时序数据写入与实时查询难题，实现降本增效。",
-        tag: "最佳实践",
-        date: "2025-12-25",
-        author: "解决方案架构师",
-        likes: 96,
-        comments: 32
-    },
-    {
-        id: 3,
-        title: "社区开发者贡献指南 v1.0 发布",
-        excerpt: "欢迎加入 KaiwuDB 开源社区！本文档旨在帮助开发者快速上手，参与代码贡献与文档完善。",
-        tag: "社区公告",
-        date: "2025-12-20",
-        author: "社区运营",
-        likes: 256,
-        comments: 88
-    },
-    {
-        id: 4,
-        title: "KaiwuDB 在数字能源领域的应用探索",
-        excerpt: "探讨分布式数据库如何赋能虚拟电厂、储能管理等新兴场景，助力双碳目标实现。",
-        tag: "行业应用",
-        date: "2025-12-15",
-        author: "能源行业专家",
-        likes: 150,
-        comments: 40
-    },
-    {
-        id: 5,
-        title: "Rust 语言在数据库内核开发中的实践",
-        excerpt: "分享 KaiwuDB 团队在使用 Rust 重构核心组件过程中的经验教训与性能优化技巧。",
-        tag: "技术分享",
-        date: "2025-12-10",
-        author: "内核开发工程师",
-        likes: 312,
-        comments: 67
-    },
-    {
-        id: 6,
-        title: "KaiwuDB 荣获 2025 年度最佳开源数据库奖",
-        excerpt: "感谢社区开发者的支持，KaiwuDB 在本次年度评选中脱颖而出，我们将继续前行！",
-        tag: "新闻动态",
-        date: "2025-12-05",
-        author: "KaiwuDB",
-        likes: 520,
-        comments: 120
-    }
-];
 
 let currentFeedPage = 0;
 const FEED_PAGE_SIZE = 2; // 每次加载 2 条
@@ -607,6 +545,120 @@ class HeroCarousel {
         this.stopAutoPlay();
         // 移除事件监听器（简化版，实际应保存引用后移除）
     }
+}
+
+/**
+ * 解决方案下拉框介绍面板功能
+ */
+const scenarioContent = {
+    default: {
+        title: "深耕行业，赋能未来",
+        description: "KaiwuDB 针对不同行业场景提供定制化解决方案，实现数据价值最大化。",
+        highlights: ["工业级稳定性，PB 级扩展", "毫秒级响应，实时分析", "原生 AI 驱动，智能预测"]
+    },
+    iot: {
+        title: "物联网解决方案",
+        description: "针对工业物联网海量设备、高并发写入场景，提供设备全生命周期管理，实现预测性维护与生产全流程监控。",
+        highlights: ["百万级 TPS 写入", "边缘计算支持", "多协议解析"]
+    },
+    energy: {
+        title: "能源电力解决方案",
+        description: "面向新能源发电、智能电网等领域，支持削峰填谷智能调度与精准碳计量，助力能源结构转型。",
+        highlights: ["源网荷储一体化", "分钟级调度预测", "多维碳足迹分析"]
+    },
+    automotive: {
+        title: "车联网解决方案",
+        description: "针对车辆实时监控、远程诊断、智慧交通等场景，提供 V2X 数据处理与车辆状态分析能力。",
+        highlights: ["低延迟数据交换", "车辆实时状态分析", "云边端协同架构"]
+    },
+    metallurgy: {
+        title: "金属冶炼解决方案",
+        description: "服务于钢铁、有色金属等冶炼企业，实现生产全流程数字化监控、质量追溯与工艺参数优化。",
+        highlights: ["生产线数字化孪生", "全生命周期质量监控", "AI 辅助工艺优化"]
+    },
+    tobacco: {
+        title: "智慧烟草解决方案",
+        description: "赋能烟草行业数字化转型，实现生产全流程精益化管理，提升生产效率与产品质量。",
+        highlights: ["精益化生产管理", "设备故障自动诊断", "全链条质量追溯"]
+    }
+};
+
+/**
+ * 初始化解决方案下拉框面板功能
+ */
+function initScenariosDropdownPanel() {
+    const scenariosDropdown = document.querySelector('.scenarios-dropdown');
+    if (!scenariosDropdown) return;
+
+    const panelContent = scenariosDropdown.querySelector('.industry-panel-content');
+    if (!panelContent) return;
+
+    const scenarioItems = scenariosDropdown.querySelectorAll('[data-scenario]');
+
+    // 内容更新函数
+    function updatePanelContent(scenarioKey) {
+        const content = scenarioContent[scenarioKey] || scenarioContent.default;
+
+        panelContent.classList.add('fade-out');
+
+        setTimeout(() => {
+            const titleEl = panelContent.querySelector('.industry-title');
+            if (titleEl) titleEl.textContent = content.title;
+
+            const descEl = panelContent.querySelector('.industry-description');
+            if (descEl) descEl.textContent = content.description;
+
+            const highlightsEl = panelContent.querySelector('.industry-highlights');
+            if (highlightsEl) {
+                highlightsEl.innerHTML = content.highlights.map(h => `<li>${h}</li>`).join('');
+            }
+
+            panelContent.classList.remove('fade-out');
+        }, 300);
+    }
+
+    scenarioItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const scenarioKey = item.dataset.scenario;
+            if (scenarioKey) {
+                updatePanelContent(scenarioKey);
+            }
+        });
+    });
+
+    const navItem = scenariosDropdown.closest('.nav-item');
+    if (navItem) {
+        navItem.addEventListener('mouseleave', () => {
+            setTimeout(() => {
+                updatePanelContent('default');
+            }, 200);
+        });
+    }
+}
+
+/**
+ * 初始化 1v1 咨询点击逻辑
+ */
+function initConsultationLogic() {
+    const btn = document.getElementById('btn-consultation');
+    if (!btn) return;
+
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // 模拟触发在线客服弹窗
+        alert('正在为您连接 1v1 专属技术顾问，请稍候...');
+        
+        // 点击后自动收起下拉菜单
+        const dropdown = btn.closest('.dropdown-menu');
+        if (dropdown) {
+            dropdown.style.opacity = '0';
+            dropdown.style.visibility = 'hidden';
+            setTimeout(() => {
+                dropdown.style.opacity = '';
+                dropdown.style.visibility = '';
+            }, 300);
+        }
+    });
 }
 
 /**
@@ -984,7 +1036,7 @@ function switchIndustryTab(key) {
                 <h3 class="industry-solution-title">${config.title}</h3>
                 <p class="industry-solution-desc">${config.desc}</p>
                 <img src="img/diagram.png" alt="${config.title}架构图" class="industry-solution-img" onerror="this.style.display='none'">
-                <a href="products.html" class="industry-solution-cta">了解更多解决方案 <i data-lucide="arrow-right" size="16"></i></a>
+                <a href="products.html" class="industry-solution-cta">了解详情 <i data-lucide="arrow-right" size="16"></i></a>
             `;
             
             solutionContainer.style.opacity = '1';
