@@ -4,6 +4,13 @@
  * ========================================
  */
 
+// 常量定义
+const FEED_PAGE_SIZE = 2;
+const ANIMATION_DURATION = 2000;
+const SIMULATED_NETWORK_DELAY = 800;
+const LIKE_ANIMATION_DURATION = 200;
+const LIKE_SCALE = 1.2;
+
 // 模拟社区动态数据
 const communityFeedData = [
     {
@@ -69,7 +76,6 @@ const communityFeedData = [
 ];
 
 let currentFeedPage = 0;
-const FEED_PAGE_SIZE = 2; // 每次加载 2 条
 
 /**
  * 初始化社区板块
@@ -89,12 +95,17 @@ function initCommunitySection() {
     if (loadMoreBtn) {
         loadMoreBtn.addEventListener('click', () => {
             loadMoreBtn.classList.add('loading');
-            // 模拟网络延迟
             setTimeout(() => {
                 loadMoreFeed();
                 loadMoreBtn.classList.remove('loading');
-            }, 800);
+            }, SIMULATED_NETWORK_DELAY);
         });
+    }
+
+    // 4. 绑定点赞按钮（事件委托）
+    const feedGrid = document.getElementById('communityFeedGrid');
+    if (feedGrid) {
+        feedGrid.addEventListener('click', handleFeedInteraction);
     }
 }
 
@@ -109,7 +120,7 @@ function initStatsCounter() {
             if (entry.isIntersecting) {
                 const target = entry.target;
                 const endValue = parseInt(target.getAttribute('data-target'));
-                animateValue(target, 0, endValue, 2000);
+                animateValue(target, 0, endValue, ANIMATION_DURATION);
                 observer.unobserve(target);
             }
         });
@@ -192,7 +203,7 @@ function createFeedCard(item) {
                 <span>${item.author}</span>
             </div>
             <div class="feed-interactions">
-                <button class="interaction-btn like-btn" onclick="toggleLike(this)">
+                <button class="interaction-btn like-btn" aria-label="点赞">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                     </svg>
@@ -211,23 +222,36 @@ function createFeedCard(item) {
 }
 
 /**
- * 点赞交互 (全局暴露给 onclick)
+ * 处理动态卡片交互（点赞/评论）
  */
-window.toggleLike = function(btn) {
+function handleFeedInteraction(event) {
+    const btn = event.target.closest('.interaction-btn');
+    if (!btn) return;
+
+    if (btn.classList.contains('like-btn')) {
+        toggleLike(btn);
+    } else if (btn.classList.contains('comment-btn')) {
+        // 评论功能可在此扩展
+        console.log('评论功能待实现');
+    }
+}
+
+/**
+ * 切换点赞状态
+ */
+function toggleLike(btn) {
     const countSpan = btn.querySelector('span');
     let count = parseInt(countSpan.textContent);
-    
+
     if (btn.classList.contains('active')) {
         btn.classList.remove('active');
         count--;
     } else {
         btn.classList.add('active');
         count++;
-        
-        // 简单的点赞动画
-        btn.style.transform = 'scale(1.2)';
-        setTimeout(() => btn.style.transform = 'scale(1)', 200);
+        btn.style.transform = `scale(${LIKE_SCALE})`;
+        setTimeout(() => btn.style.transform = 'scale(1)', LIKE_ANIMATION_DURATION);
     }
-    
+
     countSpan.textContent = count;
-};
+}
