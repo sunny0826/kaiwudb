@@ -243,12 +243,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 8. 初始化社区板块
     initCommunitySection();
+    
+    // 9. 初始化技术创新 Tab (New Feature)
+    initTechInnovationTabs();
 
-    // 9. 初始化 Lucide 图标
+    // 10. 初始化 Lucide 图标
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
 });
+
+/**
+ * ========================================
+ * 技术创新 Tab 功能 (Tech Innovation Tabs)
+ * ========================================
+ */
+function initTechInnovationTabs() {
+    const section = document.getElementById('section-tech-innovation');
+    if (!section) return;
+
+    const tabBtns = section.querySelectorAll('.tech-tab-btn');
+    const tabPanels = section.querySelectorAll('.tech-tab-panel');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetTab = btn.dataset.tab;
+
+            // Update Buttons
+            tabBtns.forEach(b => {
+                const isActive = b.dataset.tab === targetTab;
+                b.classList.toggle('active', isActive);
+                b.setAttribute('aria-selected', isActive);
+            });
+
+            // Update Panels
+            tabPanels.forEach(panel => {
+                const isActive = panel.dataset.tab === targetTab;
+                panel.classList.toggle('active', isActive);
+                
+                // For accessibility
+                if (isActive) {
+                    panel.style.visibility = 'visible';
+                    panel.style.opacity = '1';
+                } else {
+                    panel.style.visibility = 'hidden';
+                    panel.style.opacity = '0';
+                }
+            });
+        });
+    });
+}
 
 /**
  * ========================================
