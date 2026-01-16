@@ -12,253 +12,166 @@
     <!-- 导航栏占位符 -->
     <div id="navbar-placeholder"></div>
 
+    <!-- 产品 Banner -->
+    <section class="product-banner">
+        <div class="banner-container">
+            <div class="banner-content">
+                <h1 class="banner-title">KaiwuDB 企业版</h1>
+                <p class="banner-desc">KaiwuDB 是一款面向 AIoT 场景的分布式、多模融合、支持原生 AI 的数据库产品，为各行业客户伙伴提供一站式数据存储、管理与分析的基座</p>
+                <div class="banner-actions">
+                    <div class="banner-buttons">
+                        <a href="register.html" class="btn btn-primary banner-btn">立即咨询</a>
+                        <a href="community.html" class="btn btn-outline banner-btn-outline">软件下载</a>
+                    </div>
+                    <div class="banner-links">
+                        <a href="docs/index.html" class="banner-link">产品文档 &gt;</a>
+                        <a href="demo.html" class="banner-link">免费体验 &gt;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-visual">
+                <div class="isometric-cubes">
+                    <div class="cube cube-lg"></div>
+                    <div class="cube cube-md"></div>
+                    <div class="cube cube-sm"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    <div class="banner-bottom-card">
+        <div class="card-grid">
+            <div class="card-item">
+                    <div class="card-content">
+                        <h3>新能源风电企业数据库替换建设</h3>
+                        <a href="#" class="card-link-text">查看详情 &gt;&gt;</a>
+                    </div>
+                    <div class="card-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <div class="card-content">
+                        <h3>《XXXXX系统数据库升级路径与场景实践》</h3>
+                        <a href="#" class="card-link-text">下载电子书 &gt;&gt;</a>
+                    </div>
+                    <div class="card-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <div class="card-content">
+                        <h3>KaiwuDB 实时分析能力白皮书</h3>
+                        <a href="#" class="card-link-text">下载电子书 &gt;&gt;</a>
+                    </div>
+                    <div class="card-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 产品页主体 -->
     <div class="products-layout">
-        <!-- 左侧竖向导航 -->
+        <!-- 左侧导航 -->
         <aside class="products-sidebar">
-            <div class="sidebar-header">产品列表</div>
-            <ul class="product-nav">
-                <li class="nav-item-vertical active" data-target="core">
-                    <a href="javascript:void(0)" class="nav-link-wrapper" aria-label="查看 KaiwuDB 产品详情">
-                        <div class="nav-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
-                            </svg>
-                        </div>
-                        <span>KaiwuDB</span>
-                    </a>
-                </li>
-                <li class="nav-item-vertical" data-target="lite">
-                    <a href="javascript:void(0)" class="nav-link-wrapper" aria-label="查看 KaiwuDB Lite 产品详情">
-                        <div class="nav-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </div>
-                        <span>KaiwuDB Lite</span>
-                    </a>
-                </li>
-                <li class="nav-item-vertical" data-target="kat">
-                    <a href="javascript:void(0)" class="nav-link-wrapper" aria-label="查看 KAT 产品详情">
-                        <div class="nav-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M7 11L12 6L17 11M7 18L12 13L17 18"></path>
-                            </svg>
-                        </div>
-                        <span>KAT</span>
-                    </a>
-                </li>
-                <li class="nav-item-vertical" data-target="kdp">
-                    <a href="javascript:void(0)" class="nav-link-wrapper" aria-label="查看 KDP 产品详情">
-                        <div class="nav-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                <line x1="8" y1="21" x2="16" y2="21"></line>
-                            </svg>
-                        </div>
-                        <span>KDP</span>
-                    </a>
-                </li>
-                <li class="nav-item-vertical" data-target="tsbm">
-                    <a href="javascript:void(0)" class="nav-link-wrapper" aria-label="查看时序基础模型产品详情">
-                        <div class="nav-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7"></path>
-                                <path d="M3 10h18"></path>
-                            </svg>
-                        </div>
-                        <span>时序基础模型</span>
-                    </a>
-                </li>
-                <li class="nav-item-vertical" data-target="brain">
-                    <a href="javascript:void(0)" class="nav-link-wrapper" aria-label="查看浪潮开务数智大脑产品详情">
-                        <div class="nav-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04zM14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z"></path>
-                            </svg>
-                        </div>
-                        <span>浪潮开务数智大脑</span>
-                    </a>
-                </li>
-                <li class="nav-item-vertical" data-target="kop">
-                    <a href="javascript:void(0)" class="nav-link-wrapper" aria-label="查看 KOP 产品详情">
-                        <div class="nav-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
-                            </svg>
-                        </div>
-                        <span>KOP</span>
-                    </a>
-                </li>
-                <li class="nav-item-vertical" data-target="tools">
-                    <a href="javascript:void(0)" class="nav-link-wrapper" aria-label="查看生态工具集产品详情">
-                        <div class="nav-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-                            </svg>
-                        </div>
-                        <span>生态工具集</span>
-                    </a>
-                </li>
-            </ul>
-
-            <div class="sidebar-consult">
-                <h3>需要帮助？</h3>
-                <p>我们的专家随时为您解答疑问。</p>
-                <button class="btn btn-primary btn-block">联系咨询</button>
-            </div>
+            <nav class="sidebar-nav">
+                <a href="#advantages" class="nav-item-vertical active" data-target="section-advantages">
+                    <span class="nav-text">产品优势</span>
+                </a>
+                <a href="#recommendation" class="nav-item-vertical" data-target="section-recommendation">
+                    <span class="nav-text">配置推荐</span>
+                </a>
+                <a href="#comparison" class="nav-item-vertical" data-target="section-comparison">
+                    <span class="nav-text">优势对比</span>
+                </a>
+                <a href="#features" class="nav-item-vertical" data-target="section-features">
+                    <span class="nav-text">功能特性</span>
+                </a>
+                <a href="#more" class="nav-item-vertical" data-target="section-more">
+                    <span class="nav-text">更多</span>
+                </a>
+                <a href="#docs" class="nav-item-vertical" data-target="section-docs">
+                    <span class="nav-text">相关文档</span>
+                </a>
+            </nav>
         </aside>
 
-        <!-- 右侧内容区域 -->
+        <!-- 右侧内容 -->
         <main class="products-content">
-            
-            <!-- KaiwuDB 内容 -->
-            <section id="core" class="product-section active">
-                <div class="product-hero">
-                    <h1>KaiwuDB <span class="badge">旗舰版</span></h1>
-                    <p class="subtitle">分布式多模融合数据库，支持原生 AI</p>
-                    <p class="desc">拥有“就地计算”核心技术，具备千万级设备接入、百万级数据秒级写入、亿级数据秒级读取等数据高效处理能力。提供一站式数据存储、管理与分析的基座。</p>
-                    <div class="action-bar">
-                        <a href="register.html" class="btn btn-primary">申请试用</a>
-                        <a href="docs/index.html" class="btn btn-outline">技术文档</a>
-                    </div>
+            <!-- 顶部行动栏 -->
+            <div class="detail-action-bar">
+                <div class="action-bar-text">
+                    安全稳定、可弹性扩展的高性能云服务器
                 </div>
-
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h3>原生分布式</h3>
-                        <p>应用透明无缝扩缩容，支持跨地域多活部署。</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>多模融合</h3>
-                        <p>同时支持时序、关系、图等多种数据模型。</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>高性能</h3>
-                        <p>千万级并发接入，毫秒级查询响应。</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>AI 赋能</h3>
-                        <p>自适应查询优化，智能运维管理。</p>
-                    </div>
+                <div class="action-bar-buttons">
+                    <a href="register.html" class="btn btn-primary btn-sm">立即购买</a>
+                    <a href="docs/index.html" class="btn btn-outline btn-sm">产品文档</a>
+                    <a href="#" class="btn btn-outline btn-sm">定价</a>
                 </div>
-            </section>
+            </div>
 
-            <!-- KaiwuDB Lite 内容 -->
-            <section id="lite" class="product-section">
-                <div class="product-hero">
-                    <h1>KaiwuDB Lite <span class="badge badge-green">边缘版</span></h1>
-                    <p class="subtitle">专为边端物联网场景设计的轻量级时序数据库</p>
-                    <p class="desc">在低配资源下具备百万数据点秒级写入，千万记录毫秒级响应等时序数据特色处理能力。适用于资源有限的边端设备、嵌入式系统、云边端协同等应用场景。</p>
-                    <div class="action-bar">
-                        <a href="register.html" class="btn btn-primary">申请试用</a>
-                        <a href="#" class="btn btn-outline">下载体验</a>
-                    </div>
-                </div>
-
-                <div class="feature-list-large">
-                    <div class="feature-item">
-                        <div class="feature-icon">🚀</div>
-                        <div class="feature-text">
-                            <h3>轻量化架构</h3>
-                            <p>支持嵌入式部署，能高效利用内存 and 磁盘空间，在低至 1 核 CPU 环境中也能平稳运行。</p>
+            <!-- 产品优势板块 -->
+            <section id="section-advantages" class="product-section active">
+                <h2 class="section-heading">产品优势</h2>
+                
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600">
+                                <path d="M21 12V7l-9-5-9 5v5a11 11 0 0 0 18 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="advantage-content">
+                            <h3>30+遍布全球的可用区</h3>
+                            <p>在全球30多个可用区上线云主机产品，覆盖五大洲，为您的全球化业务提供体验一致的高品质云计算服务</p>
                         </div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">⚡</div>
-                        <div class="feature-text">
-                            <h3>高速读写访问</h3>
-                            <p>支持百万数据点秒级写入，千万数据毫秒级响应，为海量边端时序数据提供实时洞察。</p>
+
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                            </svg>
+                        </div>
+                        <div class="advantage-content">
+                            <h3>出色的性能表现</h3>
+                            <p>最高支持Intel Cascadelake CPU，自研网络增强2.0技术、磁盘Binlog技术、全NVMe磁盘的RSSD云盘等，最高可实现120万IOPS的IO性能以及1000万PPS的网络性能</p>
                         </div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">☁️</div>
-                        <div class="feature-text">
-                            <h3>云边端协同</h3>
-                            <p>与云端 KaiwuDB 无缝融合，保障数据在各个层级之间流动的实时性与一致性。</p>
+
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <div class="advantage-content">
+                            <h3>稳定可靠的服务承诺</h3>
+                            <p>99.95%的可用性承诺，支持内核热补丁技术，遭遇安全事件时可全平台在线升级，云主机无需重启</p>
+                        </div>
+                    </div>
+
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600">
+                                <path d="M12 2v20M2 12h20"></path>
+                            </svg>
+                        </div>
+                        <div class="advantage-content">
+                            <h3>分钟内完成快捷创建</h3>
+                            <p>简化的主机创建步骤，以及自研Blockstreaming技术加持，云主机从创建到可访问分钟内实现</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- KAT 内容 -->
-            <section id="kat" class="product-section">
-                <div class="product-hero">
-                    <h1>KAT <span class="badge badge-blue">迁移工具</span></h1>
-                    <p class="subtitle">KaiwuDB Automated Transfer - 数据库自动化迁移工具</p>
-                    <p class="desc">支持多种主流数据库到 KaiwuDB 的一键迁移，提供全量及增量数据同步，确保迁移过程数据零丢失、业务不停机。</p>
-                    <div class="action-bar">
-                        <a href="#" class="btn btn-primary">立即下载</a>
-                        <a href="#" class="btn btn-outline">操作指南</a>
-                    </div>
-                </div>
+            <!-- 其他板块占位 -->
+            <section id="section-recommendation" class="product-section">
+                <h2 class="section-heading">配置推荐</h2>
+                <p class="placeholder-text">配置推荐内容正在建设中...</p>
             </section>
-
-            <!-- KDP 内容 -->
-            <section id="kdp" class="product-section">
-                <div class="product-hero">
-                    <h1>KDP <span class="badge badge-purple">开发平台</span></h1>
-                    <p class="subtitle">KaiwuDB Development Platform - 数据库开发管理平台</p>
-                    <p class="desc">为开发者提供可视化的 SQL 开发、表结构管理、性能诊断及数据探索功能，极大地提升了数据库开发与调试效率。</p>
-                    <div class="action-bar">
-                        <a href="#" class="btn btn-primary">进入平台</a>
-                        <a href="#" class="btn btn-outline">了解更多</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 时序基础模型 内容 -->
-            <section id="tsbm" class="product-section">
-                <div class="product-hero">
-                    <h1>时序基础模型 <span class="badge badge-orange">AI 模型</span></h1>
-                    <p class="subtitle">工业级时序基础 AI 模型</p>
-                    <p class="desc">深度集成于 KaiwuDB，提供强大的时序数据预测、异常检测及模式识别能力，助力企业实现智能化的工业预测性维护。</p>
-                    <div class="action-bar">
-                        <a href="#" class="btn btn-primary">申请内测</a>
-                        <a href="#" class="btn btn-outline">查看白皮书</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 浪潮开务数智大脑 内容 -->
-            <section id="brain" class="product-section">
-                <div class="product-hero">
-                    <h1>浪潮开务数智大脑 <span class="badge">数智化</span></h1>
-                    <p class="subtitle">智能一体化数据中台解决方案</p>
-                    <p class="desc">整合多源数据资产，通过智能算法驱动业务决策，为政企数字化转型提供全方位的数据治理与价值挖掘能力。</p>
-                    <div class="action-bar">
-                        <a href="#" class="btn btn-primary">预约演示</a>
-                        <a href="#" class="btn btn-outline">方案详情</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- KOP 内容 -->
-            <section id="kop" class="product-section">
-                <div class="product-hero">
-                    <h1>KOP <span class="badge badge-cyan">运维平台</span></h1>
-                    <p class="subtitle">KaiwuDB Operations Platform - 数据库运维管理平台</p>
-                    <p class="desc">全生命周期的集群管理、监控告警、自动化巡检及故障自愈，让大规模分布式数据库集群的运维变得简单可靠。</p>
-                    <div class="action-bar">
-                        <a href="#" class="btn btn-primary">立即体验</a>
-                        <a href="#" class="btn btn-outline">运维文档</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 生态工具集 内容 -->
-            <section id="tools" class="product-section">
-                <div class="product-hero">
-                    <h1>生态工具集 <span class="badge badge-gray">周边生态</span></h1>
-                    <p class="subtitle">完善的 KaiwuDB 周边生态工具支持</p>
-                    <p class="desc">包括 SDK、驱动程序、备份恢复工具及各类插件，为用户提供全方位、多维度的技术支撑。</p>
-                    <div class="action-bar">
-                        <a href="#" class="btn btn-primary">资源中心</a>
-                        <a href="#" class="btn btn-outline">GitHub 仓库</a>
-                    </div>
-                </div>
-            </section>
-
         </main>
     </div>
 
