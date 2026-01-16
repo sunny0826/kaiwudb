@@ -154,7 +154,7 @@ body {
 /* Advantages Grid */
 .advantages-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 响应式平铺 */
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
@@ -614,25 +614,6 @@ body {
 }
 
 /* Feature Content Styles */
-.feature-icon-box {
-    width: 56px;
-    height: 56px;
-    background: #F0F7FF;
-    border-radius: 16px;
-    color: var(--color-accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    transition: transform 0.3s ease;
-}
-
-.feature-row:hover .feature-icon-box {
-    transform: scale(1.1);
-    background: var(--color-accent);
-    color: #FFFFFF;
-}
-
 .feature-text-col h3 {
     font-size: 2rem;
     font-weight: 700;
@@ -1289,4 +1270,162 @@ body {
         border-bottom: none;
         padding-bottom: 0;
     }
+}
+
+/* Customer Cases Section */
+#section-customer-cases {
+    background-color: #FFFFFF;
+    padding-bottom: 20px;
+}
+
+.customer-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.case-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 8px;
+    padding: 32px;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.case-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transform: translateY(-4px);
+    border-color: rgba(0, 86, 210, 0.2);
+}
+
+.case-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.case-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Logo Simulations */
+.logo-icon {
+    font-weight: 900;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Zuoyebang */
+.logo-icon.zuoyebang {
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+    color: white;
+    font-family: sans-serif;
+    font-style: italic;
+}
+
+/* EEO */
+.logo-text.eeo {
+    color: #4CAF50;
+    font-family: "Arial Rounded MT Bold", sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.logo-text.eeo::after {
+    content: "empower education online";
+    display: block;
+    font-size: 0.5rem;
+    color: #888;
+    letter-spacing: 0;
+    font-weight: 400;
+    margin-top: -4px;
+}
+
+/* KYE */
+.logo-icon.kye {
+    background: #6200EA;
+    color: white;
+    font-family: sans-serif;
+    border-radius: 12px 0 12px 0;
+    padding: 2px 8px;
+}
+
+.logo-sub {
+    width: 100%;
+    font-size: 0.6rem;
+    color: #6200EA;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: -4px;
+}
+
+.case-arrow {
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+.case-card:hover .case-arrow {
+    transform: translateX(6px);
+    color: var(--color-accent);
+}
+
+.case-desc {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .customer-cases-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+.customer-cases-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+.view-more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.95rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+.view-more-link:hover {
+    background-color: #F0F7FF;
+    transform: translateX(4px);
+}
+
+.view-more-link svg {
+    transition: transform 0.2s ease;
+}
+
+.view-more-link:hover svg {
+    transform: translateX(2px);
 }
