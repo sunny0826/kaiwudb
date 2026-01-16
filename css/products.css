@@ -69,48 +69,8 @@ body {
     min-width: 0; /* Prevent overflow */
 }
 
-/* Detail Action Bar (Top Banner) */
-.detail-action-bar {
-    background: #FFFFFF;
-    border-radius: 4px; /* Slightly rounded corners like screenshot */
-    padding: 24px 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    border: 1px solid rgba(0,0,0,0.04);
-}
-
-.action-bar-text {
-    font-size: 1rem;
-    color: var(--color-text-primary);
-    font-weight: 500;
-    letter-spacing: 0.5px;
-}
-
-.action-bar-buttons {
-    display: flex;
-    gap: 12px;
-}
-
-.btn-sm {
-    height: 36px;
-    padding: 0 20px;
-    font-size: 0.9rem;
-}
-
-.btn-outline {
-    background: #FFFFFF !important;
-    border: 1px solid #E5E7EB !important;
-    color: var(--color-text-secondary) !important;
-}
-
-.btn-outline:hover {
-    border-color: var(--color-accent) !important;
-    color: var(--color-accent) !important;
-    background: #F9FAFB !important;
-}
+/* Detail Action Bar (Top Banner) - Removed per user request */
+/* .detail-action-bar { ... } styles removed */
 
 /* Section Styling */
 .section-heading {
@@ -174,10 +134,13 @@ body {
 }
 
 .product-section {
-    display: none;
-    animation: fadeIn 0.4s ease;
+    display: block; /* Removed display: none for flat layout */
+    margin-bottom: 80px; /* Spacing between sections */
+    scroll-margin-top: 100px; /* Offset for sticky header/nav */
 }
 
+/* Removed fadeIn animation and active state as they are no longer needed */
+/* 
 .product-section.active {
     display: block;
 }
@@ -185,7 +148,8 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
-}
+} 
+*/
 
 /* 悬浮咨询按钮 */
 .float-consult-btn {
