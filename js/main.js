@@ -253,6 +253,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
+
+    // 11. 初始化客户案例详情页滚动动画
+    initCaseDetailScrollAnimation();
 });
 
 /**
@@ -1240,4 +1243,34 @@ function switchIndustryTab(key) {
             }
         }, 300);
     }
+}
+
+/**
+ * ========================================
+ * 客户案例详情页滚动动画
+ * ========================================
+ */
+function initCaseDetailScrollAnimation() {
+    const sections = document.querySelectorAll('.case-detail-section');
+
+    if (sections.length === 0) return;
+
+    // 创建 Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                // 可选：动画后停止观察
+                // observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,      // 元素出现 10% 时触发
+        rootMargin: '0px 0px -50px 0px'  // 提前触发
+    });
+
+    // 观察所有区块
+    sections.forEach(section => {
+        observer.observe(section);
+    });
 }
