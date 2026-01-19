@@ -67,12 +67,6 @@
     gap: 8px;
 }
 
-.case-hero-breadcrumb::before {
-    content: '';
-    width: 24px;
-    height: 2px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.8) 0%, transparent 100%);
-}
 
 .case-hero-title {
     font-size: clamp(36px, 5vw, 56px);
