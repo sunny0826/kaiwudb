@@ -158,9 +158,10 @@ body {
     gap: 24px;
 }
 
+/* Advantage Card Styles */
 .advantage-card {
     display: flex;
-    flex-direction: column; /* 改为上下结构 */
+    flex-direction: column;
     align-items: flex-start;
     background-color: #FFFFFF;
     padding: 32px;
@@ -176,20 +177,29 @@ body {
     border-color: transparent;
 }
 
-.advantage-icon-wrapper {
-    margin-bottom: 24px;
+.advantage-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
 }
 
 .advantage-icon {
-    width: 56px;
-    height: 56px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #F0F7FF;
-    border-radius: 16px;
+    border-radius: 8px;
     color: var(--color-accent);
     transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.advantage-icon svg {
+    width: 20px;
+    height: 20px;
 }
 
 .advantage-card:hover .advantage-icon {
@@ -202,10 +212,10 @@ body {
     flex: 1;
 }
 
-.advantage-content h3 {
+.advantage-header h3 {
     font-size: 1.25rem;
     color: var(--color-text-primary);
-    margin-bottom: 12px;
+    margin: 0;
     font-weight: 700;
 }
 
@@ -214,6 +224,25 @@ body {
     color: var(--color-text-secondary);
     line-height: 1.6;
     margin: 0;
+}
+
+/* OS Compatibility Grid */
+.os-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.os-item {
+    background: #F8FAFC;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.04);
+    font-weight: 500;
 }
 
 /* Tech Innovation Tabs Section */
