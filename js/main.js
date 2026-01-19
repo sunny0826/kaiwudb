@@ -243,7 +243,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 8. 初始化社区板块
     initCommunitySection();
-    
+
+    initCaseArchitectureImage();
+
     // 9. 初始化技术创新 Tab (New Feature)
     initTechInnovationTabs();
 
@@ -1077,6 +1079,61 @@ function initSuccessStories() {
             }
         });
     }
+}
+
+function initCaseArchitectureImage() {
+    const media = document.querySelector('.case-arch-media');
+    const image = document.querySelector('.case-arch-image');
+    if (!media || !image) return;
+
+    const lightbox = document.getElementById('caseImageLightbox');
+    const lightboxImg = document.getElementById('caseImageLightboxImg');
+    const lightboxClose = document.getElementById('caseImageLightboxClose');
+
+    const openLightbox = () => {
+        if (!lightbox || !lightboxImg || media.classList.contains('is-error')) return;
+        lightboxImg.src = image.src;
+        lightbox.classList.add('is-visible');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+        if (!lightbox) return;
+        lightbox.classList.remove('is-visible');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    image.addEventListener('load', () => {
+        media.classList.add('is-loaded');
+    });
+
+    image.addEventListener('error', () => {
+        media.classList.add('is-error');
+    });
+
+    if (image.complete && image.naturalWidth > 0) {
+        media.classList.add('is-loaded');
+    }
+
+    media.addEventListener('click', openLightbox);
+
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+    }
+
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox && lightbox.classList.contains('is-visible')) {
+            closeLightbox();
+        }
+    });
 }
 
 /**
