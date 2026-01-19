@@ -57,8 +57,6 @@ The codebase uses a modular pattern with global functions and classes (not ES mo
 
 - **js/auth.js**: Authentication forms (SMS verification, tab switching)
 
-- **js/community-logic.js**: Community page specific interactions (193 lines)
-
 - **docs/js/docs.js**: Documentation-specific logic (TOC scroll highlighting)
 
 **Key Pattern**: Most features are initialized via `init*()` functions called from `DOMContentLoaded`. When adding new features, follow this pattern by creating an `initFeatureName()` function and calling it from the main initialization block.
@@ -90,7 +88,6 @@ See `DESIGN_GUIDE.md` for the complete color palette and accessibility guideline
 - **products.html**: Product details with vertical sidebar navigation and tab-based content
 - **community.html**: Community/open source page
 - **register.html**: Authentication/registration page
-- **customer-cases.html**: Customer case studies with architecture diagrams
 - **docs/index.html**: Documentation hub with three-column layout (sidebar nav, main content, TOC)
 
 ### Interactive Component Patterns
@@ -141,52 +138,6 @@ The navbar (`components/navbar.html`) implements complex mega-menus with nested 
 - ES6+ JavaScript with modern patterns (classes, async/await, arrow functions, template literals)
 - No linting/formatting tools configured
 - Global functions used for cross-component communication (e.g., `window.toggleLike()`)
-
-## External Dependencies
-
-**Minimal dependencies** - The site uses only one external library:
-
-- **Lucide Icons** (via CDN): `https://unpkg.com/lucide@latest`
-  - Lightweight icon library used throughout the site
-  - Initialized with `lucide.createIcons()` after DOM loads
-  - Call again after dynamic content updates to refresh icons
-
-**No other external libraries** - all functionality is pure vanilla JavaScript.
-
-## Development Guidelines
-
-### Adding New Features
-
-1. Create an initialization function following the `initFeatureName()` pattern
-2. Call your function from the main `DOMContentLoaded` listener in `js/main.js`
-3. Use CSS custom properties from `:root` for styling consistency
-4. Follow BEM-like naming conventions for CSS classes
-5. Add Chinese comments for code clarity
-
-### Adding New Pages
-
-1. Include shared component placeholders:
-   ```html
-   <div id="navbar-placeholder"></div>
-   <div id="footer-placeholder"></div>
-   ```
-2. Link appropriate CSS files (always include `css/style.css`)
-3. Include `js/main.js` or create page-specific JS
-4. Update `components/navbar.html` to add navigation links
-5. Test component loading - verify paths work for both root and `docs/` directory
-
-### Adding Shared Components
-
-1. Create HTML file in `components/` directory
-2. Add `<div id="component-placeholder"></div>` to pages that need it
-3. Call `loadComponent('component-placeholder', 'components/component.html')` in `main.js`
-4. Add `data-nav-link` attributes to links that need path adjustment for `docs/` directory
-
-### Working with Icons
-
-1. Use Lucide icons: `<i data-lucide="icon-name"></i>`
-2. Reference [Lucide documentation](https://lucide.dev/icons/) for available icons
-3. Call `lucide.createIcons()` after updating DOM content dynamically
 
 ## Testing
 
