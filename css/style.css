@@ -3462,6 +3462,10 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
+.case-hero-grid.is-single {
+    grid-template-columns: minmax(0, 1fr);
+}
+
 .case-hero-main {
     display: flex;
     flex-direction: column;
@@ -3596,6 +3600,10 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
     gap: 32px;
     align-items: start;
+}
+
+.case-detail-layout.is-single {
+    grid-template-columns: minmax(0, 1fr);
 }
 
 .case-detail-main {
