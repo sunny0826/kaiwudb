@@ -74,7 +74,7 @@ body {
 /* Section Styling */
 .product-section {
     display: block;
-    margin-bottom: 100px; /* 增加板块间距 */
+    margin-bottom: 60px; /* 减少板块间距 */
     scroll-margin-top: 100px;
     opacity: 0; /* 默认隐藏，等待 JS 触发动画 */
     transform: translateY(20px);
@@ -1304,7 +1304,8 @@ body {
 /* Customer Cases Section */
 #section-customer-cases {
     background-color: #FFFFFF;
-    padding-bottom: 20px;
+    padding-bottom: 0;
+    margin-bottom: 0; /* Remove default section margin to reduce gap with footer */
 }
 
 .customer-cases-grid {
