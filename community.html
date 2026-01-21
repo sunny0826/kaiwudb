@@ -3,174 +3,569 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="KaiwuDB 开源社区 - 开源开放，共建根技术开源生态。">
+    <meta name="description" content="KaiwuDB 开源社区 - 社区动态、互动交流与内容共建。">
     <title>KaiwuDB | 开源社区</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="css/community.css" as="style">
+    <link rel="stylesheet" href="css/community.css">
 </head>
-<body>
+<body class="community-page">
 
-    <!-- 导航栏占位符 -->
     <div id="navbar-placeholder"></div>
 
     <main>
-        <!-- Community Hero Section -->
-        <section class="community-hero">
-            <div class="community-header">
-                <h1 class="community-title">开源开放，共建根技术开源生态</h1>
-                <div class="community-stats-row">
-                    <div class="community-stats-group">
-                        <div class="stat-item">
-                            <span class="stat-number">2,000,000+</span>
-                            <span class="stat-label">累计下载量</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100,000+</span>
-                            <span class="stat-label">开源集群部署</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">2,000+</span>
-                            <span class="stat-label">企业上线生产系统</span>
-                        </div>
+        <!-- Community Hero Section (New Design) -->
+        <section class="community-hero-v2">
+            <!-- Background Decoration -->
+            <div class="hero-bg-decor">
+                <div class="decor-shape shape-triangle"></div>
+                <div class="decor-shape shape-circle"></div>
+                <!-- Decorative Path and Icons -->
+                <div class="decor-path-container">
+                    <svg class="path-svg" viewBox="0 0 1440 400" preserveAspectRatio="none">
+                        <path d="M-100,250 L150,250 L150,100 L400,100 L400,250 L850,250 L850,100 L1150,100 L1150,250 L1500,250" 
+                              fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="8 8"/>
+                    </svg>
+                    <!-- Floating Icons on Path -->
+                    <div class="path-icon icon-db" style="left: 8%; top: 62%;">
+                        <div class="icon-box"><i data-lucide="database"></i></div>
                     </div>
-                    <div class="community-actions">
-                        <a href="#" class="btn-community-download">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                <polyline points="7 10 12 15 17 10"></polyline>
-                                <line x1="12" y1="15" x2="12" y2="3"></line>
-                            </svg>
-                            下载社区版
+                    <div class="path-icon icon-code" style="left: 35%; top: 35%;">
+                        <div class="icon-box"><i data-lucide="code-2"></i></div>
+                    </div>
+                    <div class="path-icon icon-keyboard" style="left: 65%; top: 15%;">
+                        <div class="icon-box"><i data-lucide="keyboard"></i></div>
+                    </div>
+                    <div class="path-icon icon-terminal" style="left: 85%; top: 55%;">
+                        <div class="icon-box"><i data-lucide="terminal-square"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container hero-content-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        KaiwuDB 社区
+                        <span class="mascot-icon">🚀</span>
+                    </h1>
+                    <p class="hero-subtitle">KaiwuDB 社区致力于建设开源开放的学习、交流社区，与开发者共启思维碰撞之旅</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn-hero-v2 primary">下载社区版</a>
+                        <a href="#" class="btn-hero-v2 outline">快速上手</a>
+                        <a href="#" class="btn-hero-v2 outline"> 问答 & 互助 </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Bottom Cards -->
+            <div class="hero-bottom-cards">
+                <div class="container">
+                    <div class="cards-wrapper">
+                        <a href="#" class="hero-card-item">
+                            <div class="card-info">
+                                <h3>DBA进阶免费培训 | 考试领奖励</h3>
+                                <p>从“能用”到“会用”，再到“善用”KaiwuDB</p>
+                            </div>
+                            <div class="card-action">
+                                <i data-lucide="arrow-right"></i>
+                            </div>
                         </a>
-                        <a href="#" class="btn-community-quickstart">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-                                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
-                                <path d="M9 12H4s.55-3.03 2-5c1.62-2.2 5-4 5-4"></path>
-                                <path d="M12 15v5s3.03-.55 5-2c2.2-1.62 4-5 4-5"></path>
-                            </svg>
-                            快速上手
+                        <a href="#" class="hero-card-item">
+                            <div class="card-info">
+                                <h3>KaiwuDB DBA 实战营（第三季）</h3>
+                                <p>专家齐坐镇，考券依旧在，福利永不消！</p>
+                            </div>
+                            <div class="card-action">
+                                <i data-lucide="arrow-right"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="hero-card-item">
+                            <div class="card-info">
+                                <h3>2026 KaiwuDB 数据库大赛</h3>
+                                <p>查看获奖名单 >></p>
+                            </div>
+                            <div class="card-action">
+                                <i data-lucide="arrow-right"></i>
+                            </div>
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Community Content Cards -->
-        <section class="community-content">
-            <div class="community-grid">
-                <!-- Card 1 -->
-                <div class="community-card">
-                    <h2 class="card-title">问答论坛</h2>
-                    <p class="card-desc">与数万位开发者交流技术心得与实践经验</p>
-                    <div class="card-links">
-                        <a href="#" class="card-link">所有问答</a>
-                        <a href="#" class="card-link">我的问答</a>
-                        <a href="#" class="card-link">新建话题页</a>
-                        <a href="#" class="card-link">全论坛搜索</a>
+
+        <!-- Events Section -->
+        <section class="community-events-section">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="events-section-header">
+                    <div class="header-icon-box">
+                        <i data-lucide="calendar-days"></i>
+                    </div>
+                    <div class="header-text">
+                        <h2 class="section-title">参与活动</h2>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="community-card">
-                    <h2 class="card-title">资源</h2>
-                    <p class="card-desc">获取最新的软件版本、技术文档与认证培训</p>
-                    <div class="card-links">
-                        <a href="#" class="card-link">下载安装包</a>
-                        <a href="docs/index.html" class="card-link">文档</a>
-                        <a href="#" class="card-link">认证课程</a>
-                        <a href="#" class="card-link">白皮书/用户指南</a>
-                        <a href="#" class="card-link">源码</a>
-                    </div>
-                </div>
+                <div class="events-layout">
+                    <!-- Left: Current Events -->
+                    <div class="current-events-col">
+                        <h3 class="col-title">当前活动</h3>
+                        <div class="current-events-list">
+                            <!-- Event Card 1 -->
+                            <article class="event-card-large">
+                                <div class="event-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="社区嘉年华" class="event-img">
+                                </div>
+                                <div class="event-content">
+                                    <h4 class="event-title">2026 社区嘉年华</h4>
+                                    <div class="event-tags">
+                                        <span class="tag is-offline">线下活动</span>
+                                    </div>
+                                    <div class="event-meta">
+                                        <i data-lucide="clock"></i>
+                                        <span>2026/01/31 10:00</span>
+                                    </div>
+                                    <a href="#" class="btn-event primary">立即报名</a>
+                                </div>
+                            </article>
 
-                <!-- Card 3 -->
-                <div class="community-card">
-                    <h2 class="card-title">参与共建</h2>
-                    <p class="card-desc">与 750+ 技术伙伴共同推动根技术创新</p>
-                    <div class="card-links">
-                        <a href="#" class="card-link">KaiwuDB 技术生态</a>
-                        <a href="#" class="card-link">SIG 特别兴趣小组</a>
-                        <a href="#" class="card-link">GitHub</a>
+                            <!-- Event Card 2 -->
+                            <article class="event-card-large">
+                                <div class="event-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AI Infra 助力企业智能业务高速增长实践" class="event-img">
+                                </div>
+                                <div class="event-content">
+                                    <h4 class="event-title">AI Infra 助力企业智能业务高速增长实践</h4>
+                                    <div class="event-tags">
+                                        <span class="tag is-offline">线下活动</span>
+                                    </div>
+                                    <div class="event-meta">
+                                        <i data-lucide="clock"></i>
+                                        <span>2025/12/27 13:00</span>
+                                    </div>
+                                    <a href="#" class="btn-event outline">查看详情</a>
+                                </div>
+                            </article>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Card 4 (Blog) -->
-                <div class="community-card">
-                    <h2 class="card-title">技术博客</h2>
-                    <p class="card-desc">深入了解 KaiwuDB 的核心技术细节与最新进展</p>
-                    <div class="card-links">
-                        <a href="#" class="card-link">全部博客</a>
-                        <a href="#" class="card-link">技术解析</a>
-                        <a href="#" class="card-link">用户案例</a>
-                        <a href="#" class="card-link">社区动态</a>
+                    <!-- Right: More Events (Timeline) -->
+                    <div class="more-events-col">
+                        <div class="more-events-header">
+                            <h3 class="col-title">更多活动</h3>
+                            <a href="#" class="link-more">查看更多 <i data-lucide="chevron-right"></i></a>
+                        </div>
+                        <div class="timeline-list">
+                            <!-- Timeline Item 1 -->
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">从降本到智能化：数据库的 AI 革新</h4>
+                                    <div class="timeline-meta">
+                                        <span class="meta-date">12月20日已结束</span>
+                                        <span class="meta-loc"><i data-lucide="map-pin"></i> 上海市</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Timeline Item 2 -->
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">2025 KaiwuDB 年度发布会</h4>
+                                    <div class="timeline-meta">
+                                        <span class="meta-date">11月18日已结束</span>
+                                        <span class="meta-loc"><i data-lucide="map-pin"></i> 北京市</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Timeline Item 3 -->
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">向量索引构建与社区征文预告</h4>
+                                    <div class="timeline-meta">
+                                        <span class="meta-date">11月6日已结束</span>
+                                        <span class="meta-loc"><i data-lucide="map-pin"></i> 线上活动</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Timeline Item 4 -->
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">【苏州物流展】物流与供应链行业创新交流会</h4>
+                                    <div class="timeline-meta">
+                                        <span class="meta-date">10月31日已结束</span>
+                                        <span class="meta-loc"><i data-lucide="map-pin"></i> 江苏省, 苏州市</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Timeline Item 5 -->
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">Data X AI 前沿报告（第二期）</h4>
+                                    <div class="timeline-meta">
+                                        <span class="meta-date">10月15日已结束</span>
+                                        <span class="meta-loc"><i data-lucide="video"></i> KaiwuDB 视频号</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Activity Calendar Section -->
-        <section class="community-calendar-section">
-            <div class="calendar-container">
-                <div class="calendar-header">
-                    <h2>活动日历</h2>
-                    <a href="#" class="btn-community-quickstart">查看全部活动 &rarr;</a>
+        <!-- Forum Section -->
+        <section class="community-forum-section">
+            <div class="container">
+                <div class="forum-section-header">
+                    <div class="forum-header-icon">
+                        <i data-lucide="book-open"></i>
+                    </div>
+                    <div class="forum-header-text">
+                        <h2 class="forum-section-title">文档与问答</h2>
+                        <span class="forum-section-subtitle">获取技术支持</span>
+                    </div>
                 </div>
-                <div class="calendar-grid">
-                    <!-- Event 1 -->
-                    <div class="calendar-item">
-                        <div class="event-date">
-                            <span class="date-day">15</span>
-                            <span class="date-month">JAN</span>
+
+                <div class="forum-panels-grid">
+                    <div class="forum-panel forum-panel-contribution">
+                        <div class="forum-panel-top">
+                            <div class="doc-panel-heading">
+                                <div class="doc-panel-icon">
+                                    <i data-lucide="file-text"></i>
+                                </div>
+                                <div class="doc-panel-titles">
+                                    <h3 class="forum-panel-title">文档主题</h3>
+                                    <p class="doc-panel-subtitle">快速直达常用文档入口</p>
+                                </div>
+                            </div>
+                            <a class="forum-mini-btn forum-mini-btn-doc" href="#">
+                                <i data-lucide="book-open"></i>
+                                <span>文档中心</span>
+                            </a>
                         </div>
-                        <div class="event-info">
-                            <span class="event-type">线上直播</span>
-                            <h3 class="event-title">KaiwuDB 2.0 核心架构深度解析</h3>
-                            <span class="event-time">14:00 - 15:30</span>
+                        <div class="doc-nav-box" role="region" aria-label="文档主题列表">
+                            <div class="doc-nav-list">
+                                <a href="#" class="doc-nav-row">
+                                    <i class="doc-nav-left-icon" data-lucide="zap"></i>
+                                    <div class="doc-nav-text">
+                                        <div class="doc-nav-title">快速开始</div>
+                                        <div class="doc-nav-meta">入门 · 5 分钟</div>
+                                    </div>
+                                    <i class="doc-nav-right-icon" data-lucide="chevron-right"></i>
+                                </a>
+                                <a href="#" class="doc-nav-row">
+                                    <i class="doc-nav-left-icon" data-lucide="download"></i>
+                                    <div class="doc-nav-text">
+                                        <div class="doc-nav-title">安装与部署</div>
+                                        <div class="doc-nav-meta">部署 · Linux / K8s</div>
+                                    </div>
+                                    <i class="doc-nav-right-icon" data-lucide="chevron-right"></i>
+                                </a>
+                                <a href="#" class="doc-nav-row">
+                                    <i class="doc-nav-left-icon" data-lucide="terminal"></i>
+                                    <div class="doc-nav-text">
+                                        <div class="doc-nav-title">SQL 与使用指南</div>
+                                        <div class="doc-nav-meta">查询 · 写入 · 管理</div>
+                                    </div>
+                                    <i class="doc-nav-right-icon" data-lucide="chevron-right"></i>
+                                </a>
+                                <a href="#" class="doc-nav-row">
+                                    <i class="doc-nav-left-icon" data-lucide="shield-check"></i>
+                                    <div class="doc-nav-text">
+                                        <div class="doc-nav-title">安全与权限</div>
+                                        <div class="doc-nav-meta">鉴权 · 审计 · 加密</div>
+                                    </div>
+                                    <i class="doc-nav-right-icon" data-lucide="chevron-right"></i>
+                                </a>
+                                <a href="#" class="doc-nav-row">
+                                    <i class="doc-nav-left-icon" data-lucide="activity"></i>
+                                    <div class="doc-nav-text">
+                                        <div class="doc-nav-title">运维与监控</div>
+                                        <div class="doc-nav-meta">监控 · 备份 · 故障处理</div>
+                                    </div>
+                                    <i class="doc-nav-right-icon" data-lucide="chevron-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <!-- Event 2 -->
-                    <div class="calendar-item">
-                        <div class="event-date">
-                            <span class="date-day">22</span>
-                            <span class="date-month">JAN</span>
+
+                    <div class="forum-panel forum-panel-qa">
+                        <div class="forum-panel-top">
+                            <div class="doc-panel-heading">
+                                <div class="doc-panel-icon">
+                                    <i data-lucide="message-circle"></i>
+                                </div>
+                                <div class="doc-panel-titles">
+                                    <h3 class="forum-panel-title">技术问答</h3>
+                                    <p class="doc-panel-subtitle">与技术专家交流互动，一起解答技术难题</p>
+                                </div>
+                            </div>
+                            <a class="forum-mini-btn forum-mini-btn-primary" href="#">
+                                <i data-lucide="plus"></i>
+                                <span>我要发帖</span>
+                            </a>
                         </div>
-                        <div class="event-info">
-                            <span class="event-type">开发者沙龙</span>
-                            <h3 class="event-title">工业物联网场景下的时序数据处理实践</h3>
-                            <span class="event-time">13:30 - 17:00 · 上海</span>
-                        </div>
-                    </div>
-                    <!-- Event 3 -->
-                    <div class="calendar-item">
-                        <div class="event-date">
-                            <span class="date-day">05</span>
-                            <span class="date-month">FEB</span>
-                        </div>
-                        <div class="event-info">
-                            <span class="event-type">社区会议</span>
-                            <h3 class="event-title">KaiwuDB 开源社区二月月度例会</h3>
-                            <span class="event-time">19:00 - 20:00 · 线上</span>
+
+                        <div class="qa-list" role="list">
+                            <a href="#" class="qa-item" role="listitem">
+                                <div class="qa-avatar">🌐</div>
+                                <div class="qa-main">
+                                    <div class="qa-title">年度社区嘉年华解锁！AI Coding、社区开放麦、开源集市、社区圆…</div>
+                                    <div class="qa-meta">
+                                        <div class="qa-meta-left">
+                                            <span class="qa-author">OB社区小助手</span>
+                                            <span class="qa-dot">·</span>
+                                            <span class="qa-category">社区动态</span>
+                                        </div>
+                                        <div class="qa-stats">
+                                            <span class="qa-stat"><i data-lucide="eye"></i> 1491</span>
+                                            <span class="qa-stat"><i data-lucide="thumbs-up"></i> 1838</span>
+                                        </div>
+                                        <div class="qa-time">1小时</div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="qa-item" role="listitem">
+                                <div class="qa-avatar">👤</div>
+                                <div class="qa-main">
+                                    <div class="qa-title">如何像 Amber 一样写文档？用 OceanBase 文档编写 AI Skills 集…</div>
+                                    <div class="qa-meta">
+                                        <div class="qa-meta-left">
+                                            <span class="qa-author">Amber_Moe</span>
+                                            <span class="qa-dot">·</span>
+                                            <span class="qa-category">AI 与应用开发</span>
+                                        </div>
+                                        <div class="qa-stats">
+                                            <span class="qa-stat"><i data-lucide="eye"></i> 954</span>
+                                            <span class="qa-stat"><i data-lucide="thumbs-up"></i> 465</span>
+                                        </div>
+                                        <div class="qa-time">22小时前</div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="qa-item" role="listitem">
+                                <div class="qa-avatar">💼</div>
+                                <div class="qa-main">
+                                    <div class="qa-title">【求职】35岁想转型 OceanBase DBA，前辈们帮忙推荐下，谢谢</div>
+                                    <div class="qa-meta">
+                                        <div class="qa-meta-left">
+                                            <span class="qa-author">幽客</span>
+                                            <span class="qa-dot">·</span>
+                                            <span class="qa-category">人才招聘</span>
+                                        </div>
+                                        <div class="qa-stats">
+                                            <span class="qa-stat"><i data-lucide="eye"></i> 1094</span>
+                                            <span class="qa-stat"><i data-lucide="thumbs-up"></i> 26</span>
+                                        </div>
+                                        <div class="qa-time">昨天</div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="qa-item" role="listitem">
+                                <div class="qa-avatar">🧪</div>
+                                <div class="qa-main">
+                                    <div class="qa-title">来考试，考点居然没开门，电话也打不通，真是离谱</div>
+                                    <div class="qa-meta">
+                                        <div class="qa-meta-left">
+                                            <span class="qa-author">AntTech_NY…</span>
+                                            <span class="qa-dot">·</span>
+                                            <span class="qa-category">培训与认证</span>
+                                        </div>
+                                        <div class="qa-stats">
+                                            <span class="qa-stat"><i data-lucide="eye"></i> 478</span>
+                                            <span class="qa-stat"><i data-lucide="thumbs-up"></i> 59</span>
+                                        </div>
+                                        <div class="qa-time">昨天</div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Developer Zone Entrance -->
-        <section class="developer-zone-section">
-            <div class="developer-zone-container">
-                <span class="developer-zone-tag">FOR DEVELOPERS</span>
-                <h2>开发者专区</h2>
-                <p>了解 KWDB 开发者工具、文档、社区积分系统，开启您的开发之旅。</p>
-                <div class="developer-zone-actions">
-                    <a href="docs/index.html" class="btn-dev-primary">进入开发者专区</a>
-                    <a href="#" class="btn-dev-outline">进入社区积分系统</a>
+        <section class="community-blog-news-section">
+            <div class="container">
+                <h2 class="blog-news-title">博客与新闻</h2>
+
+                <input class="blog-news-tab-input" type="radio" name="blogNewsTabs" id="blogNewsTabBlog" checked>
+                <input class="blog-news-tab-input" type="radio" name="blogNewsTabs" id="blogNewsTabNews">
+
+                <div class="blog-news-tabs" role="tablist" aria-label="博客与新闻切换">
+                    <label class="blog-news-tab-label" for="blogNewsTabBlog" role="tab">博客</label>
+                    <label class="blog-news-tab-label" for="blogNewsTabNews" role="tab">新闻</label>
+                </div>
+
+                <div class="blog-news-panels" role="region" aria-label="内容列表">
+                    <div class="blog-news-panel blog-news-panel-blog" role="tabpanel">
+                        <div class="blog-news-grid">
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">KaiwuDB Blog</div>
+                                <div class="blog-news-card-title">面向工业物联网的时序数据建模实践：从采集到分析的关键设计</div>
+                                <div class="blog-news-date">2026年01月15日</div>
+                            </a>
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">KaiwuDB Blog</div>
+                                <div class="blog-news-card-title">向量检索与时序数据的融合：在同一数据库里做 RAG 的工程落地</div>
+                                <div class="blog-news-date">2025年12月18日</div>
+                            </a>
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">KaiwuDB Blog</div>
+                                <div class="blog-news-card-title">高并发写入下的存储优化：压缩、分片与冷热分层的取舍</div>
+                                <div class="blog-news-date">2025年11月13日</div>
+                            </a>
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">KaiwuDB Blog</div>
+                                <div class="blog-news-card-title">从故障到自愈：生产环境下的可观测性与自动化运维策略</div>
+                                <div class="blog-news-date">2025年11月05日</div>
+                            </a>
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">KaiwuDB Blog</div>
+                                <div class="blog-news-card-title">数据治理入门：标签体系、血缘追踪与权限模型的最佳实践</div>
+                                <div class="blog-news-date">2025年10月22日</div>
+                            </a>
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">KaiwuDB Blog</div>
+                                <div class="blog-news-card-title">一次查询，多维分析：多模数据在业务报表中的应用方式</div>
+                                <div class="blog-news-date">2025年10月15日</div>
+                            </a>
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">KaiwuDB Blog</div>
+                                <div class="blog-news-card-title">边缘侧部署指南：轻量化组件与离线场景下的数据同步</div>
+                                <div class="blog-news-date">2025年10月10日</div>
+                            </a>
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">KaiwuDB Blog</div>
+                                <div class="blog-news-card-title">性能压测方法论：如何设计可复现、可解释的基准测试</div>
+                                <div class="blog-news-date">2025年09月30日</div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="blog-news-panel blog-news-panel-news" role="tabpanel">
+                        <div class="blog-news-grid">
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">产品动态</div>
+                                <div class="blog-news-card-title">KaiwuDB 2026.1 发布：更快的写入、更稳定的查询与更易用的运维</div>
+                                <div class="blog-news-date">2026年01月20日</div>
+                            </a>
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">社区活动</div>
+                                <div class="blog-news-card-title">年度社区嘉年华开启报名：AI Coding、开源集市与技术圆桌等你来</div>
+                                <div class="blog-news-date">2026年01月10日</div>
+                            </a>
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">生态合作</div>
+                                <div class="blog-news-card-title">与行业伙伴共建：KaiwuDB 适配与认证计划正式上线</div>
+                                <div class="blog-news-date">2025年12月30日</div>
+                            </a>
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">技术支持</div>
+                                <div class="blog-news-card-title">文档中心升级：新增最佳实践、FAQ 聚合与搜索体验优化</div>
+                                <div class="blog-news-date">2025年12月18日</div>
+                            </a>
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">用户案例</div>
+                                <div class="blog-news-card-title">某能源集团落地实时碳计量：百万测点数据秒级入库与分析</div>
+                                <div class="blog-news-date">2025年11月13日</div>
+                            </a>
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">开源进展</div>
+                                <div class="blog-news-card-title">社区贡献周报：新增向量索引能力、修复 32 个问题与性能优化</div>
+                                <div class="blog-news-date">2025年10月22日</div>
+                            </a>
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">会议分享</div>
+                                <div class="blog-news-card-title">KaiwuDB 在 AI Infra 论坛：数据底座如何支撑智能应用规模化</div>
+                                <div class="blog-news-date">2025年10月15日</div>
+                            </a>
+                            <a class="blog-news-card" href="#">
+                                <div class="blog-news-source">版本公告</div>
+                                <div class="blog-news-card-title">安全更新说明：修复若干已知问题，建议尽快升级到最新版本</div>
+                                <div class="blog-news-date">2025年10月10日</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-news-more">
+                    <a class="blog-news-more-btn" href="#">查看更多</a>
                 </div>
             </div>
         </section>
-    </main>
 
-    <!-- 底部操作区域 -->
+
+        <!-- Training Section -->
+        <section class="community-training-section">
+            <div class="container">
+                <h2 class="section-title-simple">培训课程</h2>
+                <div class="training-cards-grid">
+                    <!-- Card 1: OBCA (Blue) -->
+                    <div class="training-card card-blue">
+                        <div class="card-header">
+                            <div class="badge-icon">
+                                <i data-lucide="award"></i>
+                                <span class="badge-text">KWCA</span>
+                            </div>
+                            <div class="card-titles">
+                                <h3>KWCA</h3>
+                                <p>KaiwuDB 数据库工程师</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-desc">KWCA（KaiwuDB Certified Associate），帮助您掌握 KaiwuDB 数据库安装、部署、高频操作等基础需求</p>
+                            <a href="#" class="btn-cert">立即认证</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: OBCP (Green) -->
+                    <div class="training-card card-green">
+                        <div class="card-header">
+                            <div class="badge-icon">
+                                <i data-lucide="medal"></i>
+                                <span class="badge-text">KWCP</span>
+                            </div>
+                            <div class="card-titles">
+                                <h3>KWCP</h3>
+                                <p>KaiwuDB 数据库高级工程师</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-desc">KWCP（KaiwuDB Certified Professional），帮助您掌握数据库部署、高级特性、运维管理等高级能力</p>
+                            <a href="#" class="btn-cert">立即认证</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: OBCE (Orange) -->
+                    <div class="training-card card-orange">
+                        <div class="card-header">
+                            <div class="badge-icon">
+                                <i data-lucide="trophy"></i>
+                                <span class="badge-text">KWCE</span>
+                            </div>
+                            <div class="card-titles">
+                                <h3>KWCE</h3>
+                                <p>KaiwuDB 数据库专家</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-desc">KWCE（KaiwuDB Certified Expert），帮助您灵活驾驭 KaiwuDB 各项能力，赋能企业数据资产，创造更多收益</p>
+                            <a href="#" class="btn-cert">立即认证</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     <section class="pre-footer-cta">
         <div class="cta-container">
             <h2 class="cta-title">准备好开启您的数据之旅了吗？</h2>
@@ -181,9 +576,7 @@
         </div>
     </section>
 
-    <!-- 页脚 -->
     <footer class="footer" id="footer-placeholder">
-        <!-- Footer will be loaded here via JS -->
     </footer>
 
     <script src="js/main.js"></script>
