@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaiwuDB 技术论坛 - 开发者问答社区</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/forum.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- 论坛头部 -->
+    <section class="forum-header-section">
+        <div class="container">
+            <div class="forum-header-content">
+                <h1 class="forum-title">技术论坛</h1>
+                <p class="forum-subtitle">连接开发者，解决技术难题，分享最佳实践</p>
+                <div class="forum-search-bar">
+                    <div class="search-input-wrapper">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="text" id="forumSearchInput" placeholder="搜索问题、话题或标签...">
+                    </div>
+                    <button class="btn btn-primary" onclick="openAskModal()">
+                        <i data-lucide="plus-circle"></i> 发起提问
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 论坛主体内容 -->
+    <section class="forum-section">
+        <div class="container">
+            <div class="forum-layout">
+                <!-- 左侧：帖子列表 -->
+                <div class="forum-main-column">
+                    <div class="forum-toolbar">
+                        <div class="forum-tabs" id="forumTabs">
+                            <button class="forum-tab active" data-filter="latest">最新提问</button>
+                            <button class="forum-tab" data-filter="hot">热门话题</button>
+                            <button class="forum-tab" data-filter="unsolved">等待回答</button>
+                            <button class="forum-tab" data-filter="solved">已解决</button>
+                        </div>
+                    </div>
+
+                    <div id="forumPostList" class="forum-post-list">
+                        <!-- 帖子列表将通过 JS 动态渲染 -->
+                    </div>
+
+                    <div class="forum-pagination" id="forumPagination">
+                        <!-- 分页器将通过 JS 动态渲染 -->
+                    </div>
+                </div>
+
+                <!-- 右侧：侧边栏 -->
+                <aside class="forum-sidebar-column">
+                    <!-- 用户状态卡片 -->
+                    <div class="sidebar-card user-card">
+                        <div class="user-card-content">
+                            <h3>加入社区</h3>
+                            <p>登录参与讨论，关注感兴趣的话题</p>
+                            <div class="user-actions">
+                                <a href="register.html" class="btn btn-primary btn-block">登录 / 注册</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 热门标签 -->
+                    <div class="sidebar-card">
+                        <h3 class="card-title">热门标签</h3>
+                        <div class="tag-cloud" id="tagCloud">
+                            <!-- 标签将通过 JS 动态渲染 -->
+                        </div>
+                    </div>
+
+                    <!-- 热门话题 -->
+                    <div class="sidebar-card">
+                        <h3 class="card-title">热门话题</h3>
+                        <ul class="hot-list" id="hotTopicList">
+                            <!-- 热门话题列表 -->
+                        </ul>
+                    </div>
+
+                    <!-- 友情链接/取消链接功能区 -->
+                    <div class="sidebar-card">
+                        <h3 class="card-title">快速链接</h3>
+                        <ul class="quick-links">
+                            <li><a href="docs/index.html">官方文档</a></li>
+                            <li><a href="https://github.com/kaiwudb" target="_blank">GitHub 仓库</a></li>
+                            <li><a href="#" onclick="toggleLinkStyle(event)">取消链接高亮</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 提问模态框 -->
+    <div id="askModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>发起提问</h2>
+                <button class="close-btn" onclick="closeAskModal()"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="postTitle">标题</label>
+                    <input type="text" id="postTitle" class="form-control" placeholder="简要描述你的问题">
+                </div>
+                <div class="form-group">
+                    <label for="postCategory">分类</label>
+                    <select id="postCategory" class="form-control">
+                        <option value="installation">安装部署</option>
+                        <option value="usage">功能使用</option>
+                        <option value="development">应用开发</option>
+                        <option value="bug">Bug 反馈</option>
+                        <option value="suggestion">功能建议</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>内容</label>
+                    <!-- 简易编辑器工具栏 -->
+                    <div class="editor-toolbar">
+                        <button type="button" title="加粗"><i data-lucide="bold"></i></button>
+                        <button type="button" title="斜体"><i data-lucide="italic"></i></button>
+                        <button type="button" title="链接"><i data-lucide="link"></i></button>
+                        <button type="button" title="取消链接" onclick="editorUnlink()"><i data-lucide="unlink"></i></button>
+                        <button type="button" title="代码块"><i data-lucide="code"></i></button>
+                    </div>
+                    <textarea id="postContent" class="form-control" rows="10" placeholder="详细描述你的问题，支持 Markdown 语法..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAskModal()">取消</button>
+                <button class="btn btn-primary" onclick="submitPost()">发布问题</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/forum.js"></script>
+</body>
+</html>
