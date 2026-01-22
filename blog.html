@@ -19,18 +19,49 @@
     <div id="navbar-placeholder"></div>
 
     <main class="blog-main">
-        <!-- 博客头部：标题与搜索 -->
+        <!-- 博客头部：Hero 区域 -->
         <section class="blog-header-section">
             <div class="container">
                 <div class="blog-header-content">
-                    <div class="blog-title">
-                        <h1>技术博客</h1>
-                        <p>探索数据库技术前沿，分享最佳实践</p>
+                    <div class="blog-hero-text">
+                        <h1>博客</h1>
+                        <p>查阅技术解析，参考实践经验；开启技术博客，共享你的知识锦囊</p>
                     </div>
-                    <div class="blog-search-wrapper">
-                        <div class="search-input-group">
-                            <i data-lucide="search" class="search-icon"></i>
-                            <input type="text" id="blogSearchInput" placeholder="搜索文章标题、标签...">
+                    <div class="blog-hero-image">
+                        <!-- 简单的 CSS 插画示意 -->
+                        <div class="hero-illustration">
+                            <i data-lucide="file-text" class="hero-icon-main"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 悬浮特性栏 -->
+                <div class="blog-feature-bar">
+                    <div class="feature-item">
+                        <div class="feature-icon bg-blue-light">
+                            <i data-lucide="book-open"></i>
+                        </div>
+                        <div class="feature-text">
+                            <span class="feature-label">重要活动/新闻</span>
+                            <span class="feature-title">KWDB 3.0 换新升级</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon bg-green-light">
+                            <i data-lucide="message-square"></i>
+                        </div>
+                        <div class="feature-text">
+                            <span class="feature-label">KaiwuDB 体验官</span>
+                            <span class="feature-title">盲盒有礼！快来领取 KaiwuDB 社区体验官专属福利！</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon bg-orange-light">
+                            <i data-lucide="award"></i>
+                        </div>
+                        <div class="feature-text">
+                            <span class="feature-label">技术专题</span>
+                            <span class="feature-title">技术解析与用户实践</span>
                         </div>
                     </div>
                 </div>
@@ -45,19 +76,42 @@
                     <div class="blog-list-column">
                         <!-- 筛选与排序工具栏 -->
                         <div class="blog-toolbar">
-                            <div class="blog-tabs" id="categoryTabs">
-                                <button class="blog-tab active" data-category="all">全部</button>
-                                <button class="blog-tab" data-category="technology">技术解析</button>
-                                <button class="blog-tab" data-category="practice">最佳实践</button>
-                                <button class="blog-tab" data-category="case">案例分享</button>
-                                <button class="blog-tab" data-category="news">产品动态</button>
+                            <div class="blog-toolbar-left">
+                                <div class="blog-sort">
+                                    <button class="sort-btn active" data-sort="newest">最新</button>
+                                    <button class="sort-btn" data-sort="popular">最热</button>
+                                    <span class="sort-info">30 天内 <i data-lucide="chevron-down" style="width:14px; display:inline-block; vertical-align:middle;"></i></span>
+                                </div>
                             </div>
-                            <div class="blog-sort">
-                                <select id="blogSortSelect">
-                                    <option value="newest">最新发布</option>
-                                    <option value="popular">最多阅读</option>
-                                </select>
+                            <div class="blog-search-wrapper">
+                                <div class="search-input-group">
+                                    <input type="text" id="blogSearchInput" placeholder="输入关键词">
+                                    <i data-lucide="search" class="search-icon-right"></i>
+                                </div>
                             </div>
+                        </div>
+
+                        <!-- 移除旧的 Tabs，稍后可以放在左侧侧边栏或者顶部保留但样式调整 -->
+                        <!-- 暂时保留 Tabs 但隐藏或重构，根据截图，左侧其实是导航。 -->
+                        <!-- 为了保持功能完整性且不大幅重构 JS，我保留 Tabs 但样式上让它看起来像截图中的“筛选”或者简化 -->
+                        <!-- 截图左侧有“全部、设计原理...”等垂直导航。为了简化，我先隐藏这个Tab栏，假设左侧侧边栏做导航。
+                             但目前 blog.html 结构是 左Main 右Sidebar。
+                             截图是 左Nav 中Main 右Sidebar。三栏布局。
+                             为了不破坏现有功能，我保持 Tabs 功能，但视觉上调整。或者将 Tabs 移到 blog-toolbar 上方？
+                             截图里 "全部 | 设计原理..." 是在左侧。
+                             我暂时保留 blog-toolbar 的功能，但按截图优化 "最新 最热" 和 搜索框 的布局。
+                             原来的 Category Tabs 我暂时隐藏，或者改成简单的文本链接形式放在 Toolbar 左侧？
+                             截图里的 "最新 最热" 是大标题样式。
+                        -->
+                        <!-- 恢复 Tabs 代码，以免 JS 报错，但隐藏它，或者我们把它改成类似截图的左侧导航？ 
+                             改动太大。我先把 Tabs 放在 blog-toolbar 上方作为一行。
+                        -->
+                        <div class="blog-tabs" id="categoryTabs" style="margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 10px;">
+                            <button class="blog-tab active" data-category="all">全部</button>
+                            <button class="blog-tab" data-category="technology">设计原理</button>
+                            <button class="blog-tab" data-category="practice">源码解读</button>
+                            <button class="blog-tab" data-category="case">企业案例</button>
+                            <button class="blog-tab" data-category="news">用户实践</button>
                         </div>
 
                         <!-- 文章列表容器 -->

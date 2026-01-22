@@ -185,13 +185,15 @@ function bindEvents() {
     }
 
     // 排序
-    const sortSelect = document.getElementById('blogSortSelect');
-    if (sortSelect) {
-        sortSelect.addEventListener('change', (e) => {
-            state.sort = e.target.value;
+    const sortBtns = document.querySelectorAll('.sort-btn');
+    sortBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            sortBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            state.sort = btn.dataset.sort;
             render();
         });
-    }
+    });
 }
 
 // 核心渲染函数
