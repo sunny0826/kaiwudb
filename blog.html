@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KaiwuDB 技术博客 - 分享分布式数据库技术解析、最佳实践与行业案例。">
+    <title>技术博客 | KaiwuDB</title>
+    <!-- 引入外部 CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <!-- 引入 Lucide 图标库 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- 全局统一背景层 -->
+    <div id="global-background"></div>
+
+    <!-- 导航栏占位符 -->
+    <div id="navbar-placeholder"></div>
+
+    <main class="blog-main">
+        <!-- 博客头部：标题与搜索 -->
+        <section class="blog-header-section">
+            <div class="container">
+                <div class="blog-header-content">
+                    <div class="blog-title">
+                        <h1>技术博客</h1>
+                        <p>探索数据库技术前沿，分享最佳实践</p>
+                    </div>
+                    <div class="blog-search-wrapper">
+                        <div class="search-input-group">
+                            <i data-lucide="search" class="search-icon"></i>
+                            <input type="text" id="blogSearchInput" placeholder="搜索文章标题、标签...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 博客主体内容 -->
+        <section class="blog-content-section">
+            <div class="container">
+                <div class="blog-layout">
+                    <!-- 左侧：文章列表 -->
+                    <div class="blog-list-column">
+                        <!-- 筛选与排序工具栏 -->
+                        <div class="blog-toolbar">
+                            <div class="blog-tabs" id="categoryTabs">
+                                <button class="blog-tab active" data-category="all">全部</button>
+                                <button class="blog-tab" data-category="technology">技术解析</button>
+                                <button class="blog-tab" data-category="practice">最佳实践</button>
+                                <button class="blog-tab" data-category="case">案例分享</button>
+                                <button class="blog-tab" data-category="news">产品动态</button>
+                            </div>
+                            <div class="blog-sort">
+                                <select id="blogSortSelect">
+                                    <option value="newest">最新发布</option>
+                                    <option value="popular">最多阅读</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- 文章列表容器 -->
+                        <div id="blogListContainer" class="blog-list">
+                            <!-- JS 动态注入文章卡片 -->
+                        </div>
+
+                        <!-- 分页器 -->
+                        <div class="blog-pagination" id="blogPagination">
+                            <!-- JS 动态注入分页按钮 -->
+                        </div>
+                    </div>
+
+                    <!-- 右侧：侧边栏 -->
+                    <aside class="blog-sidebar-column">
+                        <!-- 热门推荐 -->
+                        <div class="sidebar-widget">
+                            <h3 class="widget-title">热门推荐</h3>
+                            <ul class="hot-article-list" id="hotArticleList">
+                                <!-- JS 动态注入 -->
+                            </ul>
+                        </div>
+
+                        <!-- 热门标签 -->
+                        <div class="sidebar-widget">
+                            <h3 class="widget-title">热门标签</h3>
+                            <div class="tag-cloud" id="tagCloud">
+                                <!-- JS 动态注入 -->
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚占位符 -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 脚本 -->
+    <script src="js/main.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+</html>
