@@ -1859,9 +1859,474 @@
     }
 }
 
+.community-section-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.community-section-header.is-center {
+    justify-content: center;
+    text-align: center;
+}
+
+.community-section-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 36px;
+    color: #ffffff;
+    background: #0b2d66;
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+}
+
+.community-section-icon i {
+    width: 18px;
+    height: 18px;
+}
+
+.community-section-icon.is-blue {
+    background: linear-gradient(135deg, #0070FF 0%, #0056D2 100%);
+}
+
+.community-section-icon.is-navy {
+    background: #0b2d66;
+}
+
+.community-section-titles {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    min-width: 0;
+    flex: 1;
+}
+
+.community-section-titles.is-center {
+    align-items: center;
+}
+
+.community-section-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.community-section-subtitle {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+    letter-spacing: 0.4px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.community-section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: #0070FF;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.community-section-link i {
+    width: 16px;
+    height: 16px;
+}
+
+.community-section-link:hover {
+    color: #0056D2;
+}
+
+.community-section-link:focus-visible {
+    outline: 3px solid rgba(0, 112, 255, 0.25);
+    outline-offset: 2px;
+}
+
+.community-learning-blog-section .community-section-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.community-training-section .community-section-header,
+.community-events-section .community-section-header {
+    margin-bottom: calc(var(--spacing-lg) + var(--spacing-sm));
+}
+
+.pre-footer-cta .community-section-header {
+    margin-bottom: 0;
+}
+
+.community-learning-blog-section {
+    margin-top: calc(var(--spacing-xl) + var(--spacing-md));
+    padding: var(--spacing-xl) 0 calc(var(--spacing-xl) + var(--spacing-md));
+    background: #f8fafc;
+}
+
+.learning-blog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.learning-blog-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.learning-blog-brand-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #0056D2;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 36px;
+}
+
+.learning-blog-brand-icon i {
+    width: 18px;
+    height: 18px;
+}
+
+.learning-blog-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.learning-blog-brand-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+    letter-spacing: 0.4px;
+    line-height: 1.2;
+}
+
+.learning-blog-brand-subtitle {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+    letter-spacing: 0.4px;
+    line-height: 1.4;
+}
+
+.learning-blog-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #0070FF;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.learning-blog-more i {
+    width: 16px;
+    height: 16px;
+}
+
+.learning-blog-more:hover {
+    color: #0056D2;
+}
+
+.learning-blog-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: calc(var(--spacing-md) + var(--spacing-sm));
+    align-items: start;
+}
+
+.learning-blog-tags-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: 0.4px;
+}
+
+.learning-blog-tags-list {
+    margin-top: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.learning-tag-chip {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.learning-tag-chip i {
+    width: 14px;
+    height: 14px;
+    color: #94a3b8;
+    flex: 0 0 14px;
+}
+
+.learning-tag-chip:hover {
+    border-color: rgba(0, 112, 255, 0.28);
+    color: #0070FF;
+    transform: translateY(-1px);
+}
+
+.learning-tag-chip:hover i {
+    color: #0070FF;
+}
+
+.learning-tag-chip.is-active {
+    border-color: rgba(0, 112, 255, 0.35);
+    background: rgba(0, 112, 255, 0.06);
+    color: #0056D2;
+}
+
+.learning-tag-chip.is-active i {
+    color: #0056D2;
+}
+
+.learning-blog-list-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: 0.4px;
+}
+
+.learning-blog-list {
+    margin-top: 14px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+}
+
+.learning-blog-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: var(--spacing-md);
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.2s ease;
+}
+
+.learning-blog-row:last-child {
+    border-bottom: none;
+}
+
+.learning-blog-row:hover {
+    background: #f8fafc;
+}
+
+.learning-blog-row-main {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.learning-blog-row-title {
+    min-width: 0;
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f172a;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    letter-spacing: 0.2px;
+}
+
+.learning-blog-row-badges {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+}
+
+.learning-badge {
+    display: inline-flex;
+    align-items: center;
+    height: 20px;
+    padding: 0 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+.learning-badge-blue {
+    background: #0070FF;
+    color: #ffffff;
+}
+
+.learning-badge-amber {
+    background: #F59A23;
+    color: #ffffff;
+}
+
+.learning-badge-amber-outline {
+    background: #ffffff;
+    border: 1px solid rgba(245, 154, 35, 0.6);
+    color: #F59A23;
+}
+
+.learning-blog-row-meta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
+    flex: 0 0 auto;
+    color: #64748b;
+}
+
+.learning-blog-author {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    color: #64748b;
+}
+
+.learning-blog-avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #eef6ff;
+    color: #0070FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex: 0 0 20px;
+}
+
+.learning-blog-avatar.is-blue {
+    background: rgba(0, 112, 255, 0.12);
+}
+
+.learning-blog-author-icon {
+    width: 16px;
+    height: 16px;
+    color: #F59A23;
+}
+
+.learning-blog-author-name {
+    min-width: 0;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+}
+
+.learning-blog-date {
+    font-size: 12px;
+    color: #64748b;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+}
+
+.learning-tag-chip:focus-visible,
+.learning-blog-row:focus-visible,
+.learning-blog-more:focus-visible {
+    outline: 3px solid rgba(0, 112, 255, 0.25);
+    outline-offset: 2px;
+}
+
+@media (max-width: 1024px) {
+    .learning-blog-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-blog-tags-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .learning-tag-chip {
+        width: auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .community-learning-blog-section {
+        margin-top: calc(var(--spacing-lg) + var(--spacing-md));
+        padding: calc(var(--spacing-xl) - var(--spacing-sm)) 0 var(--spacing-xl);
+    }
+
+    .learning-blog-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .learning-blog-brand-title {
+        font-size: 20px;
+    }
+
+    .learning-blog-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .learning-blog-row-main {
+        width: 100%;
+    }
+
+    .learning-blog-row-meta {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
 .community-blog-news-section {
+    margin-top: var(--spacing-xl);
     padding: 80px 0 90px;
     background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
 }
 
 .blog-news-title {
@@ -2035,6 +2500,7 @@
 
 @media (max-width: 640px) {
     .community-blog-news-section {
+        margin-top: var(--spacing-lg);
         padding: 64px 0 72px;
     }
 
