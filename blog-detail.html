@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="深入解析：分布式数据库的一致性协议 - KaiwuDB 技术博客">
+    <title>深入解析：分布式数据库的一致性协议 | KaiwuDB 技术博客</title>
+    <!-- 引入外部 CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog-detail.css">
+    <!-- 引入代码高亮样式 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <!-- 引入 Lucide 图标库 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- 顶部阅读进度条 -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
+    <!-- 全局统一背景层 -->
+    <div id="global-background"></div>
+
+    <!-- 导航栏占位符 -->
+    <div id="navbar-placeholder"></div>
+
+    <main class="blog-detail-main">
+        <!-- 面包屑导航 -->
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">首页</a>
+                <span class="separator">/</span>
+                <a href="blog.html">博客</a>
+                <span class="separator">/</span>
+                <span class="current">正文</span>
+            </nav>
+        </div>
+
+        <div class="container blog-detail-layout">
+            <!-- 左侧侧边栏：社交分享 -->
+            <aside class="sidebar-left">
+                <div class="social-share-bar">
+                    <button class="share-btn" aria-label="点赞">
+                        <i data-lucide="thumbs-up"></i>
+                        <span class="count">128</span>
+                    </button>
+                    <button class="share-btn" aria-label="评论">
+                        <i data-lucide="message-square"></i>
+                        <span class="count">32</span>
+                    </button>
+                    <div class="divider"></div>
+                    <button class="share-btn" aria-label="微信分享">
+                        <i data-lucide="scan-line"></i> <!-- 模拟微信扫码 -->
+                    </button>
+                    <button class="share-btn" aria-label="复制链接">
+                        <i data-lucide="link"></i>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- 中间主要内容 -->
+            <article class="blog-article">
+                <header class="article-header">
+                    <h1 class="article-title">深入解析：分布式数据库的一致性协议</h1>
+                    <div class="article-meta">
+                        <div class="author-info">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="作者头像" class="author-avatar">
+                            <div class="author-details">
+                                <span class="author-name">李技术</span>
+                                <span class="publish-date">2025年05月20日 · 阅读 4120</span>
+                            </div>
+                        </div>
+                        <div class="article-tags-header">
+                            <span class="tag">分布式事务</span>
+                            <span class="tag">一致性协议</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="article-content" id="articleContent">
+                    <p>在分布式系统中，一致性（Consistency）是指在分布式系统中的所有数据备份，在同一时刻是否同样的值。本文将深入探讨分布式数据库中常见的一致性协议，包括 Paxos、Raft 以及 KaiwuDB 在此基础上的优化实践。</p>
+                    
+                    <h2 id="section-1">1. 分布式一致性的挑战</h2>
+                    <p>在单机数据库中，一致性通常通过锁机制和日志（WAL）来保证。然而，在分布式环境下，由于网络分区、节点故障等不确定因素，保证数据的一致性变得异常复杂。</p>
+                    <p>根据 CAP 理论，一个分布式系统不可能同时满足一致性（Consistency）、可用性（Availability）和分区容错性（Partition tolerance）。</p>
+
+                    <h2 id="section-2">2. Paxos 协议解析</h2>
+                    <p>Paxos 协议由 Leslie Lamport 提出，是分布式一致性算法的基石。它通过 Proposer、Acceptor 和 Learner 三种角色来达成共识。</p>
+                    
+                    <pre><code class="language-javascript">// 简单的 Paxos 提案模拟
+class Proposer {
+    constructor(id) {
+        this.id = id;
+        this.proposalId = 0;
+    }
+
+    prepare() {
+        this.proposalId++;
+        return {
+            type: 'PREPARE',
+            id: this.proposalId,
+            proposerId: this.id
+        };
+    }
+}</code></pre>
+
+                    <h2 id="section-3">3. Raft 协议的易理解性</h2>
+                    <p>Raft 协议是为了解决 Paxos 难以理解和实现的问题而设计的。它将一致性问题分解为三个子问题：</p>
+                    <ul>
+                        <li><strong>领导者选举 (Leader Election)</strong>：当现有的 Leader 故障时，必须选出一个新的 Leader。</li>
+                        <li><strong>日志复制 (Log Replication)</strong>：Leader 必须从客户端接收日志条目（Log Entries）并将其复制到集群中的其他节点。</li>
+                        <li><strong>安全性 (Safety)</strong>：如果任何服务器已将给定的日志条目应用到其状态机，则其他服务器不能应用不同的指令。</li>
+                    </ul>
+
+                    <div class="article-image-wrapper">
+                        <!-- 占位图 -->
+                        <div style="background-color: #f0f2f5; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #666;">
+                            [Raft 协议状态流转图示意]
+                        </div>
+                        <span class="image-caption">图 1: Raft 协议状态流转</span>
+                    </div>
+
+                    <h2 id="section-4">4. KaiwuDB 的一致性实践</h2>
+                    <p>KaiwuDB 采用了基于 Raft 的改进协议，针对工业物联网场景的高写入吞吐需求进行了优化。例如，通过 **Multi-Raft** 机制，将数据分片（Range）作为 Raft 组的单位，实现了并行的共识达成。</p>
+                    <blockquote>
+                        <p>“在保证严格一致性的前提下，我们通过批处理和流水线技术，将网络往返的开销降至最低。” —— KaiwuDB 架构师</p>
+                    </blockquote>
+
+                    <h2 id="section-5">5. 总结</h2>
+                    <p>一致性协议是分布式数据库的灵魂。选择合适的协议并在其基础上进行针对性的优化，是构建高性能、高可靠分布式系统的关键。</p>
+                </div>
+
+                <div class="article-footer">
+                    <div class="article-tags-footer">
+                        <span>标签：</span>
+                        <a href="#" class="tag-link">分布式数据库</a>
+                        <a href="#" class="tag-link">Raft</a>
+                        <a href="#" class="tag-link">一致性</a>
+                    </div>
+                    
+                    <div class="article-action-bar">
+                        <div class="action-btn-group">
+                            <button class="action-btn active">
+                                <i data-lucide="thumbs-up"></i> 点赞 (128)
+                            </button>
+                            <button class="action-btn">
+                                <i data-lucide="star"></i> 收藏
+                            </button>
+                        </div>
+                        <div class="share-group">
+                            <span>分享至：</span>
+                            <a href="#"><i data-lucide="twitter"></i></a>
+                            <a href="#"><i data-lucide="linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 评论区 -->
+                <section class="comments-section" id="comments">
+                    <h3 class="section-title">评论 (32)</h3>
+                    <div class="comment-editor">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=User" alt="当前用户" class="user-avatar">
+                        <div class="editor-wrapper">
+                            <textarea placeholder="撰写评论..."></textarea>
+                            <button class="submit-btn">发布评论</button>
+                        </div>
+                    </div>
+                    
+                    <div class="comment-list">
+                        <div class="comment-item">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alice" alt="Alice" class="user-avatar">
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <span class="username">Alice Chen</span>
+                                    <span class="time">2小时前</span>
+                                </div>
+                                <p>这篇文章对 Paxos 和 Raft 的对比非常清晰，特别是代码示例很有帮助！期待更多关于 KaiwuDB 内部实现的细节。</p>
+                                <div class="comment-actions">
+                                    <button><i data-lucide="thumbs-up" style="width:14px;"></i> 12</button>
+                                    <button>回复</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-item">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Bob" alt="Bob" class="user-avatar">
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <span class="username">Bob Wang</span>
+                                    <span class="time">5小时前</span>
+                                </div>
+                                <p>Multi-Raft 的优化点确实很关键，对于大规模集群来说，单一 Raft 组很容易成为瓶颈。</p>
+                                <div class="comment-actions">
+                                    <button><i data-lucide="thumbs-up" style="width:14px;"></i> 8</button>
+                                    <button>回复</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <!-- 右侧侧边栏：目录与推荐 -->
+            <aside class="sidebar-right">
+                <div class="toc-widget sticky-widget">
+                    <h3 class="widget-title">目录</h3>
+                    <ul class="toc-list" id="tocList">
+                        <!-- JS 自动生成 -->
+                    </ul>
+                </div>
+                
+                <div class="related-widget">
+                    <h3 class="widget-title">相关阅读</h3>
+                    <ul class="related-list">
+                        <li><a href="#">LSM-Tree 存储引擎优化指南</a></li>
+                        <li><a href="#">KaiwuDB SQL 优化器技术内幕</a></li>
+                        <li><a href="#">工业物联网时序数据写入优化实战</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- 页脚占位符 -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 脚本 -->
+    <script src="js/main.js"></script>
+    <script src="js/blog-detail.js"></script>
+    <!-- 代码高亮脚本 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

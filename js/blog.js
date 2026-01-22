@@ -13,7 +13,8 @@ const blogPosts = [
         date: "2026-01-18",
         views: 3240,
         tags: ["版本发布", "多模数据库", "性能优化"],
-        author: "KaiwuDB 团队"
+        author: "KaiwuDB 团队",
+        link: "/blog-detail.html"
     },
     {
         id: 2,
@@ -24,7 +25,8 @@ const blogPosts = [
         date: "2026-01-16",
         views: 2850,
         tags: ["时序数据", "写入优化", "IoT"],
-        author: "林工"
+        author: "林工",
+        link: "/blog-detail.html"
     },
     {
         id: 3,
@@ -35,7 +37,8 @@ const blogPosts = [
         date: "2026-01-14",
         views: 4120,
         tags: ["分布式", "一致性", "Raft"],
-        author: "架构组"
+        author: "架构组",
+        link: "/blog-detail.html"
     },
     {
         id: 4,
@@ -46,7 +49,8 @@ const blogPosts = [
         date: "2026-01-12",
         views: 1980,
         tags: ["数字能源", "告警系统", "实时计算"],
-        author: "行业方案组"
+        author: "行业方案组",
+        link: "/blog-detail.html"
     },
     {
         id: 5,
@@ -57,7 +61,8 @@ const blogPosts = [
         date: "2026-01-10",
         views: 3560,
         tags: ["SQL优化", "CBO", "内核技术"],
-        author: "内核研发"
+        author: "内核研发",
+        link: "/blog-detail.html"
     },
     {
         id: 6,
@@ -68,7 +73,8 @@ const blogPosts = [
         date: "2026-01-08",
         views: 2100,
         tags: ["数据建模", "设备诊断", "多模融合"],
-        author: "许工"
+        author: "许工",
+        link: "/blog-detail.html"
     },
     {
         id: 7,
@@ -79,7 +85,8 @@ const blogPosts = [
         date: "2026-01-05",
         views: 1850,
         tags: ["智慧园区", "数据融合", "运维平台"],
-        author: "行业方案组"
+        author: "行业方案组",
+        link: "/blog-detail.html"
     },
     {
         id: 8,
@@ -90,7 +97,8 @@ const blogPosts = [
         date: "2026-01-03",
         views: 2340,
         tags: ["车联网", "V2X", "时空数据"],
-        author: "汽车行业组"
+        author: "汽车行业组",
+        link: "/blog-detail.html"
     },
     {
         id: 9,
@@ -101,7 +109,8 @@ const blogPosts = [
         date: "2025-12-30",
         views: 3890,
         tags: ["存储引擎", "LSM-Tree", "性能调优"],
-        author: "存储组"
+        author: "存储组",
+        link: "/blog-detail.html"
     },
     {
         id: 10,
@@ -112,7 +121,8 @@ const blogPosts = [
         date: "2025-12-28",
         views: 1200,
         tags: ["开源社区", "边缘计算", "SIG"],
-        author: "生态委员会"
+        author: "生态委员会",
+        link: "/blog-detail.html"
     },
     {
         id: 11,
@@ -123,7 +133,8 @@ const blogPosts = [
         date: "2025-12-25",
         views: 1560,
         tags: ["容灾", "混合云", "高可用"],
-        author: "运维专家"
+        author: "运维专家",
+        link: "/blog-detail.html"
     },
     {
         id: 12,
@@ -134,7 +145,8 @@ const blogPosts = [
         date: "2025-12-20",
         views: 1100,
         tags: ["版本发布", "Bugfix"],
-        author: "KaiwuDB 团队"
+        author: "KaiwuDB 团队",
+        link: "/blog-detail.html"
     }
 ];
 
@@ -257,7 +269,7 @@ function renderList(posts) {
                 <span class="meta-date">${post.date}</span>
             </div>
             <h2 class="blog-card-title">
-                <a href="#">${highlightText(post.title, state.filter.search)}</a>
+                <a href="${post.link}">${highlightText(post.title, state.filter.search)}</a>
             </h2>
             <p class="blog-card-excerpt">${highlightText(post.excerpt, state.filter.search)}</p>
             <div class="blog-meta-bottom">
