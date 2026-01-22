@@ -91,21 +91,6 @@
                             </div>
                         </div>
 
-                        <!-- 移除旧的 Tabs，稍后可以放在左侧侧边栏或者顶部保留但样式调整 -->
-                        <!-- 暂时保留 Tabs 但隐藏或重构，根据截图，左侧其实是导航。 -->
-                        <!-- 为了保持功能完整性且不大幅重构 JS，我保留 Tabs 但样式上让它看起来像截图中的“筛选”或者简化 -->
-                        <!-- 截图左侧有“全部、设计原理...”等垂直导航。为了简化，我先隐藏这个Tab栏，假设左侧侧边栏做导航。
-                             但目前 blog.html 结构是 左Main 右Sidebar。
-                             截图是 左Nav 中Main 右Sidebar。三栏布局。
-                             为了不破坏现有功能，我保持 Tabs 功能，但视觉上调整。或者将 Tabs 移到 blog-toolbar 上方？
-                             截图里 "全部 | 设计原理..." 是在左侧。
-                             我暂时保留 blog-toolbar 的功能，但按截图优化 "最新 最热" 和 搜索框 的布局。
-                             原来的 Category Tabs 我暂时隐藏，或者改成简单的文本链接形式放在 Toolbar 左侧？
-                             截图里的 "最新 最热" 是大标题样式。
-                        -->
-                        <!-- 恢复 Tabs 代码，以免 JS 报错，但隐藏它，或者我们把它改成类似截图的左侧导航？ 
-                             改动太大。我先把 Tabs 放在 blog-toolbar 上方作为一行。
-                        -->
                         <div class="blog-tabs" id="categoryTabs" style="margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 10px;">
                             <button class="blog-tab active" data-category="all">全部</button>
                             <button class="blog-tab" data-category="technology">设计原理</button>
@@ -143,6 +128,30 @@
                             </div>
                         </div>
                     </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- 互动与支持区域 -->
+        <section class="blog-support-section">
+            <div class="support-banner">
+                <div class="container">
+                    <div class="support-content">
+                        <h2>互动与支持</h2>
+                        <p>KaiwuDB 有很活跃的技术社区，您可以加入技术讨论群与其他用户一起讨论或联系解决方案架构师了解咨询您所在企业或数据场景下的解决方案</p>
+                        <div class="support-links">
+                            <a href="#">快速上手</a>
+                            <span class="divider">|</span>
+                            <a href="#">立即体验</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 背景装饰层 -->
+                <div class="support-bg-decoration">
+                    <div class="circle c1"></div>
+                    <div class="circle c2"></div>
+                    <div class="line l1"></div>
+                    <div class="line l2"></div>
                 </div>
             </div>
         </section>
