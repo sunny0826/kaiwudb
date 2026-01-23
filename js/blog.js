@@ -51,7 +51,7 @@ const blogPosts = Array.from({ length: 30 }, (_, i) => {
         tags: [["版本发布", "多模数据库"], ["时序数据", "IoT"], ["分布式", "Raft"], ["数字能源", "告警系统"]][i % 4],
         author: ["KaiwuDB 团队", "林工", "架构组", "行业方案组"][i % 4],
         link: "/blog-detail.html",
-        isRecommended: i % 5 === 0 // 每5篇文章设为推荐
+        isRecommended: i % 20 === 0 // 每5篇文章设为推荐
     };
 });
 
