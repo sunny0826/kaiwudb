@@ -16,7 +16,7 @@
 
 .blog-detail-layout {
     display: grid;
-    grid-template-columns: 60px minmax(0, 1fr) 280px;
+    grid-template-columns: 60px minmax(0, 1fr) 320px;
     gap: 40px;
     position: relative;
     margin-top: 30px;
@@ -131,6 +131,38 @@
     margin-bottom: 40px;
     padding-bottom: 30px;
     border-bottom: 1px solid var(--color-border);
+    position: relative;
+}
+
+/* 推荐挂件样式 */
+.recommend-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.35);
+    z-index: 1;
+    letter-spacing: 0.02em;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.recommend-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 107, 107, 0.45);
+}
+
+.recommend-badge i {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
 }
 
 .article-title {
@@ -436,12 +468,74 @@
 }
 
 /* -----------------------------------------
-   Right Sidebar (TOC)
+   Right Sidebar (TOC & User Profile)
    ----------------------------------------- */
 .sidebar-right {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Space between widgets */
 }
 
+/* User Profile Widget */
+.user-profile-widget {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-card-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.profile-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.profile-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.profile-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.profile-stats {
+    font-size: 0.8rem;
+    color: var(--color-text-tertiary);
+    margin: 4px 0 0 0;
+}
+
+.profile-stats strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+    margin: 0 2px;
+}
+
+/* TOC Widget */
 .sticky-widget {
     position: sticky;
     top: 120px;
@@ -498,7 +592,7 @@
 }
 
 .related-widget {
-    margin-top: 40px;
+    margin-top: 16px;
 }
 
 .related-list {
@@ -546,7 +640,7 @@
    ----------------------------------------- */
 @media (max-width: 1200px) {
     .blog-detail-layout {
-        grid-template-columns: 1fr 280px;
+        grid-template-columns: 1fr 320px;
     }
     .sidebar-left {
         display: none; /* Mobile/Tablet: Hide left floating bar */

@@ -38,30 +38,21 @@
                 <!-- 悬浮特性栏 -->
                 <div class="blog-feature-bar">
                     <div class="feature-item">
-                        <div class="feature-icon bg-blue-light">
-                            <i data-lucide="book-open"></i>
-                        </div>
                         <div class="feature-text">
-                            <span class="feature-label">重要活动/新闻</span>
                             <span class="feature-title">KWDB 3.0 换新升级</span>
+                            <span class="feature-label">重要活动/新闻</span>
                         </div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon bg-green-light">
-                            <i data-lucide="message-square"></i>
-                        </div>
                         <div class="feature-text">
-                            <span class="feature-label">KaiwuDB 体验官</span>
                             <span class="feature-title">盲盒有礼！快来领取 KaiwuDB 社区体验官专属福利！</span>
+                            <span class="feature-label">KaiwuDB 体验官</span>
                         </div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon bg-orange-light">
-                            <i data-lucide="award"></i>
-                        </div>
                         <div class="feature-text">
-                            <span class="feature-label">技术专题</span>
                             <span class="feature-title">技术解析与用户实践</span>
+                            <span class="feature-label">技术专题</span>
                         </div>
                     </div>
                 </div>
@@ -72,7 +63,18 @@
         <section class="blog-content-section">
             <div class="container">
                 <div class="blog-layout">
-                    <!-- 左侧：文章列表 -->
+                    <!-- 左侧：导航菜单 -->
+                    <aside class="blog-nav-column">
+                        <div class="blog-tabs" id="categoryTabs">
+                            <button class="blog-tab active" data-category="all">全部</button>
+                            <button class="blog-tab" data-category="technology">设计原理</button>
+                            <button class="blog-tab" data-category="practice">源码解读</button>
+                            <button class="blog-tab" data-category="case">企业案例</button>
+                            <button class="blog-tab" data-category="news">用户实践</button>
+                        </div>
+                    </aside>
+
+                    <!-- 中间：文章列表 -->
                     <div class="blog-list-column">
                         <!-- 筛选与排序工具栏 -->
                         <div class="blog-toolbar">
@@ -80,7 +82,6 @@
                                 <div class="blog-sort">
                                     <button class="sort-btn active" data-sort="newest">最新</button>
                                     <button class="sort-btn" data-sort="popular">最热</button>
-                                    <span class="sort-info">30 天内 <i data-lucide="chevron-down" style="width:14px; display:inline-block; vertical-align:middle;"></i></span>
                                 </div>
                             </div>
                             <div class="blog-search-wrapper">
@@ -91,13 +92,7 @@
                             </div>
                         </div>
 
-                        <div class="blog-tabs" id="categoryTabs" style="margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 10px;">
-                            <button class="blog-tab active" data-category="all">全部</button>
-                            <button class="blog-tab" data-category="technology">设计原理</button>
-                            <button class="blog-tab" data-category="practice">源码解读</button>
-                            <button class="blog-tab" data-category="case">企业案例</button>
-                            <button class="blog-tab" data-category="news">用户实践</button>
-                        </div>
+
 
                         <!-- 文章列表容器 -->
                         <div id="blogListContainer" class="blog-list">
@@ -112,6 +107,14 @@
 
                     <!-- 右侧：侧边栏 -->
                     <aside class="blog-sidebar-column">
+                        <!-- 写博客按钮 -->
+                        <div class="sidebar-widget" style="margin-bottom: 30px;">
+                            <a href="#" class="btn btn-primary btn-write-blog">
+                                <i data-lucide="pen-tool"></i>
+                                <span>写博客</span>
+                            </a>
+                        </div>
+
                         <!-- 热门推荐 -->
                         <div class="sidebar-widget">
                             <h3 class="widget-title">热门推荐</h3>

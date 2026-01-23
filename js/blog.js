@@ -3,152 +3,57 @@
  */
 
 // 模拟博客数据
-const blogPosts = [
-    {
-        id: 1,
-        title: "KaiwuDB 2.2 发布：低延迟写入与多模融合升级",
-        excerpt: "面向工业物联网场景优化写入链路，新增多模融合查询能力并提升集群弹性扩展效率。本文详细解读新版本核心特性与性能表现。",
-        category: "news",
-        categoryLabel: "产品动态",
-        date: "2026-01-18",
-        views: 3240,
-        tags: ["版本发布", "多模数据库", "性能优化"],
-        author: "KaiwuDB 团队",
-        link: "/blog-detail.html"
-    },
-    {
-        id: 2,
-        title: "工业物联网时序数据写入优化实战",
-        excerpt: "结合边缘采集链路与压缩策略，分享百万级设备写入的配置与观测方案。通过真实案例展示如何将写入性能提升 300%。",
-        category: "practice",
-        categoryLabel: "最佳实践",
-        date: "2026-01-16",
-        views: 2850,
-        tags: ["时序数据", "写入优化", "IoT"],
-        author: "林工",
-        link: "/blog-detail.html"
-    },
-    {
-        id: 3,
-        title: "深入解析：分布式数据库的一致性协议",
-        excerpt: "从 Raft 到 Paxos，深入剖析分布式数据库如何保证数据一致性。本文结合 KaiwuDB 架构，讲解共识算法在实际工程中的应用。",
-        category: "technology",
-        categoryLabel: "技术解析",
-        date: "2026-01-14",
-        views: 4120,
-        tags: ["分布式", "一致性", "Raft"],
-        author: "架构组",
-        link: "/blog-detail.html"
-    },
-    {
-        id: 4,
-        title: "数字能源场景下的秒级告警体系搭建",
-        excerpt: "基于 KaiwuDB 构建高并发告警链路，实现千万级测点秒级响应。探讨如何处理海量实时数据并触发精准告警。",
-        category: "case",
-        categoryLabel: "案例分享",
-        date: "2026-01-12",
-        views: 1980,
-        tags: ["数字能源", "告警系统", "实时计算"],
-        author: "行业方案组",
-        link: "/blog-detail.html"
-    },
-    {
-        id: 5,
-        title: "KaiwuDB SQL 优化器技术内幕",
-        excerpt: "SQL 优化器是数据库的大脑。本文揭秘 KaiwuDB 基于代价的优化器（CBO）的设计原理与实现细节。",
-        category: "technology",
-        categoryLabel: "技术解析",
-        date: "2026-01-10",
-        views: 3560,
-        tags: ["SQL优化", "CBO", "内核技术"],
-        author: "内核研发",
-        link: "/blog-detail.html"
-    },
-    {
-        id: 6,
-        title: "多模数据建模在设备健康诊断中的应用",
-        excerpt: "以设备健康为例，分享时序、关系与图数据协同建模的方法。展示多模数据库如何简化复杂业务逻辑。",
-        category: "practice",
-        categoryLabel: "最佳实践",
-        date: "2026-01-08",
-        views: 2100,
-        tags: ["数据建模", "设备诊断", "多模融合"],
-        author: "许工",
-        link: "/blog-detail.html"
-    },
-    {
-        id: 7,
-        title: "智慧园区综合运维平台落地实践",
-        excerpt: "通过多源数据融合与实时分析，实现园区能耗与设备状态联动管理。详细介绍系统架构与数据流转。",
-        category: "case",
-        categoryLabel: "案例分享",
-        date: "2026-01-05",
-        views: 1850,
-        tags: ["智慧园区", "数据融合", "运维平台"],
-        author: "行业方案组",
-        link: "/blog-detail.html"
-    },
-    {
-        id: 8,
-        title: "KaiwuDB 在车联网 V2X 场景的探索",
-        excerpt: "面对海量车端数据上报，如何实现高效存储与实时查询？本文分享 KaiwuDB 在车联网领域的解决方案。",
-        category: "case",
-        categoryLabel: "案例分享",
-        date: "2026-01-03",
-        views: 2340,
-        tags: ["车联网", "V2X", "时空数据"],
-        author: "汽车行业组",
-        link: "/blog-detail.html"
-    },
-    {
-        id: 9,
-        title: "LSM-Tree 存储引擎优化指南",
-        excerpt: "针对写多读少场景，LSM-Tree 是主流选择。本文介绍如何通过参数调优减少写放大，提升压缩率。",
-        category: "technology",
-        categoryLabel: "技术解析",
-        date: "2025-12-30",
-        views: 3890,
-        tags: ["存储引擎", "LSM-Tree", "性能调优"],
-        author: "存储组",
-        link: "/blog-detail.html"
-    },
-    {
-        id: 10,
-        title: "社区 SIG 新增边缘智能小组",
-        excerpt: "专注边缘智能与实时分析场景，欢迎社区伙伴加入共建。介绍小组规划与近期 Roadmap。",
-        category: "news",
-        categoryLabel: "产品动态",
-        date: "2025-12-28",
-        views: 1200,
-        tags: ["开源社区", "边缘计算", "SIG"],
-        author: "生态委员会",
-        link: "/blog-detail.html"
-    },
-    {
-        id: 11,
-        title: "如何实现数据库跨云容灾",
-        excerpt: "探讨混合云架构下的数据库容灾方案，确保业务连续性。",
-        category: "practice",
-        categoryLabel: "最佳实践",
-        date: "2025-12-25",
-        views: 1560,
-        tags: ["容灾", "混合云", "高可用"],
-        author: "运维专家",
-        link: "/blog-detail.html"
-    },
-    {
-        id: 12,
-        title: "KaiwuDB 2.1 维护版发布说明",
-        excerpt: "修复多项稳定性问题，提升边缘节点同步效率与安全审计能力。",
-        category: "news",
-        categoryLabel: "产品动态",
-        date: "2025-12-20",
-        views: 1100,
-        tags: ["版本发布", "Bugfix"],
-        author: "KaiwuDB 团队",
-        link: "/blog-detail.html"
-    }
-];
+const blogPosts = Array.from({ length: 30 }, (_, i) => {
+    const id = i + 1;
+    const categories = ['news', 'practice', 'case', 'technology'];
+    const categoryLabels = {
+        'news': '产品动态',
+        'practice': '最佳实践',
+        'case': '案例分享',
+        'technology': '技术解析'
+    };
+    const category = categories[i % 4];
+    
+    return {
+        id: id,
+        title: [
+            "KaiwuDB 2.2 发布：低延迟写入与多模融合升级",
+            "工业物联网时序数据写入优化实战",
+            "深入解析：分布式数据库的一致性协议",
+            "数字能源场景下的秒级告警体系搭建",
+            "KaiwuDB SQL 优化器技术内幕",
+            "多模数据建模在设备健康诊断中的应用",
+            "智慧园区综合运维平台落地实践",
+            "KaiwuDB 在车联网 V2X 场景的探索",
+            "LSM-Tree 存储引擎优化指南",
+            "社区 SIG 新增边缘智能小组",
+            "如何实现数据库跨云容灾",
+            "KaiwuDB 2.1 维护版发布说明"
+        ][i % 12] + (Math.floor(i / 12) > 0 ? ` (第 ${Math.floor(i / 12) + 1} 篇)` : ""),
+        excerpt: [
+            "面向工业物联网场景优化写入链路，新增多模融合查询能力并提升集群弹性扩展效率。本文详细解读新版本核心特性与性能表现。",
+            "结合边缘采集链路与压缩策略，分享百万级设备写入的配置与观测方案。通过真实案例展示如何将写入性能提升 300%。",
+            "从 Raft 到 Paxos，深入剖析分布式数据库如何保证数据一致性。本文结合 KaiwuDB 架构，讲解共识算法在实际工程中的应用。",
+            "基于 KaiwuDB 构建高并发告警链路，实现千万级测点秒级响应。探讨如何处理海量实时数据并触发精准告警。",
+            "SQL 优化器是数据库的大脑。本文揭秘 KaiwuDB 基于代价的优化器（CBO）的设计原理与实现细节。",
+            "以设备健康为例，分享时序、关系与图数据协同建模的方法。展示多模数据库如何简化复杂业务逻辑。",
+            "通过多源数据融合与实时分析，实现园区能耗与设备状态联动管理。详细介绍系统架构与数据流转。",
+            "面对海量车端数据上报，如何实现高效存储与实时查询？本文分享 KaiwuDB 在车联网领域的解决方案。",
+            "针对写多读少场景，LSM-Tree 是主流选择。本文介绍如何通过参数调优减少写放大，提升压缩率。",
+            "专注边缘智能与实时分析场景，欢迎社区伙伴加入共建。介绍小组规划与近期 Roadmap。",
+            "探讨混合云架构下的数据库容灾方案，确保业务连续性。",
+            "修复多项稳定性问题，提升边缘节点同步效率与安全审计能力。"
+        ][i % 12],
+        category: category,
+        categoryLabel: categoryLabels[category],
+        date: new Date(2026, 0, 18 - i).toISOString().split('T')[0],
+        views: 1000 + Math.floor(Math.random() * 3000),
+        tags: [["版本发布", "多模数据库"], ["时序数据", "IoT"], ["分布式", "Raft"], ["数字能源", "告警系统"]][i % 4],
+        author: ["KaiwuDB 团队", "林工", "架构组", "行业方案组"][i % 4],
+        link: "/blog-detail.html",
+        isRecommended: i % 5 === 0 // 每5篇文章设为推荐
+    };
+});
 
 // 状态管理
 const state = {
@@ -159,7 +64,7 @@ const state = {
     sort: 'newest', // 'newest' | 'popular'
     pagination: {
         page: 1,
-        pageSize: 5
+        pageSize: 20
     }
 };
 
@@ -263,27 +168,35 @@ function renderList(posts) {
     }
 
     container.innerHTML = posts.map(post => `
-        <article class="blog-card">
-            <div class="blog-meta-top">
-                <span class="blog-category-tag">${post.categoryLabel}</span>
-                <span class="meta-date">${post.date}</span>
-            </div>
-            <h2 class="blog-card-title">
-                <a href="${post.link}">${highlightText(post.title, state.filter.search)}</a>
-            </h2>
-            <p class="blog-card-excerpt">${highlightText(post.excerpt, state.filter.search)}</p>
-            <div class="blog-meta-bottom">
-                <div class="meta-item">
-                    <i data-lucide="user"></i>
-                    <span>${post.author}</span>
+        <article class="blog-list-item">
+            ${post.isRecommended ? '<div class="recommend-badge"><i data-lucide="thumbs-up" style="width: 12px; height: 12px; margin-right: 4px;"></i>推荐</div>' : ''}
+            <div class="blog-item-main">
+                <div class="blog-item-header">
+                    <span class="blog-item-category ${post.category}">${post.categoryLabel}</span>
+                    <span class="blog-item-date">${post.date}</span>
                 </div>
-                <div class="meta-item">
-                    <i data-lucide="eye"></i>
-                    <span>${post.views}</span>
-                </div>
-                <div class="meta-item">
-                    <i data-lucide="tag"></i>
-                    <span>${post.tags.join(', ')}</span>
+                <h3 class="blog-item-title">
+                    <a href="${post.link}">${highlightText(post.title, state.filter.search)}</a>
+                </h3>
+                <p class="blog-item-excerpt">${highlightText(post.excerpt, state.filter.search)}</p>
+                <div class="blog-item-footer">
+                    <div class="blog-item-meta">
+                        <span class="meta-entry">
+                            <i data-lucide="user"></i>
+                            ${post.author}
+                        </span>
+                        <span class="meta-entry">
+                            <i data-lucide="eye"></i>
+                            ${post.views}
+                        </span>
+                        <span class="meta-entry">
+                            <i data-lucide="tag"></i>
+                            ${post.tags.join(', ')}
+                        </span>
+                    </div>
+                    <a href="${post.link}" class="blog-item-readmore">
+                        阅读全文 <i data-lucide="arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </article>
@@ -364,8 +277,7 @@ function renderSidebar() {
             <li class="hot-article-item">
                 <div class="hot-index">${index + 1}</div>
                 <div class="hot-info">
-                    <h4><a href="#">${post.title}</a></h4>
-                    <div class="hot-meta">${post.views} 阅读</div>
+                    <h4><a href="#">${post.title}</a></h4> 
                 </div>
             </li>
         `).join('');

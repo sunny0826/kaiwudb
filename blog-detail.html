@@ -33,7 +33,7 @@
                 <span class="separator">/</span>
                 <a href="blog.html">博客</a>
                 <span class="separator">/</span>
-                <span class="current">正文</span>
+                <span class="current">深入解析：分布式数据库的一致性协议</span>
             </nav>
         </div>
 
@@ -62,10 +62,13 @@
             <!-- 中间主要内容 -->
             <article class="blog-article">
                 <header class="article-header">
+                    <div class="recommend-badge">
+                        <i data-lucide="thumbs-up"></i>
+                        推荐
+                    </div>
                     <h1 class="article-title">深入解析：分布式数据库的一致性协议</h1>
                     <div class="article-meta">
                         <div class="author-info">
-                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="作者头像" class="author-avatar">
                             <div class="author-details">
                                 <span class="author-name">李技术</span>
                                 <span class="publish-date">2025年05月20日 · 阅读 4120</span>
@@ -148,11 +151,6 @@ class Proposer {
                                 <i data-lucide="star"></i> 收藏
                             </button>
                         </div>
-                        <div class="share-group">
-                            <span>分享至：</span>
-                            <a href="#"><i data-lucide="twitter"></i></a>
-                            <a href="#"><i data-lucide="linkedin"></i></a>
-                        </div>
                     </div>
                 </div>
 
@@ -203,7 +201,20 @@ class Proposer {
             <!-- 右侧侧边栏：目录与推荐 -->
             <aside class="sidebar-right">
                 <div class="toc-widget sticky-widget">
-                    <h3 class="widget-title">目录</h3>
+                <div class="user-profile-widget">
+                    <div class="profile-card-content">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="李技术" class="profile-avatar">
+                        <div class="profile-info">
+                            <h3 class="profile-name">李技术</h3>
+                            <p class="profile-desc">XXXXXXX</p>
+                            <p class="profile-stats">已发布 <strong>76</strong> 篇博文</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                  <h3 class="widget-title">目录</h3>
                     <ul class="toc-list" id="tocList">
                         <!-- JS 自动生成 -->
                     </ul>

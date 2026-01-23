@@ -150,8 +150,13 @@
 .blog-layout {
     display: flex;
     gap: 40px;
-    /* 确保容器内布局对齐 */
     width: 100%;
+    align-items: flex-start;
+}
+
+.blog-nav-column {
+    width: 180px;
+    flex-shrink: 0;
 }
 
 .blog-list-column {
@@ -192,25 +197,38 @@
 }
 
 /* Tabs Style */
+.blog-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: sticky;
+    top: 100px;
+}
+
 .blog-tab {
+    display: block;
+    width: 100%;
+    text-align: left;
     background: none;
     border: none;
-    padding: 8px 16px;
+    padding: 12px 16px;
     font-size: 1rem;
     color: var(--color-text-secondary);
     cursor: pointer;
-    border-bottom: 2px solid transparent;
+    border-left: 3px solid transparent;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     transition: var(--transition-fast);
-    margin-right: 10px;
 }
 
 .blog-tab:hover {
-    color: var(--color-accent);
+    color: var(--color-text-primary);
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
 .blog-tab.active {
     color: var(--color-accent);
-    border-bottom-color: var(--color-accent);
+    background-color: #F0F7FF;
+    border-left-color: var(--color-accent);
     font-weight: 600;
 }
 
@@ -251,7 +269,7 @@
 
 .blog-search-wrapper {
     position: relative;
-    width: 300px;
+    width: 400px;
 }
 
 .search-input-group {
@@ -287,136 +305,174 @@
 }
 
 /* -----------------------------------------
-   Article List
+   Article List (Refactored List Style)
    ----------------------------------------- */
 .blog-list {
     display: flex;
     flex-direction: column;
-    gap: 24px;
 }
 
-.blog-card {
-    background: #fff;
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    border: 1px solid var(--color-border);
-    transition: var(--transition-smooth);
+.blog-list-item {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--color-border);
     display: flex;
     gap: 24px;
+    transition: background-color 0.2s ease;
+    position: relative; /* 确保子元素绝对定位相对于此 */
 }
 
-.blog-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-card-hover);
-    border-color: transparent;
-}
-
-.blog-card-content {
-    flex: 1;
-}
-
-.blog-card-meta {
+/* 推荐挂件样式 */
+.recommend-badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
     display: flex;
-    gap: 12px;
-    font-size: 0.85rem;
-    color: var(--color-text-tertiary);
-    margin-bottom: 8px;
     align-items: center;
-}
-
-.blog-tag {
-    color: var(--color-accent);
-    background: var(--color-accent-subtle);
-    padding: 2px 8px;
-    border-radius: var(--radius-sm);
-    font-weight: 500;
-}
-
-.blog-card-title {
-    font-size: 1.25rem;
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+    color: #fff;
+    font-size: 0.75rem;
     font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.35);
+    z-index: 1;
+    letter-spacing: 0.02em;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.recommend-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 107, 107, 0.45);
+}
+
+.blog-list-item:first-child {
+    padding-top: 0;
+}
+
+.blog-item-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-item-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin-bottom: 12px;
-    line-height: 1.4;
+    font-size: 0.85rem;
 }
 
-.blog-card-title a {
+.blog-item-category {
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.blog-item-category.news { color: #0056D2; background: rgba(0, 86, 210, 0.1); }
+.blog-item-category.practice { color: #00897B; background: rgba(0, 137, 123, 0.1); }
+.blog-item-category.case { color: #F57C00; background: rgba(245, 124, 0, 0.1); }
+.blog-item-category.technology { color: #7B1FA2; background: rgba(123, 31, 162, 0.1); }
+
+.blog-item-date {
+    color: var(--color-text-tertiary);
+}
+
+.blog-item-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+.blog-item-title a {
     color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color 0.2s;
 }
 
-.blog-card-title a:hover {
+.blog-item-title a:hover {
     color: var(--color-accent);
 }
 
-.blog-card-excerpt {
-    font-size: 0.95rem;
+.blog-item-excerpt {
+    font-size: 1rem;
     color: var(--color-text-secondary);
     line-height: 1.6;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-.blog-card-footer {
+.blog-item-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.85rem;
+    margin-top: auto;
+}
+
+.blog-item-meta {
+    display: flex;
+    gap: 24px;
     color: var(--color-text-tertiary);
+    font-size: 0.85rem;
 }
 
-.blog-author {
+.meta-entry {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
-.author-avatar {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: var(--color-bg-tertiary);
+.meta-entry i {
+    width: 16px;
+    height: 16px;
 }
 
-.blog-stats {
-    display: flex;
-    gap: 16px;
-}
-
-.stat-item {
+.blog-item-readmore {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: gap 0.2s;
 }
 
-.stat-item i {
-    width: 14px;
-    height: 14px;
+.blog-item-readmore:hover {
+    gap: 10px;
+    text-decoration: underline;
 }
 
-.blog-card-image {
-    width: 200px;
-    height: 140px;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.blog-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.blog-card:hover .blog-card-image img {
-    transform: scale(1.05);
+.blog-item-readmore i {
+    width: 16px;
+    height: 16px;
 }
 
 /* -----------------------------------------
    Sidebar
    ----------------------------------------- */
+.btn-write-blog {
+    width: 100%;
+    height: 48px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    gap: 10px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 12px rgba(0, 86, 210, 0.15);
+}
+
+.btn-write-blog:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 86, 210, 0.25);
+}
+
 .sidebar-widget {
     margin-bottom: 40px;
 }
@@ -440,7 +496,6 @@
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    margin-bottom: 20px;
 }
 
 .hot-article-item:last-child {
@@ -581,6 +636,51 @@
         flex-direction: column;
     }
     
+    /* Mobile Nav Styles */
+    .blog-nav-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .blog-tabs {
+        flex-direction: row;
+        position: static;
+        overflow-x: auto;
+        gap: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid var(--color-border);
+        /* Hide scrollbar */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    .blog-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .blog-tab {
+        width: auto;
+        display: block;
+        white-space: nowrap;
+        border-left: none;
+        border-radius: var(--radius-sm);
+        background: none !important;
+        border-bottom: 2px solid transparent;
+        padding: 8px 16px;
+        text-align: center;
+    }
+
+    .blog-tab:hover {
+        background: none;
+        color: var(--color-accent);
+    }
+
+    .blog-tab.active {
+        background: none;
+        border-bottom-color: var(--color-accent);
+        color: var(--color-accent);
+    }
+
     .blog-sidebar-column {
         width: 100%;
         display: grid;
@@ -628,13 +728,12 @@
         grid-template-columns: 1fr;
     }
     
-    .blog-card {
-        flex-direction: column;
+    .blog-item-header {
+        flex-wrap: wrap;
     }
-    
-    .blog-card-image {
-        width: 100%;
-        height: 180px;
+
+    .blog-item-title {
+        font-size: 1.25rem;
     }
     
     .blog-toolbar {
