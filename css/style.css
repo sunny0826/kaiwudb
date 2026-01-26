@@ -27,6 +27,10 @@
     --color-border: rgba(0, 0, 0, 0.06);     /* 极细微的边框 */
     --color-border-hover: rgba(0, 0, 0, 0.12);
     
+    /* 状态色 */
+    --color-success: #10B981;
+    --color-success-subtle: rgba(16, 185, 129, 0.1);
+    
     /* 间距与尺寸 (Spacing & Sizing) */
     --spacing-xs: 4px;
     --spacing-sm: 8px;

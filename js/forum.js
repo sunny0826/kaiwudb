@@ -236,7 +236,8 @@ function renderList(posts) {
     }
 
     container.innerHTML = posts.map(post => `
-        <div class="forum-post-item">
+        <div class="forum-post-item" onclick="window.open('${post.url}', '_blank')">
+            ${post.solved ? '<span class="status-badge solved"><i data-lucide="check-circle-2" class="icon-xs"></i> 已解决</span>' : ''}
             <div class="post-content">
                 <h3 class="post-title">
                     <a href="${post.url}" target="_blank">${highlightText(post.title, state.search)}</a>
@@ -245,7 +246,6 @@ function renderList(posts) {
                 
                 <div class="post-footer">
                     <div class="post-stats-info">
-                        ${post.solved ? '<span class="status-badge solved"><i data-lucide="check-circle-2" class="icon-xs"></i> 已解决</span>' : ''}
                         <div class="stat-item" title="点赞">
                             <i data-lucide="thumbs-up" class="stat-icon"></i>
                             <span>${post.votes}</span>
