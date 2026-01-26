@@ -16,7 +16,7 @@ const forumPosts = [
         views: 125,
         replies: 3,
         votes: 5,
-        url: "http://localhost:8000/forum-detail.html",
+        url: "https://p.guoxudong.io/forum-detail.html",
         solved: false
     },
     {
@@ -31,7 +31,7 @@ const forumPosts = [
         views: 340,
         replies: 8,
         votes: 12,
-        url: "http://localhost:8000/forum-detail.html",
+        url: "https://p.guoxudong.io/forum-detail.html",
         solved: true
     },
     {
@@ -46,7 +46,7 @@ const forumPosts = [
         views: 560,
         replies: 5,
         votes: 8,
-        url: "http://localhost:8000/forum-detail.html",
+        url: "https://p.guoxudong.io/forum-detail.html",
         solved: true
     },
     {
@@ -61,7 +61,7 @@ const forumPosts = [
         views: 210,
         replies: 2,
         votes: 3,
-        url: "http://localhost:8000/forum-detail.html",
+        url: "https://p.guoxudong.io/forum-detail.html",
         solved: false
     },
     {
@@ -76,7 +76,7 @@ const forumPosts = [
         views: 450,
         replies: 6,
         votes: 7,
-        url: "http://localhost:8000/forum-detail.html",
+        url: "https://p.guoxudong.io/forum-detail.html",
         solved: true
     },
     {
@@ -91,7 +91,7 @@ const forumPosts = [
         views: 180,
         replies: 1,
         votes: 2,
-        url: "http://localhost:8000/forum-detail.html",
+        url: "https://p.guoxudong.io/forum-detail.html",
         solved: false
     },
     {
