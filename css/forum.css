@@ -79,11 +79,67 @@
 
 .forum-layout {
     display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 40px;
+    grid-template-columns: 220px 1fr 280px;
+    gap: 24px;
+    align-items: start;
 }
 
-/* 左侧列表区域 */
+/* 左侧分类导航 */
+.forum-category-sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.category-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: sticky;
+    top: 100px;
+    background: var(--color-bg-primary);
+    padding: 16px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    transition: var(--transition-fast);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.category-item:hover {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+.category-item.active {
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+}
+
+.category-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    color: currentColor;
+    opacity: 0.8;
+}
+
+.category-item:hover .category-icon {
+    opacity: 1;
+}
+
+/* 中间列表区域 */
 .forum-main-column {
     display: flex;
     flex-direction: column;
@@ -140,12 +196,13 @@
 
 .forum-post-item {
     display: flex;
+    flex-direction: column; /* 垂直排列 */
     background: var(--color-bg-primary);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    padding: 20px;
+    padding: 24px;
     transition: var(--transition-smooth);
-    gap: 20px;
+    gap: 12px;
 }
 
 .forum-post-item:hover {
@@ -154,46 +211,88 @@
     border-color: var(--color-accent-border);
 }
 
-/* 统计数据块 */
-.post-stats {
+/* 帖子底部栏 (合并了 meta 和 stats) */
+.post-footer {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    gap: 8px;
-    min-width: 60px;
+    margin-top: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border-subtle);
+    gap: 16px;
+    flex-wrap: nowrap; /* 禁止换行 */
+    font-size: 0.85rem; /* 统一字体大小 */
+}
+
+.post-meta-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     color: var(--color-text-tertiary);
-    font-size: 0.85rem;
+    flex-wrap: nowrap; /* 禁止换行 */
+    white-space: nowrap; /* 防止文字换行 */
 }
 
-.stat-box {
+.post-stats-info {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: 4px 8px;
-    border-radius: var(--radius-sm);
+    gap: 20px;
+    flex-shrink: 0; /* 防止统计信息被压缩 */
 }
 
-.stat-box.answered {
-    background-color: var(--color-accent-subtle);
+/* 调整图标大小 */
+.icon-sm {
+    width: 16px;
+    height: 16px;
+}
+
+.icon-xs {
+    width: 14px;
+    height: 14px;
+}
+
+/* 统计数据行 (旧样式移除或保留给 detail 页面复用，这里不再使用 .post-stats-row) */
+/* .post-stats-row { ... } */
+
+.stat-item {
+    display: flex;
+    flex-direction: row; /* 明确指定横向排列 */
+    align-items: center;
+    gap: 6px;
+    color: var(--color-text-tertiary);
+    cursor: default;
+    font-size: inherit; /* 继承父级字体大小 */
+    white-space: nowrap; /* 防止内容换行 */
+}
+
+.stat-item:hover {
+    color: var(--color-text-secondary);
+}
+
+.stat-item.highlight {
     color: var(--color-accent);
-    border: 1px solid var(--color-accent);
+    font-weight: 500;
 }
 
-.stat-box.solved {
-    background-color: #e6fffa;
+.stat-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-size: inherit; /* 继承父级字体大小 */
+    font-weight: 500;
+}
+
+.status-badge.solved {
+    background: #e6fffa;
     color: #047857;
-    border: 1px solid #047857;
-}
-
-.stat-count {
-    font-size: 1.1rem;
-    font-weight: 600;
-    line-height: 1;
-}
-
-.stat-label {
-    font-size: 0.75rem;
-    margin-top: 2px;
+    border: 1px solid rgba(4, 120, 87, 0.2);
 }
 
 /* 帖子内容 */
@@ -203,6 +302,7 @@
     flex-direction: column;
     gap: 8px;
 }
+
 
 .post-title {
     font-size: 1.15rem;
@@ -251,7 +351,7 @@
     color: var(--color-text-secondary);
     padding: 2px 8px;
     border-radius: var(--radius-full);
-    font-size: 0.75rem;
+    font-size: inherit; /* 统一字体大小 */
     transition: var(--transition-fast);
 }
 
@@ -559,6 +659,10 @@
 @media (max-width: 991px) {
     .forum-layout {
         grid-template-columns: 1fr;
+    }
+    
+    .forum-category-sidebar {
+        display: none;
     }
     
     .forum-sidebar-column {

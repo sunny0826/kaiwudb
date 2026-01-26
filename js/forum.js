@@ -16,6 +16,7 @@ const forumPosts = [
         views: 125,
         replies: 3,
         votes: 5,
+        url: "http://localhost:8000/forum-detail.html",
         solved: false
     },
     {
@@ -30,6 +31,7 @@ const forumPosts = [
         views: 340,
         replies: 8,
         votes: 12,
+        url: "http://localhost:8000/forum-detail.html",
         solved: true
     },
     {
@@ -44,6 +46,7 @@ const forumPosts = [
         views: 560,
         replies: 5,
         votes: 8,
+        url: "http://localhost:8000/forum-detail.html",
         solved: true
     },
     {
@@ -58,6 +61,7 @@ const forumPosts = [
         views: 210,
         replies: 2,
         votes: 3,
+        url: "http://localhost:8000/forum-detail.html",
         solved: false
     },
     {
@@ -72,6 +76,7 @@ const forumPosts = [
         views: 450,
         replies: 6,
         votes: 7,
+        url: "http://localhost:8000/forum-detail.html",
         solved: true
     },
     {
@@ -86,6 +91,7 @@ const forumPosts = [
         views: 180,
         replies: 1,
         votes: 2,
+        url: "http://localhost:8000/forum-detail.html",
         solved: false
     },
     {
@@ -231,36 +237,41 @@ function renderList(posts) {
 
     container.innerHTML = posts.map(post => `
         <div class="forum-post-item">
-            <div class="post-stats">
-                <div class="stat-box">
-                    <span class="stat-count">${post.votes}</span>
-                    <span class="stat-label">票数</span>
-                </div>
-                <div class="stat-box ${post.replies > 0 ? 'answered' : ''} ${post.solved ? 'solved' : ''}">
-                    <span class="stat-count">${post.replies}</span>
-                    <span class="stat-label">${post.solved ? '已解决' : '回答'}</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-count">${post.views}</span>
-                    <span class="stat-label">浏览</span>
-                </div>
-            </div>
             <div class="post-content">
                 <h3 class="post-title">
-                    <a href="#">${highlightText(post.title, state.search)}</a>
+                    <a href="${post.url}" target="_blank">${highlightText(post.title, state.search)}</a>
                 </h3>
                 <p class="post-excerpt">${highlightText(post.excerpt, state.search)}</p>
-                <div class="post-meta">
-                    <div class="post-tags">
-                        ${post.tags.map(tag => `<span class="post-tag">${tag}</span>`).join('')}
+                
+                <div class="post-footer">
+                    <div class="post-stats-info">
+                        ${post.solved ? '<span class="status-badge solved"><i data-lucide="check-circle-2" class="icon-xs"></i> 已解决</span>' : ''}
+                        <div class="stat-item" title="点赞">
+                            <i data-lucide="thumbs-up" class="stat-icon"></i>
+                            <span>${post.votes}</span>
+                        </div>
+                        <div class="stat-item ${post.replies > 0 ? 'highlight' : ''}" title="回复">
+                            <i data-lucide="message-square" class="stat-icon"></i>
+                            <span>${post.replies}</span>
+                        </div>
+                        <div class="stat-item" title="浏览">
+                            <i data-lucide="eye" class="stat-icon"></i>
+                            <span>${post.views}</span>
+                        </div>
                     </div>
-                    <div class="meta-divider"></div>
-                    <div class="post-author">
-                        ${post.avatar ? `<img src="${post.avatar}" class="author-avatar" alt="${post.author}">` : '<i data-lucide="user" style="width:16px;height:16px;"></i>'}
-                        <span>${post.author}</span>
+
+                    <div class="post-meta-info">
+                        <div class="post-tags">
+                            ${post.tags.map(tag => `<span class="post-tag">${tag}</span>`).join('')}
+                        </div>
+                        <div class="meta-divider"></div>
+                        <div class="post-author">
+                            ${post.avatar ? `<img src="${post.avatar}" class="author-avatar" alt="${post.author}">` : '<i data-lucide="user" class="icon-sm"></i>'}
+                            <span>${post.author}</span>
+                        </div>
+                        <div class="meta-divider"></div>
+                        <span class="post-date">${post.date}</span>
                     </div>
-                    <div class="meta-divider"></div>
-                    <span>${post.date}</span>
                 </div>
             </div>
         </div>

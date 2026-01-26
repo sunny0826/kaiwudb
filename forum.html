@@ -24,9 +24,8 @@
                         <i data-lucide="search" class="search-icon"></i>
                         <input type="text" id="forumSearchInput" placeholder="搜索问题、话题或标签...">
                     </div>
-                    <button class="btn btn-primary" onclick="openAskModal()">
-                        <i data-lucide="plus-circle"></i> 发起提问
-                    </button>
+                    <!-- Button moved to sidebar -->
+
                 </div>
             </div>
         </div>
@@ -36,14 +35,47 @@
     <section class="forum-section">
         <div class="container">
             <div class="forum-layout">
-                <!-- 左侧：帖子列表 -->
+                <!-- 左侧：分类导航 -->
+                <aside class="forum-category-sidebar">
+                    <nav class="category-nav">
+                        <a href="#" class="category-item active">
+                            <span class="category-icon"><i data-lucide="layout-grid"></i></span>
+                            <span class="category-name">全部</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <span class="category-icon" style="color: #0056D2;"><i data-lucide="server"></i></span>
+                            <span class="category-name">安装部署</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <span class="category-icon" style="color: #10B981;"><i data-lucide="zap"></i></span>
+                            <span class="category-name">功能使用</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <span class="category-icon" style="color: #8B5CF6;"><i data-lucide="code-2"></i></span>
+                            <span class="category-name">应用开发</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <span class="category-icon" style="color: #F59E0B;"><i data-lucide="bug"></i></span>
+                            <span class="category-name">Bug 反馈</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <span class="category-icon" style="color: #EC4899;"><i data-lucide="lightbulb"></i></span>
+                            <span class="category-name">功能建议</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <span class="category-icon" style="color: #64748B;"><i data-lucide="coffee"></i></span>
+                            <span class="category-name">非严肃讨论区</span>
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- 中间：帖子列表 -->
                 <div class="forum-main-column">
                     <div class="forum-toolbar">
                         <div class="forum-tabs" id="forumTabs">
                             <button class="forum-tab active" data-filter="latest">最新提问</button>
                             <button class="forum-tab" data-filter="hot">热门话题</button>
                             <button class="forum-tab" data-filter="unsolved">等待回答</button>
-                            <button class="forum-tab" data-filter="solved">已解决</button>
                         </div>
                     </div>
 
@@ -58,16 +90,10 @@
 
                 <!-- 右侧：侧边栏 -->
                 <aside class="forum-sidebar-column">
-                    <!-- 用户状态卡片 -->
-                    <div class="sidebar-card user-card">
-                        <div class="user-card-content">
-                            <h3>加入社区</h3>
-                            <p>登录参与讨论，关注感兴趣的话题</p>
-                            <div class="user-actions">
-                                <a href="register.html" class="btn btn-primary btn-block">登录 / 注册</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- 发起提问 -->
+                    <button class="btn btn-primary btn-block" onclick="openAskModal()" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i data-lucide="plus-circle" style="margin-right: 6px;"></i> 发起提问
+                    </button>
 
                     <!-- 热门标签 -->
                     <div class="sidebar-card">
