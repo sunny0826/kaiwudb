@@ -195,9 +195,7 @@
 }
 
 .content-layout {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 24px;
+    display: block;
 }
 
 /* Left Column */
@@ -407,103 +405,14 @@
     color: #1f1f1f;
 }
 
-/* Right Sidebar */
-.sidebar-column {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
 
-.sidebar-widget {
-    background: #fff;
-    border-radius: 8px;
-    padding: 24px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-}
+/* Right Sidebar (Removed) */
 
-.widget-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: #1f1f1f;
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.organizer-info {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.org-logo {
-    width: 48px;
-    height: 48px;
-    background: #0056D2;
-    color: #fff;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: 900;
-}
-
-.org-details h4 {
-    font-size: 15px;
-    font-weight: 600;
-    color: #1f1f1f;
-    margin-bottom: 4px;
-}
-
-.org-details p {
-    font-size: 12px;
-    color: #999;
-    line-height: 1.4;
-}
-
-.contact-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.contact-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-    font-size: 14px;
-    color: #666;
-}
-
-.contact-list i {
-    width: 16px;
-    height: 16px;
-    color: #999;
-}
-
-.qrcode-box {
-    text-align: center;
-}
-
-.qrcode-box svg {
-    margin-bottom: 12px;
-}
-
-.qrcode-box p {
-    font-size: 12px;
-    color: #999;
-}
 
 /* -------------------------------------------------------------------------- */
 /* Responsive Design
 /* -------------------------------------------------------------------------- */
 @media (max-width: 992px) {
-    .content-layout {
-        grid-template-columns: 1fr;
-    }
-
     .hero-container {
         flex-direction: column;
         text-align: center;
