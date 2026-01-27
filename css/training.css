@@ -1,0 +1,321 @@
+/* Scoped styles for Training Page */
+.training-page {
+    /* Ensure no global style pollution */
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 60px; /* Navbar height */
+}
+
+/* Hero Section */
+.training-hero {
+    position: relative;
+    background: linear-gradient(135deg, #0056D2 0%, #003a8c 100%);
+    color: #fff;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.training-hero-content {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.training-hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.training-hero-desc {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.training-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.1;
+    background-image: radial-gradient(circle at 80% 20%, #ffffff 0%, transparent 20%),
+                      radial-gradient(circle at 20% 80%, #ffffff 0%, transparent 20%);
+}
+
+/* Certification Section */
+.training-certs {
+    padding: 60px 0;
+    background: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.training-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.cert-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    text-align: center;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--color-accent-border);
+}
+
+.cert-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--color-accent-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--color-accent);
+}
+
+.cert-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-text-primary);
+}
+
+.cert-desc {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.cert-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 24px;
+    background: #fff;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    border-radius: var(--radius-full);
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.cert-btn:hover {
+    background: var(--color-accent);
+    color: #fff;
+}
+
+/* Courses Section */
+.training-courses {
+    padding: 60px 0;
+    background: var(--color-bg-secondary);
+}
+
+.course-filters {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border-radius: var(--radius-full);
+    background: #fff;
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-size: 14px;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.course-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.course-cover {
+    height: 160px;
+    background: var(--color-bg-tertiary);
+    position: relative;
+    overflow: hidden;
+}
+
+.course-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.course-card:hover .course-cover img {
+    transform: scale(1.05);
+}
+
+.course-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.course-tag {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+}
+
+.course-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+}
+
+.course-info {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+}
+
+.course-level {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.page-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    background: #fff;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.page-btn.active {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+}
+
+.page-btn:hover:not(.active) {
+    background: var(--color-bg-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .course-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .training-hero-title {
+        font-size: 32px;
+    }
+    .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+}
