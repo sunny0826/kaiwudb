@@ -8,6 +8,8 @@ const activities = [
         id: 1,
         title: "KaiwuDB 2026 开发者大会 - 上海站",
         date: "2026-01-28 14:00-17:00",
+        startDate: "2026-01-28",
+        endDate: "2026-01-28",
         location: "上海 · 浦东新区张江高科",
         type: "offline",
         status: "registering", // registering, ongoing, ended
@@ -18,6 +20,8 @@ const activities = [
         id: 2,
         title: "KaiwuDB 核心技术揭秘：时序引擎优化实践",
         date: "2026-01-30 19:30-21:00",
+        startDate: "2026-01-30",
+        endDate: "2026-01-30",
         location: "线上直播",
         type: "online",
         status: "ongoing",
@@ -28,6 +32,8 @@ const activities = [
         id: 3,
         title: "数据库性能调优实战训练营",
         date: "2026-01-15 09:00-17:00",
+        startDate: "2026-01-15",
+        endDate: "2026-01-15",
         location: "北京 · 海淀区中关村",
         type: "offline",
         status: "ended",
@@ -38,6 +44,8 @@ const activities = [
         id: 4,
         title: "开源社区贡献者交流会",
         date: "2026-02-05 20:00-21:30",
+        startDate: "2026-02-05",
+        endDate: "2026-02-05",
         location: "线上会议",
         type: "online",
         status: "registering",
@@ -48,6 +56,8 @@ const activities = [
         id: 5,
         title: "KaiwuDB + IoT 场景应用案例分享",
         date: "2026-01-10 14:00-16:00",
+        startDate: "2026-01-10",
+        endDate: "2026-01-10",
         location: "深圳 · 南山区科技园",
         type: "offline",
         status: "ended",
@@ -58,11 +68,25 @@ const activities = [
         id: 6,
         title: "Rust 语言在数据库内核中的应用",
         date: "2026-02-12 19:00-20:30",
+        startDate: "2026-02-12",
+        endDate: "2026-02-12",
         location: "线上直播",
         type: "online",
         status: "registering",
         image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         tags: ["技术分享", "Rust"]
+    },
+    {
+        id: 7,
+        title: "春节假期技术研修周",
+        date: "2026-01-22 - 2026-01-27",
+        startDate: "2026-01-22",
+        endDate: "2026-01-27",
+        location: "线上",
+        type: "online",
+        status: "registering",
+        image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        tags: ["自学", "线上", "多日活动"]
     }
 ];
 
@@ -117,8 +141,31 @@ function renderCalendar() {
         const isToday = (dateStr === formatDate(activityState.currentDate));
         
         // Find events for this day
-        const dayEvents = activities.filter(a => a.date.startsWith(dateStr));
+        const dayEvents = activities.filter(a => {
+            if (a.startDate && a.endDate) {
+                return dateStr >= a.startDate && dateStr <= a.endDate;
+            }
+            return a.date.startsWith(dateStr);
+        });
         const hasEvent = dayEvents.length > 0;
+        
+        // Determine event position classes (start, middle, end)
+        let eventPosClass = '';
+        if (hasEvent) {
+            // Use the first event to determine style if multiple events exist
+            const evt = dayEvents[0];
+            if (evt.startDate && evt.endDate) {
+                if (evt.startDate === evt.endDate) {
+                    // Single day event, no special start/end class needed, just has-event
+                } else if (dateStr === evt.startDate) {
+                    eventPosClass = 'event-start';
+                } else if (dateStr === evt.endDate) {
+                    eventPosClass = 'event-end';
+                } else {
+                    eventPosClass = 'event-middle';
+                }
+            }
+        }
         
         // Tooltip content
         let tooltipAttr = '';
@@ -128,7 +175,7 @@ function renderCalendar() {
         }
         
         html += `
-            <div class="day-cell ${isToday ? 'today' : ''} ${hasEvent ? 'has-event' : ''}" 
+            <div class="day-cell ${isToday ? 'today' : ''} ${hasEvent ? 'has-event' : ''} ${eventPosClass}" 
                  onclick="selectDate('${dateStr}')"
                  ${tooltipAttr}>
                 ${day}

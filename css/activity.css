@@ -224,6 +224,53 @@
     box-shadow: 0 2px 4px rgba(0, 86, 210, 0.3);
 }
 
+.day-cell.has-event {
+    background-color: #E6F7FF;
+    color: #0056D2;
+    font-weight: 600;
+}
+
+/* Ensure 'today' style takes precedence for background but keeps event indication */
+.day-cell.today.has-event {
+    background: #0056D2;
+    color: #fff;
+}
+
+/* Multi-day event continuous display */
+.day-cell.event-start {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.day-cell.event-middle {
+    border-radius: 0;
+}
+
+.day-cell.event-end {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* If a middle/end day is also 'today', keep the radius to highlight it's today? 
+   Or prioritize the continuous look? 
+   Usually 'today' circle/rounded square is more important for navigation.
+   Let's keep 'today' border radius (4px) or make it distinct.
+   The .today selector usually appears later or has higher specificity. 
+   But here .day-cell.today is defined before .day-cell.event-start if I append.
+   I should place .day-cell.today AFTER these or use !important or higher specificity.
+   
+   Actually, 'today' is a state of the day, 'event-start' is a property of the event.
+   If today is in the middle of an event, it should probably look like today (highlighted) 
+   but maybe still connect?
+   Connecting a highlighted block to a light block looks weird.
+   Let's just let 'today' override the border-radius to be a standalone block 
+   so the user clearly sees "Today". 
+   So I will NOT use !important on event classes, and ensure .today comes after or has specificity.
+   Wait, .today has class selector.
+   
+   Let's place the event styles BEFORE .today or ensure .today overrides.
+*/
+
 .event-dot {
     position: absolute;
     bottom: 4px;
@@ -235,6 +282,11 @@
 
 .day-cell.today .event-dot {
     background: #fff;
+}
+
+.day-cell.has-event:not(.today) .event-dot {
+    background: #0056D2;
+    opacity: 0.6; /* Slightly softer on the light blue background */
 }
 
 /* Calendar Tooltip */
