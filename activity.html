@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社区活动 - KaiwuDB 开发者社区</title>
+    <!-- 引入核心样式 -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 引入本页专属样式 -->
+    <link rel="stylesheet" href="css/activity.css">
+    <!-- 引入图标库 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- 全局背景 -->
+    <div id="global-background"></div>
+
+    <!-- 导航栏 -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- 头部仪表盘区域 -->
+    <div class="activity-dashboard">
+        <div class="container">
+            <div class="dashboard-grid">
+                <!-- 第一行：主推活动 + 日历 -->
+                <div class="dashboard-row-top">
+                    <!-- 左侧主推活动 -->
+                    <div class="featured-card main-featured">
+                        <div class="featured-content">
+                            <h2 class="featured-title">2026 KWDB 社区嘉年华</h2>
+                            <div class="featured-info">
+                                <div class="info-item">
+                                    <i data-lucide="clock"></i>
+                                    <span>2026/01/31 10:00</span>
+                                </div>
+                                <div class="info-item">
+                                    <i data-lucide="map-pin"></i>
+                                    <span>上海市</span>
+                                    <span class="tag-status offline">线下活动</span>
+                                </div>
+                            </div>
+                            <button class="btn-register" onclick="window.location.href='activity-detail.html'">立即报名</button>
+                        </div>
+                        <div class="featured-image">
+                            <!-- Abstract Tech SVG -->
+                            <svg width="240" height="180" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-img-placeholder">
+                                <path d="M20 160C50 140 80 170 110 150C140 130 170 100 220 110" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                                <path d="M10 140C40 120 70 150 100 130C130 110 160 80 210 90" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                                <circle cx="180" cy="60" r="40" fill="url(#grad1)" fill-opacity="0.2"/>
+                                <circle cx="40" cy="120" r="20" fill="url(#grad1)" fill-opacity="0.1"/>
+                                <defs>
+                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:0" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 右侧日历挂件 -->
+                    <div class="calendar-widget">
+                        <div class="calendar-header">
+                            <span class="month-title">1月</span>
+                            <div class="calendar-nav">
+                                <button class="nav-btn prev"><i data-lucide="chevron-left"></i></button>
+                                <button class="nav-btn next"><i data-lucide="chevron-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="calendar-body">
+                            <div class="weekdays-row">
+                                <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+                            </div>
+                            <div class="days-grid" id="calendarGrid">
+                                <!-- JS 动态生成 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二行：次级推荐活动 -->
+                <div class="dashboard-row-bottom">
+                    <!-- 左侧次级卡片 (白色背景) -->
+                    <div class="sub-card card-light">
+                        <div class="sub-card-content">
+                            <h3 class="sub-title">AI Infra 助力企业智能业务高速...</h3>
+                            <div class="featured-info text-dark">
+                                <div class="info-item">
+                                    <i data-lucide="clock"></i>
+                                    <span>2025/12/27 13:00</span>
+                                </div>
+                                <div class="info-item">
+                                    <i data-lucide="map-pin"></i>
+                                    <span>重庆市</span>
+                                    <span class="tag-status offline">线下活动</span>
+                                </div>
+                            </div>
+                            <button class="btn-detail primary" onclick="window.location.href='activity-detail.html'">查看详情</button>
+                        </div>
+                        <div class="sub-card-image">
+                             <!-- AI/Chip SVG -->
+                             <svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="30" y="20" width="60" height="60" rx="8" fill="#E6F4FF" stroke="#1677FF" stroke-width="2"/>
+                                <circle cx="60" cy="50" r="15" stroke="#1677FF" stroke-width="2"/>
+                                <path d="M60 35V20M60 80V65M45 50H30M90 50H75" stroke="#1677FF" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M20 20L30 30M100 20L90 30M20 80L30 70M100 80L90 70" stroke="#1677FF" stroke-width="1.5" stroke-opacity="0.5"/>
+                             </svg>
+                        </div>
+                    </div>
+
+                    <!-- 右侧次级卡片 (深色背景) -->
+                    <div class="sub-card card-dark">
+                        <div class="sub-card-content">
+                            <h3 class="sub-title">从故障处理到性能调优</h3>
+                            <div class="featured-info text-light">
+                                <div class="info-item">
+                                    <i data-lucide="clock"></i>
+                                    <span>2025/08/05 19:30 - 2025/12/26 21:00</span>
+                                </div>
+                                <div class="info-item">
+                                    <i data-lucide="video"></i>
+                                    <span class="text-truncate" style="max-width: 200px;">KWDB 视频号</span>
+                                    <span class="tag-status online-yellow">线上直播</span>
+                                </div>
+                            </div>
+                            <button class="btn-detail glass" onclick="window.location.href='activity-detail.html'">查看详情</button>
+                        </div>
+                        <div class="sub-card-image">
+                            <!-- Database/Server SVG -->
+                            <svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="60" cy="25" rx="30" ry="10" fill="#1677FF" fill-opacity="0.2" stroke="#4096ff" stroke-width="2"/>
+                                <path d="M30 25V45C30 50.5 43.4 55 60 55C76.6 55 90 50.5 90 45V25" stroke="#4096ff" stroke-width="2" fill="url(#grad2)" fill-opacity="0.1"/>
+                                <path d="M30 50V70C30 75.5 43.4 80 60 80C76.6 80 90 75.5 90 70V50" stroke="#4096ff" stroke-width="2" fill="url(#grad2)" fill-opacity="0.1"/>
+                                <defs>
+                                    <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#4096ff;stop-opacity:0.2" />
+                                        <stop offset="100%" style="stop-color:#1677FF;stop-opacity:0.5" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主体内容 -->
+    <main class="activity-main">
+        <div class="container">
+            <!-- 筛选工具栏 -->
+            <div class="filter-toolbar">
+                <div class="filter-group">
+                    <div class="filter-item active" data-filter="all">全部活动</div>
+                    <div class="filter-item" data-filter="online">线上直播</div>
+                    <div class="filter-item" data-filter="offline">线下活动</div>
+                </div>
+                
+                <div class="filter-actions">
+                    <div class="dropdown-filter">
+                        <span class="dropdown-label">活动状态</span>
+                        <i data-lucide="chevron-down" class="dropdown-icon"></i>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-option" data-status="all">不限</div>
+                            <div class="dropdown-option" data-status="registering">报名中</div>
+                            <div class="dropdown-option" data-status="ongoing">进行中</div>
+                            <div class="dropdown-option" data-status="ended">已结束</div>
+                        </div>
+                    </div>
+                    <div class="dropdown-filter">
+                        <span class="dropdown-label">活动资料</span>
+                        <i data-lucide="chevron-down" class="dropdown-icon"></i>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-option" data-resource="all">不限</div>
+                            <div class="dropdown-option" data-resource="has-ppt">有 PPT</div>
+                            <div class="dropdown-option" data-resource="has-video">有视频</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 活动列表 -->
+            <div class="activity-list" id="activityList">
+                <!-- 活动卡片将通过 JS 动态生成 -->
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination-container" id="pagination">
+                <!-- 分页将通过 JS 生成 -->
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 脚本 -->
+    <script src="js/main.js"></script>
+    <script src="js/activity.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

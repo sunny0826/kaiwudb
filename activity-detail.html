@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 KWDB 社区嘉年华 - KaiwuDB 开发者社区</title>
+    <!-- 引入核心样式 -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 引入本页专属样式 -->
+    <link rel="stylesheet" href="css/activity-detail.css">
+    <!-- 引入图标库 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- 顶部横幅 Hero Section -->
+    <header class="activity-hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-tags">
+                    <span class="status-tag registering">报名中</span>
+                    <span class="type-tag">线下活动</span>
+                </div>
+                <h1 class="hero-title">2026 KWDB 社区嘉年华 · 上海站</h1>
+                <div class="hero-meta">
+                    <div class="meta-item">
+                        <i data-lucide="calendar"></i>
+                        <span>2026年01月31日 13:30 - 18:00</span>
+                    </div>
+                    <div class="meta-item">
+                        <i data-lucide="map-pin"></i>
+                        <span>上海市浦东新区 · 陆家嘴国际会议中心</span>
+                    </div>
+                    <div class="meta-item">
+                        <i data-lucide="users"></i>
+                        <span>限额 200 人</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn-primary btn-lg">立即报名</button>
+                    <button class="btn-secondary btn-lg">分享活动</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- Abstract Tech Visual SVG -->
+                <svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:rgba(255,255,255,0.1)" />
+                            <stop offset="100%" style="stop-color:rgba(255,255,255,0.05)" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="50" y="50" width="300" height="200" rx="12" fill="url(#heroGradient)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                    <circle cx="350" cy="50" r="40" fill="#0056D2" fill-opacity="0.3" filter="url(#blur1)"/>
+                    <circle cx="50" cy="250" r="60" fill="#00C853" fill-opacity="0.2" filter="url(#blur1)"/>
+                    <path d="M50 150 L150 100 L250 180 L350 120" stroke="rgba(255,255,255,0.4)" stroke-width="2" fill="none"/>
+                    <filter id="blur1" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="20" />
+                    </filter>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- 悬浮导航 Secondary Nav -->
+    <nav class="activity-tabs-nav" id="stickyNav">
+        <div class="container">
+            <ul class="tabs-list">
+                <li><a href="#intro" class="tab-link active">活动介绍</a></li>
+                <li><a href="#agenda" class="tab-link">活动议程</a></li>
+                <li><a href="#guests" class="tab-link">重磅嘉宾</a></li>
+                <li><a href="#location" class="tab-link">交通指引</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主体内容 -->
+    <main class="activity-main">
+        <div class="container content-layout">
+            <!-- 左侧详情 -->
+            <div class="main-column">
+                <!-- 活动介绍 -->
+                <section id="intro" class="detail-section">
+                    <h2 class="section-title">活动介绍</h2>
+                    <div class="rich-text">
+                        <p>随着数字化转型的深入，分布式数据库已成为企业核心业务系统的首选。2026 KWDB 社区嘉年华将汇聚数据库领域的专家、开发者和行业领袖，共同探讨云原生、HTAP、多模数据库等前沿技术趋势。</p>
+                        <p>本次活动将重点分享 KWDB 在关键业务场景中的落地实践，解析 4.x 版本的核心特性，并邀请社区技术专家进行面对面的深度交流。无论你是数据库初学者还是资深 DBA，都能在这里收获满满的干货。</p>
+                        <img src="data:image/svg+xml,%3Csvg width='800' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23f5f5f5'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='%23999' text-anchor='middle' dy='.3em'%3E活动现场图示 (SVG Placeholder)%3C/text%3E%3C/svg%3E" alt="活动现场" class="content-img">
+                        <h3>你将获得：</h3>
+                        <ul>
+                            <li>深度解析分布式数据库内核技术</li>
+                            <li>一线大厂的最佳实践案例分享</li>
+                            <li>与技术大咖面对面交流的机会</li>
+                            <li>丰富的社区周边礼品</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 活动议程 -->
+                <section id="agenda" class="detail-section">
+                    <h2 class="section-title">活动议程</h2>
+                    <div class="agenda-timeline">
+                        <div class="timeline-item">
+                            <div class="time">13:30 - 14:00</div>
+                            <div class="content">
+                                <h3 class="topic">签到 & 互动体验</h3>
+                                <p class="speaker">所有参会者</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="time">14:00 - 14:15</div>
+                            <div class="content">
+                                <h3 class="topic">开场致辞：数据库技术的未来演进</h3>
+                                <p class="speaker">XXX (KWDB 创始人兼首席科学家)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="time">14:15 - 15:00</div>
+                            <div class="content">
+                                <h3 class="topic">核心技术解密：单机分布式一体化架构</h3>
+                                <p class="speaker">某某某 (资深研发专家)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="time">15:00 - 15:40</div>
+                            <div class="content">
+                                <h3 class="topic">用户实践：金融级核心系统的迁移之路</h3>
+                                <p class="speaker">某银行 数据库负责人</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="time">15:40 - 16:00</div>
+                            <div class="content">
+                                <h3 class="topic">茶歇 & 自由交流</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="time">16:00 - 17:30</div>
+                            <div class="content">
+                                <h3 class="topic">圆桌论坛：DBA 的转型与成长</h3>
+                                <p class="speaker">多位行业专家</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 嘉宾介绍 -->
+                <section id="guests" class="detail-section">
+                    <h2 class="section-title">重磅嘉宾</h2>
+                    <div class="guests-grid">
+                        <div class="guest-card">
+                            <div class="guest-avatar">
+                                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="50" r="50" fill="#E6F4FF"/>
+                                    <circle cx="50" cy="40" r="15" fill="#1677FF" fill-opacity="0.5"/>
+                                    <path d="M25 80C25 66.1929 36.1929 55 50 55C63.8071 55 75 66.1929 75 80" stroke="#1677FF" stroke-width="2" stroke-opacity="0.5"/>
+                                </svg>
+                            </div>
+                            <h3 class="guest-name">XXX</h3>
+                            <p class="guest-title">KWDB 创始人</p>
+                            <p class="guest-desc">致力于分布式数据库系统的研发与探索，拥有丰富的数据库内核开发经验。</p>
+                        </div>
+                        <div class="guest-card">
+                            <div class="guest-avatar">
+                                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="50" r="50" fill="#E6F4FF"/>
+                                    <circle cx="50" cy="40" r="15" fill="#1677FF" fill-opacity="0.5"/>
+                                    <path d="M25 80C25 66.1929 36.1929 55 50 55C63.8071 55 75 66.1929 75 80" stroke="#1677FF" stroke-width="2" stroke-opacity="0.5"/>
+                                </svg>
+                            </div>
+                            <h3 class="guest-name">张三</h3>
+                            <p class="guest-title">资深架构师</p>
+                            <p class="guest-desc">专注于云原生架构设计，负责多个大型系统的架构升级与改造。</p>
+                        </div>
+                        <div class="guest-card">
+                            <div class="guest-avatar">
+                                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="50" r="50" fill="#E6F4FF"/>
+                                    <circle cx="50" cy="40" r="15" fill="#1677FF" fill-opacity="0.5"/>
+                                    <path d="M25 80C25 66.1929 36.1929 55 50 55C63.8071 55 75 66.1929 75 80" stroke="#1677FF" stroke-width="2" stroke-opacity="0.5"/>
+                                </svg>
+                            </div>
+                            <h3 class="guest-name">李四</h3>
+                            <p class="guest-title">技术专家</p>
+                            <p class="guest-desc">在数据库性能调优领域有深入研究，擅长解决复杂的生产环境问题。</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 交通指引 -->
+                <section id="location" class="detail-section">
+                    <h2 class="section-title">交通指引</h2>
+                    <div class="location-box">
+                        <div class="map-placeholder">
+                            <svg width="100%" height="300" viewBox="0 0 800 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="800" height="300" fill="#f0f2f5"/>
+                                <path d="M400 150 L380 120 A 20 20 0 0 1 420 120 Z" fill="#F5222D"/>
+                                <circle cx="400" cy="120" r="8" fill="white"/>
+                                <text x="400" y="180" font-family="Arial" font-size="16" fill="#666" text-anchor="middle">地图组件占位</text>
+                        </svg>
+                        <a href="https://map.baidu.com/search/上海陆家嘴国际会议中心" target="_blank" class="map-link-overlay">查看地图详情</a>
+                        </div>
+                        <div class="location-info">
+                            <p><strong>地址：</strong>上海市浦东新区陆家嘴国际会议中心 3F</p>
+                            <p><strong>地铁：</strong>地铁2号线陆家嘴站 2号口出，步行 500 米</p>
+                            <p><strong>公交：</strong>81路、82路、85路至陆家嘴环路站</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右侧侧边栏 -->
+            <aside class="sidebar-column">
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">主办方</h3>
+                    <div class="organizer-info">
+                        <div class="org-logo">K</div>
+                        <div class="org-details">
+                            <h4>KaiwuDB 社区</h4>
+                            <p>打造开放、包容的数据库技术交流平台</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">联系我们</h3>
+                    <ul class="contact-list">
+                        <li><i data-lucide="mail"></i> community@kaiwudb.com</li>
+                        <li><i data-lucide="phone"></i> 021-12345678</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget qrcode-widget">
+                    <h3 class="widget-title">扫码加入交流群</h3>
+                    <div class="qrcode-box">
+                         <svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="10" width="130" height="130" fill="white" stroke="#eee"/>
+                            <rect x="30" y="30" width="90" height="90" fill="#000" fill-opacity="0.1"/>
+                            <text x="75" y="80" font-family="Arial" font-size="12" fill="#666" text-anchor="middle">二维码</text>
+                        </svg>
+                        <p>添加小助手备注"活动"</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 脚本 -->
+    <script src="js/main.js"></script>
+    <script src="js/activity-detail.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
