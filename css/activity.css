@@ -480,15 +480,73 @@
     cursor: pointer;
     font-size: 0.9rem;
     color: var(--color-text-secondary);
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s;
 }
 
 .dropdown-filter:hover {
     color: var(--color-text-primary);
+    background: rgba(0,0,0,0.02);
+}
+
+.dropdown-filter.active {
+    color: var(--color-accent);
+    background: rgba(0, 86, 210, 0.05);
 }
 
 .dropdown-icon {
     width: 16px;
     height: 16px;
+    transition: transform 0.2s;
+}
+
+.dropdown-filter.active .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.dropdown-filter .activity-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 8px 0;
+    min-width: 140px;
+    display: none;
+    z-index: 100;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.dropdown-filter.active .activity-dropdown-menu {
+    display: block;
+}
+
+.dropdown-option {
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: var(--color-text-primary);
+    font-size: 0.9rem;
+}
+
+.dropdown-option:hover {
+    background: var(--color-bg-secondary);
+    color: var(--color-accent);
+}
+
+.dropdown-option.active {
+    color: var(--color-accent);
+    font-weight: 500;
+    background: rgba(0, 86, 210, 0.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Activity List */
@@ -657,12 +715,78 @@
     color: var(--color-text-tertiary);
 }
 
-/* Pagination */
+/* Pagination - Enhanced Styling */
 .pagination-container {
     display: flex;
     justify-content: center;
-    gap: 8px;
-    margin-top: 20px;
+    align-items: center;
+    gap: 12px; /* Increased gap for better touch targets */
+    margin-top: 48px;
+    padding: 20px 0;
+}
+
+.pagination-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px; /* Larger touch area */
+    height: 44px;
+    padding: 0 8px;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px; /* Smooth rounded corners */
+    color: var(--color-text-secondary);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth spring-like transition */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover state for non-disabled buttons */
+.pagination-btn:hover:not(:disabled) {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: #fff;
+    transform: translateY(-2px); /* Subtle lift effect */
+    box-shadow: 0 8px 16px rgba(0, 86, 210, 0.12); /* Soft diffused shadow */
+}
+
+/* Active/Current page state */
+.pagination-btn.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 86, 210, 0.3); /* Glowing effect */
+    transform: scale(1.05);
+}
+
+/* Disabled state */
+.pagination-btn:disabled {
+    background: var(--color-bg-secondary);
+    border-color: transparent;
+    color: var(--color-text-tertiary);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.7;
+}
+
+/* Icon adjustments */
+.pagination-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.5px; /* Bolder icons */
+}
+
+/* Ripple effect on click (optional visual feedback) */
+.pagination-btn:active:not(:disabled) {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* Responsive */

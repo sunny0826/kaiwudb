@@ -96,7 +96,9 @@ const activityState = {
     status: 'all',
     resource: 'all',
     currentDate: new Date('2026-01-28'), // Simulate current date based on context
-    calendarDate: new Date('2026-01-28') // Date for calendar view navigation
+    calendarDate: new Date('2026-01-28'), // Date for calendar view navigation
+    currentPage: 1,
+    itemsPerPage: 6
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -206,7 +208,19 @@ function renderActivities() {
         return true;
     });
 
-    container.innerHTML = filtered.map(item => {
+    // Pagination Logic
+    const totalItems = filtered.length;
+    const totalPages = Math.ceil(totalItems / activityState.itemsPerPage);
+    
+    // Ensure current page is valid
+    if (activityState.currentPage > totalPages && totalPages > 0) activityState.currentPage = 1;
+    if (totalPages === 0) activityState.currentPage = 1;
+
+    const start = (activityState.currentPage - 1) * activityState.itemsPerPage;
+    const end = start + activityState.itemsPerPage;
+    const paginatedItems = filtered.slice(start, end);
+
+    container.innerHTML = paginatedItems.map(item => {
         let statusLabel = '';
         let btnText = '立即报名';
         let btnClass = '';
@@ -221,7 +235,7 @@ function renderActivities() {
                 break;
             case 'ended': 
                 statusLabel = '已结束'; 
-                btnText = '查看回放';
+                btnText = '查看详情';
                 btnClass = 'disabled';
                 break;
         }
@@ -259,7 +273,59 @@ function renderActivities() {
     }).join('');
 
     if (window.lucide) lucide.createIcons();
+
+    // Render Pagination
+    renderPagination(totalPages);
 }
+
+function renderPagination(totalPages) {
+    const container = document.getElementById('pagination');
+    if (!container) return;
+    
+    if (totalPages <= 1) {
+        container.innerHTML = '';
+        return;
+    }
+
+    let html = '';
+    
+    // Prev Button
+    html += `<button class="pagination-btn ${activityState.currentPage === 1 ? 'disabled' : ''}" 
+             onclick="changePage(${activityState.currentPage - 1})" 
+             ${activityState.currentPage === 1 ? 'disabled' : ''}>
+             <i data-lucide="chevron-left"></i>
+             </button>`;
+             
+    // Page Numbers
+    for (let i = 1; i <= totalPages; i++) {
+        html += `<button class="pagination-btn ${activityState.currentPage === i ? 'active' : ''}" 
+                 onclick="changePage(${i})">${i}</button>`;
+    }
+    
+    // Next Button
+    html += `<button class="pagination-btn ${activityState.currentPage === totalPages ? 'disabled' : ''}" 
+             onclick="changePage(${activityState.currentPage + 1})"
+             ${activityState.currentPage === totalPages ? 'disabled' : ''}>
+             <i data-lucide="chevron-right"></i>
+             </button>`;
+             
+    container.innerHTML = html;
+    if (window.lucide) lucide.createIcons();
+}
+
+window.changePage = (page) => {
+    if (page < 1) return;
+    activityState.currentPage = page;
+    renderActivities();
+    // Scroll to top of list
+    const list = document.getElementById('activityList');
+    if (list) {
+        // Adjust scroll position to account for sticky header if any, or just scroll to list top
+        const yOffset = -100; 
+        const y = list.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({top: y, behavior: 'smooth'});
+    }
+};
 
 function bindEvents() {
     // Filter Tabs
@@ -285,6 +351,54 @@ function bindEvents() {
         const target = Array.from(cells).find(c => c.textContent.trim() == day);
         if (target) target.classList.add('today');
     };
+
+    // Dropdown Filter Logic
+    const dropdownFilter = document.querySelector('.dropdown-filter');
+    const dropdownLabel = dropdownFilter?.querySelector('.dropdown-label');
+    const dropdownOptions = dropdownFilter?.querySelectorAll('.dropdown-option');
+
+    if (dropdownFilter && dropdownLabel) {
+        // Toggle dropdown
+        dropdownFilter.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownFilter.classList.toggle('active');
+        });
+
+        // Handle option selection
+        dropdownOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent bubbling to document
+                
+                // Update UI
+                const status = option.dataset.status;
+                const label = option.textContent;
+                
+                // Update state
+                activityState.status = status;
+                
+                // Update Label text (keep '活动状态' prefix or replace?)
+                // User requirement: "下拉展示报名中、进行中和已结束，进行筛选"
+                // Usually we replace the label or keep it static. 
+                // Let's update the label to show current filter, but maybe keep "活动状态" as default if 'all'
+                dropdownLabel.textContent = status === 'all' ? '活动状态' : label;
+                
+                // Close dropdown
+                dropdownFilter.classList.remove('active');
+                
+                // Update active class on options
+                dropdownOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+
+                // Re-render
+                renderActivities();
+            });
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', () => {
+            dropdownFilter.classList.remove('active');
+        });
+    }
 }
 
 function getEventSVG(id, title) {

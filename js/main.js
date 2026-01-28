@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!navbar) return;
 
             const navbarHeight = navbar.offsetHeight;
-            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            navbar.querySelectorAll('.dropdown-menu').forEach(menu => {
                 menu.style.top = navbarHeight + 'px';
             });
         };
@@ -255,49 +255,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 11. 初始化客户案例详情页滚动动画
-    initCaseDetailScrollAnimation();
+    if (typeof initCaseDetailScrollAnimation === 'function') initCaseDetailScrollAnimation();
 });
 
-/**
- * ========================================
- * 技术创新 Tab 功能 (Tech Innovation Tabs)
- * ========================================
- */
-function initTechInnovationTabs() {
-    const section = document.getElementById('section-tech-innovation');
-    if (!section) return;
 
-    const tabBtns = section.querySelectorAll('.tech-tab-btn');
-    const tabPanels = section.querySelectorAll('.tech-tab-panel');
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const targetTab = btn.dataset.tab;
-
-            // Update Buttons
-            tabBtns.forEach(b => {
-                const isActive = b.dataset.tab === targetTab;
-                b.classList.toggle('active', isActive);
-                b.setAttribute('aria-selected', isActive);
-            });
-
-            // Update Panels
-            tabPanels.forEach(panel => {
-                const isActive = panel.dataset.tab === targetTab;
-                panel.classList.toggle('active', isActive);
-                
-                // For accessibility
-                if (isActive) {
-                    panel.style.visibility = 'visible';
-                    panel.style.opacity = '1';
-                } else {
-                    panel.style.visibility = 'hidden';
-                    panel.style.opacity = '0';
-                }
-            });
-        });
-    });
-}
 
 /**
  * ========================================
@@ -1452,60 +1413,7 @@ function initSuccessStories() {
     }
 }
 
-function initCaseArchitectureImage() {
-    const media = document.querySelector('.case-arch-media');
-    const image = document.querySelector('.case-arch-image');
-    if (!media || !image) return;
 
-    const lightbox = document.getElementById('caseImageLightbox');
-    const lightboxImg = document.getElementById('caseImageLightboxImg');
-    const lightboxClose = document.getElementById('caseImageLightboxClose');
-
-    const openLightbox = () => {
-        if (!lightbox || !lightboxImg || media.classList.contains('is-error')) return;
-        lightboxImg.src = image.src;
-        lightbox.classList.add('is-visible');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-    };
-
-    const closeLightbox = () => {
-        if (!lightbox) return;
-        lightbox.classList.remove('is-visible');
-        lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-    };
-
-    image.addEventListener('load', () => {
-        media.classList.add('is-loaded');
-    });
-
-    image.addEventListener('error', () => {
-        media.classList.add('is-error');
-    });
-
-    if (image.complete && image.naturalWidth > 0) {
-        media.classList.add('is-loaded');
-    }
-
-    media.addEventListener('click', openLightbox);
-
-    if (lightboxClose) {
-        lightboxClose.addEventListener('click', closeLightbox);
-    }
-
-    if (lightbox) {
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-    }
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox && lightbox.classList.contains('is-visible')) {
-            closeLightbox();
-        }
-    });
-}
 
 /**
  * 渲染行业 Tab
@@ -1613,32 +1521,4 @@ function switchIndustryTab(key) {
     }
 }
 
-/**
- * ========================================
- * 客户案例详情页滚动动画
- * ========================================
- */
-function initCaseDetailScrollAnimation() {
-    const sections = document.querySelectorAll('.case-detail-section');
 
-    if (sections.length === 0) return;
-
-    // 创建 Intersection Observer
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                // 可选：动画后停止观察
-                // observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1,      // 元素出现 10% 时触发
-        rootMargin: '0px 0px -50px 0px'  // 提前触发
-    });
-
-    // 观察所有区块
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-}
