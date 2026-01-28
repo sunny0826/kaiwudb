@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - KaiwuDB</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { opacity: 0; transition: opacity 0.5s ease; }
+        body.loaded { opacity: 1; }
+    </style>
+</head>
+<body class="about-page-body">
+    <div id="global-background"></div>
+    <div id="navbar-placeholder"></div>
+
+    <main id="about-page">
+        <!-- 1. Banner (Narrow) -->
+        <section class="about-banner">
+            <div class="container">
+                <div class="banner-content">
+                    <h1 class="banner-title">关于 KaiwuDB</h1>
+                    <p class="banner-subtitle">构建未来数据基座，赋能数字经济发展</p>
+                </div>
+            </div>
+            <div class="banner-bg-decoration"></div>
+        </section>
+
+        <!-- 2. Company Introduction -->
+        <section class="about-section intro-section">
+            <div class="container">
+                <div class="intro-grid">
+                    <div class="intro-text">
+                        <span class="section-tag">公司简介</span>
+                        <h2 class="section-title">浪潮控股的<br>分布式数据库领军企业</h2>
+                        <div class="intro-desc">
+                            <p>KaiwuDB 是浪潮控股的数据库企业，以分布式多模数据库和数据服务平台为核心产品。我们面向工业物联网、数字能源、车联网、智慧产业等关键行业领域，提供稳定安全、高性能、易运维的创新数据软件与服务。</p>
+                            <p>作为数据基础设施的建设者，我们致力于一站式满足 AIoT 等场景下数据管理需求及关键行业核心系统的自主可控需求，助力企业从海量数据中挖掘更大的商业价值。</p>
+                        </div>
+                    </div>
+                    <div class="intro-stats">
+                        <div class="stat-card highlight">
+                            <div class="stat-value">80%<small>+</small></div>
+                            <div class="stat-label">研发人员占比</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">300+<small>+</small></div>
+                            <div class="stat-label">发明专利受理</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">100<small>+</small></div>
+                            <div class="stat-label">关键行业客户和合作伙伴</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">8<small>项</small></div>
+                            <div class="stat-label">核心技术</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">16<small>项</small></div>
+                            <div class="stat-label">软件著作</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">96<small>个</small></div>
+                            <div class="stat-label">云服务中心</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Vision & Values -->
+        <section class="about-section vision-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">使命愿景</h2>
+                    <p>提供领先创新的数据服务软件，助力企业迎接数字化转型浪潮</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Embrace Open Source -->
+        <section class="about-section opensource-section">
+            <div class="container">
+                <div class="opensource-content">
+                    <div class="opensource-text">
+                        <span class="section-tag theme-dark">拥抱开源</span>
+                        <h2 class="section-title text-white">开源无界，共创未来</h2>
+                        <p class="text-white-opacity">
+                            KaiwuDB 深信开源的力量。我们积极拥抱开源文化，致力于构建开放、包容、活跃的技术社区。
+                            通过代码贡献、技术分享与生态共建，我们与全球开发者共同推动数据库技术的边界。
+                        </p>
+                        <div class="opensource-actions">
+                            <a href="https://github.com/kaiwudb" target="_blank" class="btn-opensource">
+                                <i data-lucide="github"></i> 访问 GitHub
+                            </a>
+                            <a href="community.html" class="btn-opensource outline">
+                                <i data-lucide="users"></i> 加入社区
+                            </a>
+                        </div>
+                    </div>
+                    <div class="opensource-visual">
+                        <!-- 抽象的代码/连接可视化 -->
+                        <div class="code-block-visual">
+                            <div class="code-line">git clone https://github.com/kwdb/kwdb.git</div>
+                            <div class="code-line indent">Compiling source...</div>
+                            <div class="code-line indent">Building target kaiwudb...</div>
+                            <div class="code-line success">Build successful! (2.4s)</div>
+                            <div class="code-line highlight">> Welcome to KaiwuDB Community</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Optional Contact Footer Area -->
+        <section class="about-section contact-simple">
+            <div class="container text-center">
+                <h2>期待与您合作</h2>
+                <p>无论您是寻求解决方案的企业，还是热爱技术的开发者，我们都期待与您交流。</p>
+                <div class="contact-links">
+                    <a href="mailto:contact@kaiwudb.com" class="contact-link-item">
+                        <i data-lucide="mail"></i> contact@kaiwudb.com
+                    </a>
+                    <span class="divider">|</span>
+                    <span class="contact-link-item">
+                        <i data-lucide="phone"></i> 400-123-4567
+                    </span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('loaded');
+            if (window.lucide) lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

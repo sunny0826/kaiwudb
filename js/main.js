@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof initCaseArchitectureImage === 'function') initCaseArchitectureImage();
 
     // 9. 初始化技术创新 Tab (New Feature)
-    initTechInnovationTabs();
+    if (typeof initTechInnovationTabs === 'function') initTechInnovationTabs();
 
     // 10. 初始化 Lucide 图标
     if (typeof lucide !== 'undefined') {
