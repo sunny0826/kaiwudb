@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OceanBase 数据库核心技术解析 - KaiwuDB 培训中心</title>
+    <!-- 引入核心样式 -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 引入本页专属样式 -->
+    <link rel="stylesheet" href="css/training-detail.css">
+    <!-- 引入图标库 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- 页面主体容器 (Style Scope) -->
+    <div id="training-detail-page" class="training-wrapper">
+        
+        <!-- 面包屑导航 -->
+        <div class="breadcrumb-nav container">
+            <a href="index.html">首页</a>
+            <span class="separator">/</span>
+            <a href="#">培训认证</a>
+            <span class="separator">/</span>
+            <span class="current">课程详情</span>
+        </div>
+
+        <!-- 课程头部信息 -->
+        <div class="course-header">
+            <div class="container header-grid">
+                <div class="header-content">
+                    <div class="course-tags">
+                        <span class="tag level">中级</span>
+                        <span class="tag category">核心原理</span>
+                    </div>
+                    <h1 class="course-title">分布式数据库核心技术解析与实战</h1>
+                    <div class="course-meta">
+                        <span class="meta-item"><i data-lucide="clock"></i> 12 课时</span>
+                        <span class="meta-item"><i data-lucide="users"></i> 3,452 人在学</span>
+                        <span class="meta-item rating"><i data-lucide="star"></i> 4.9 分</span>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn-start-learning">开始学习</button>
+                        <button class="btn-share"><i data-lucide="share-2"></i></button>
+                    </div>
+                </div>
+                <div class="header-cover">
+                    <div class="video-placeholder">
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                        <img src="data:image/svg+xml,%3Csvg width='400' height='225' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%230056D2' fill-opacity='0.1'/%3E%3C/svg%3E" alt="Course Cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主要内容区域 -->
+        <main class="course-main container">
+            <div class="main-layout">
+                <!-- 左侧内容 -->
+                <div class="content-col">
+                    <!-- 选项卡导航 -->
+                    <div class="course-tabs">
+                        <button class="tab-item active" data-target="#intro">课程介绍</button>
+                        <button class="tab-item" data-target="#outline">课程大纲</button>
+                        <button class="tab-item" data-target="#comments">学员评价</button>
+                    </div>
+
+                    <!-- 课程介绍 -->
+                    <div id="intro" class="tab-content active">
+                        <div class="section-block">
+                            <h3 class="block-title">课程简介</h3>
+                            <p class="block-text">本课程深入剖析分布式数据库的核心架构与关键技术，涵盖数据分片、分布式事务、共识算法等核心主题。通过理论讲解与实战演示相结合的方式，帮助学员掌握构建高可用、高性能分布式数据库系统的关键能力。</p>
+                        </div>
+                        <div class="section-block">
+                            <h3 class="block-title">适用人群</h3>
+                            <ul class="check-list">
+                                <li>数据库管理员 (DBA)</li>
+                                <li>后端开发工程师</li>
+                                <li>系统架构师</li>
+                                <li>对分布式技术感兴趣的技术人员</li>
+                            </ul>
+                        </div>
+                        <div class="section-block">
+                            <h3 class="block-title">你将收获</h3>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <i data-lucide="check-circle"></i>
+                                    <span>掌握分布式事务原理</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-lucide="check-circle"></i>
+                                    <span>理解 Paxos/Raft 共识算法</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-lucide="check-circle"></i>
+                                    <span>学会数据库性能调优</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-lucide="check-circle"></i>
+                                    <span>具备故障排查与恢复能力</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 课程大纲 -->
+                    <div id="outline" class="tab-content">
+                        <div class="outline-list">
+                            <div class="chapter-item">
+                                <div class="chapter-header">
+                                    <span class="chapter-index">01</span>
+                                    <span class="chapter-title">分布式数据库概述</span>
+                                    <span class="chapter-duration">45:00</span>
+                                </div>
+                                <ul class="lesson-list">
+                                    <li class="lesson-item">
+                                        <i data-lucide="play-circle"></i>
+                                        <span class="lesson-name">1.1 数据库技术演进路线</span>
+                                        <span class="lesson-tag free">免费试看</span>
+                                    </li>
+                                    <li class="lesson-item">
+                                        <i data-lucide="play-circle"></i>
+                                        <span class="lesson-name">1.2 分布式架构的核心挑战</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="chapter-item">
+                                <div class="chapter-header">
+                                    <span class="chapter-index">02</span>
+                                    <span class="chapter-title">分布式事务与一致性</span>
+                                    <span class="chapter-duration">01:20:00</span>
+                                </div>
+                                <ul class="lesson-list">
+                                    <li class="lesson-item">
+                                        <i data-lucide="play-circle"></i>
+                                        <span class="lesson-name">2.1 ACID 特性与 CAP 理论</span>
+                                    </li>
+                                    <li class="lesson-item">
+                                        <i data-lucide="play-circle"></i>
+                                        <span class="lesson-name">2.2 两阶段提交 (2PC) 详解</span>
+                                    </li>
+                                    <li class="lesson-item">
+                                        <i data-lucide="play-circle"></i>
+                                        <span class="lesson-name">2.3 分布式隔离级别</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="chapter-item">
+                                <div class="chapter-header">
+                                    <span class="chapter-index">03</span>
+                                    <span class="chapter-title">存储引擎与 LSM-Tree</span>
+                                    <span class="chapter-duration">55:00</span>
+                                </div>
+                                <ul class="lesson-list">
+                                    <li class="lesson-item">
+                                        <i data-lucide="lock"></i>
+                                        <span class="lesson-name">3.1 传统 B+ 树 vs LSM-Tree</span>
+                                    </li>
+                                    <li class="lesson-item">
+                                        <i data-lucide="lock"></i>
+                                        <span class="lesson-name">3.2 Compaction 策略优化</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 学员评价 -->
+                    <div id="comments" class="tab-content">
+                        <div class="comments-list">
+                            <div class="comment-item">
+                                <div class="comment-avatar">T</div>
+                                <div class="comment-body">
+                                    <div class="comment-header">
+                                        <span class="user-name">TechLead_Bob</span>
+                                        <span class="comment-date">2026-01-25</span>
+                                    </div>
+                                    <div class="comment-rating">⭐⭐⭐⭐⭐</div>
+                                    <p class="comment-text">讲得非常透彻，特别是关于分布式事务的部分，解决了困扰我很久的疑问。强烈推荐！</p>
+                                </div>
+                            </div>
+                            <div class="comment-item">
+                                <div class="comment-avatar" style="background: #52c41a;">D</div>
+                                <div class="comment-body">
+                                    <div class="comment-header">
+                                        <span class="user-name">Database_Fan</span>
+                                        <span class="comment-date">2026-01-20</span>
+                                    </div>
+                                    <div class="comment-rating">⭐⭐⭐⭐⭐</div>
+                                    <p class="comment-text">理论结合实战，干货满满。希望后面能出更多关于性能调优的进阶课程。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧侧边栏 -->
+                <aside class="sidebar-col">
+                    <!-- 讲师卡片 -->
+                    <div class="sidebar-card instructor-card">
+                        <h3 class="card-title">授课讲师</h3>
+                        <div class="instructor-info">
+                            <div class="instructor-avatar">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100%25' height='100%25' fill='%23e6f7ff'/%3E%3Ccircle cx='50' cy='40' r='20' fill='%231890ff'/%3E%3Cpath d='M20 90 Q50 60 80 90' fill='%231890ff'/%3E%3C/svg%3E" alt="讲师头像">
+                            </div>
+                            <div class="instructor-text">
+                                <div class="name">张三</div>
+                                <div class="title">KaiwuDB 高级技术专家</div>
+                            </div>
+                        </div>
+                        <p class="instructor-desc">拥有10年+数据库内核研发经验，曾主导多个核心模块的设计与实现。擅长分布式事务、存储引擎优化等领域。</p>
+                    </div>
+
+                    <!-- 课程资料 -->
+                    <div class="sidebar-card resource-card">
+                        <h3 class="card-title">课程资料</h3>
+                        <ul class="resource-list">
+                            <li>
+                                <i data-lucide="file-text"></i>
+                                <span>课程讲义 PDF</span>
+                                <a href="#" class="download-link">下载</a>
+                            </li>
+                            <li>
+                                <i data-lucide="code"></i>
+                                <span>实战代码 Demo</span>
+                                <a href="#" class="download-link">下载</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 相关推荐 -->
+                    <div class="sidebar-card recommend-card">
+                        <h3 class="card-title">相关推荐</h3>
+                        <div class="recommend-list">
+                            <a href="#" class="recommend-item">
+                                <div class="rec-img"></div>
+                                <div class="rec-info">
+                                    <div class="rec-title">云原生数据库运维实战</div>
+                                    <div class="rec-meta">1089 人在学</div>
+                                </div>
+                            </a>
+                            <a href="#" class="recommend-item">
+                                <div class="rec-img" style="background: #f0f5ff;"></div>
+                                <div class="rec-info">
+                                    <div class="rec-title">SQL 性能优化进阶指南</div>
+                                    <div class="rec-meta">2103 人在学</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <!-- 页脚 -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 脚本 -->
+    <script src="js/main.js"></script>
+    <script>
+        // Simple tab switching logic for this page
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.course-tabs .tab-item');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active from all
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    // Add active to current
+                    tab.classList.add('active');
+                    const targetId = tab.dataset.target;
+                    document.querySelector(targetId).classList.add('active');
+                });
+            });
+
+            // Initialize Lucide icons
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
