@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资质荣誉 - KaiwuDB</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/honors.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="honors-page-body">
+    <div id="global-background"></div>
+    <div id="navbar-placeholder"></div>
+
+    <main id="honors-page">
+        <!-- Banner -->
+        <section class="honors-banner">
+            <div class="container banner-content-wrapper">
+                <div class="banner-left">
+                    <h1 class="banner-title">资质荣誉</h1>
+                    <p class="banner-subtitle">权威认证，实力见证，持续引领数据库技术创新</p>
+                </div>
+                <div class="banner-right">
+                    <i data-lucide="medal" class="banner-hero-icon"></i>
+                </div>
+            </div>
+            
+            <!-- Floating Highlights Bar -->
+            <div class="container banner-floating-container">
+                <div class="banner-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-icon-box blue">
+                            <i data-lucide="file-check-2"></i>
+                        </div>
+                        <div class="highlight-text">
+                            <h3>权威认证</h3>
+                            <p>通过多项国家级权威标准认证</p>
+                        </div>
+                    </div>
+                    <div class="highlight-divider"></div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon-box green">
+                            <i data-lucide="trophy"></i>
+                        </div>
+                        <div class="highlight-text">
+                            <h3>行业荣誉</h3>
+                            <p>荣获数十项行业重量级奖项</p>
+                        </div>
+                    </div>
+                    <div class="highlight-divider"></div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon-box orange">
+                            <i data-lucide="scroll-text"></i>
+                        </div>
+                        <div class="highlight-text">
+                            <h3>核心专利</h3>
+                            <p>拥有自主知识产权核心专利</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="container">
+            <!-- Compliance Section -->
+            <section class="compliance-section">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <h2 class="section-title">KaiwuDB 获得多项合规认证</h2>
+                        <p class="section-desc">合规性是企业发展的基础，KaiwuDB 严格遵守国家法律法规各项要求，积极参与行业标准制定与推广，全力打造深受客户信赖的数据库服务商。</p>
+                    </div>
+
+                    <div class="compliance-box">
+                        <div class="compliance-featured">
+                            <div class="featured-item">
+                                <div class="featured-icon-circle">
+                                    <i data-lucide="cloud-lightning"></i>
+                                </div>
+                                <h3>工信部可信云服务认证</h3>
+                                <p>可信云服务认证是我国针对云服务的权威认证体系，KaiwuDB 成功通过该项认证，证明了产品在数据安全、服务质量等方面的高标准。</p>
+                            </div>
+                            <div class="featured-divider"></div>
+                            <div class="featured-item">
+                                <div class="featured-icon-circle">
+                                    <i data-lucide="shield-check"></i>
+                                </div>
+                                <h3>国家网络安全等级保护三级</h3>
+                                <p>KaiwuDB 平台通过国家网络安全等级保护三级测评，标志着在信息安全技术和管理方面达到了国家级标准。</p>
+                            </div>
+                        </div>
+
+                        <div class="compliance-grid">
+                            <div class="compliance-item">
+                                <i data-lucide="cloud" class="compliance-icon"></i>
+                                <span>可信云服务评估</span>
+                            </div>
+                            <div class="compliance-item">
+                                <i data-lucide="shield" class="compliance-icon"></i>
+                                <span>国家信息安全等级保护三级</span>
+                            </div>
+                            <div class="compliance-item">
+                                <i data-lucide="award" class="compliance-icon"></i>
+                                <span>云计算信息安全管理体系认证</span>
+                            </div>
+                            <div class="compliance-item">
+                                <i data-lucide="lock" class="compliance-icon"></i>
+                                <span>信息安全管理体系认证</span>
+                            </div>
+                            <div class="compliance-item">
+                                <i data-lucide="settings" class="compliance-icon"></i>
+                                <span>信息技术服务管理体系认证</span>
+                            </div>
+                            <div class="compliance-item">
+                                <i data-lucide="check-circle" class="compliance-icon"></i>
+                                <span>质量管理体系认证</span>
+                            </div>
+                            <div class="compliance-item">
+                                <i data-lucide="server" class="compliance-icon"></i>
+                                <span>ITSS云计算服务能力一级资质</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-header text-center honors-main-header">
+                <h2 class="section-title">企业荣誉</h2>
+                <p class="section-desc">权威认证，实力见证，持续引领数据库技术创新</p>
+            </div>
+
+            <!-- Tabs (Client-side switching implemented in simple inline script for now or handled by logic below) -->
+            <div class="honors-tabs">
+                <button class="tab-btn active" onclick="filterHonors('all')">全部</button>
+                <button class="tab-btn" onclick="filterHonors('qualification')">企业资质</button>
+                <button class="tab-btn" onclick="filterHonors('product')">产品荣誉</button>
+                <button class="tab-btn" onclick="filterHonors('patent')">专利证书</button>
+            </div>
+
+            <section class="honors-section">
+                <div class="honors-grid" id="honorsGrid">
+                    <!-- Content injected by JS or Static -->
+                    <!-- Item 1 -->
+                    <div class="honor-card" data-category="qualification">
+                        <div class="honor-img-wrapper">
+                            <div class="honor-placeholder">
+                                <i data-lucide="award"></i>
+                            </div>
+                        </div>
+                        <h3 class="honor-title">高新技术企业证书</h3>
+                        <span class="honor-year">2025</span>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="honor-card" data-category="qualification">
+                        <div class="honor-img-wrapper">
+                            <div class="honor-placeholder">
+                                <i data-lucide="shield-check"></i>
+                            </div>
+                        </div>
+                        <h3 class="honor-title">ISO9001 质量管理体系认证</h3>
+                        <span class="honor-year">2024</span>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="honor-card" data-category="product">
+                        <div class="honor-img-wrapper">
+                            <div class="honor-placeholder">
+                                <i data-lucide="trophy"></i>
+                            </div>
+                        </div>
+                        <h3 class="honor-title">年度最佳数据库产品奖</h3>
+                        <span class="honor-year">2024</span>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="honor-card" data-category="qualification">
+                        <div class="honor-img-wrapper">
+                            <div class="honor-placeholder">
+                                <i data-lucide="file-check"></i>
+                            </div>
+                        </div>
+                        <h3 class="honor-title">CMMI 5级认证</h3>
+                        <span class="honor-year">2023</span>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="honor-card" data-category="product">
+                        <div class="honor-img-wrapper">
+                            <div class="honor-placeholder">
+                                <i data-lucide="star"></i>
+                            </div>
+                        </div>
+                        <h3 class="honor-title">信创产品评估认证</h3>
+                        <span class="honor-year">2023</span>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="honor-card" data-category="patent">
+                        <div class="honor-img-wrapper">
+                            <div class="honor-placeholder">
+                                <i data-lucide="scroll"></i>
+                            </div>
+                        </div>
+                        <h3 class="honor-title">分布式时序数据处理专利</h3>
+                        <span class="honor-year">2023</span>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="honor-card" data-category="patent">
+                        <div class="honor-img-wrapper">
+                            <div class="honor-placeholder">
+                                <i data-lucide="scroll"></i>
+                            </div>
+                        </div>
+                        <h3 class="honor-title">多模数据库存储引擎专利</h3>
+                        <span class="honor-year">2022</span>
+                    </div>
+
+                    <!-- Item 8 -->
+                    <div class="honor-card" data-category="product">
+                        <div class="honor-img-wrapper">
+                            <div class="honor-placeholder">
+                                <i data-lucide="thumbs-up"></i>
+                            </div>
+                        </div>
+                        <h3 class="honor-title">工业互联网优秀解决方案</h3>
+                        <span class="honor-year">2022</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('loaded');
+            if (window.lucide) lucide.createIcons();
+        });
+
+        // Simple filter logic
+        function filterHonors(category) {
+            // Update buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('onclick').includes(category)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Filter items
+            const items = document.querySelectorAll('.honor-card');
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'flex';
+                    // Animation reset
+                    item.style.opacity = '0';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                    }, 50);
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
