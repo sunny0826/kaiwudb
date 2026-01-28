@@ -1,0 +1,698 @@
+/* 
+ * Download Page Specific Styles
+ * Scoped under .download-page to prevent global pollution
+ */
+
+/* =========================================
+   Hero Section
+   ========================================= */
+.download-hero {
+    padding: 120px 0 60px;
+    background: linear-gradient(180deg, #F0F7FF 0%, #FFFFFF 100%);
+    text-align: center;
+    position: relative;
+}
+
+.download-hero .hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.download-hero .hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* =========================================
+   Tabs Navigation
+   ========================================= */
+.download-content {
+    padding-bottom: 100px;
+    min-height: 600px;
+}
+
+.download-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 48px;
+    padding: 6px;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-full);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid var(--color-border);
+}
+
+.download-tab-btn {
+    padding: 10px 32px;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-full);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.download-tab-btn:hover {
+    color: var(--color-text-primary);
+}
+
+.download-tab-btn.active {
+    background: #fff;
+    color: var(--color-accent);
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+}
+
+/* =========================================
+   Tab Panels & Content
+   ========================================= */
+.download-tab-panel {
+    display: none;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.download-tab-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.panel-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.panel-intro h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 12px;
+}
+
+.panel-intro p {
+    color: var(--color-text-secondary);
+    margin-bottom: 16px;
+}
+
+.intro-tags {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tag {
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    background: rgba(0, 86, 210, 0.1);
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
+.tag.community {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-success);
+}
+
+/* =========================================
+   Download Cards
+   ========================================= */
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.download-grid.three-col {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.download-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.download-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--color-accent-border);
+}
+
+.download-card.featured {
+    border-top: 4px solid var(--color-accent);
+}
+
+#kwdb-download-card {
+    border: 1px solid rgba(0, 86, 210, 0.18);
+    background:
+        radial-gradient(900px 260px at 16% 0%, rgba(0, 86, 210, 0.14), transparent 60%),
+        radial-gradient(640px 220px at 90% 0%, rgba(16, 185, 129, 0.10), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    box-shadow: 0 18px 50px rgba(17, 24, 39, 0.10);
+}
+
+#kwdb-download-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 70px rgba(17, 24, 39, 0.16);
+    border-color: rgba(0, 86, 210, 0.28);
+}
+
+#kwdb-download-card .card-icon {
+    background: linear-gradient(135deg, rgba(0, 86, 210, 0.14), rgba(0, 86, 210, 0.06));
+    border: 1px solid rgba(0, 86, 210, 0.16);
+}
+
+#kwdb-download-card .version-badge {
+    background: rgba(0, 86, 210, 0.10);
+    color: #0b3ea8;
+    border: 1px solid rgba(0, 86, 210, 0.14);
+}
+
+#kwdb-download-card .kwdb-download-controls {
+    margin-top: 18px;
+    padding: 14px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.72);
+    border: none;
+    box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+    backdrop-filter: blur(10px);
+}
+
+#kwdb-download-card .kwdb-select-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+#kwdb-download-card .kwdb-select {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#kwdb-download-card .kwdb-select-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+#kwdb-download-card select {
+    appearance: none;
+    width: 100%;
+    height: 44px;
+    padding: 0 44px 0 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background:
+        linear-gradient(180deg, #ffffff 0%, #f6f8ff 100%);
+    color: var(--color-text-primary);
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+#kwdb-download-card .kwdb-select {
+    position: relative;
+}
+
+#kwdb-download-card .kwdb-select::after {
+    content: "";
+    position: absolute;
+    right: 14px;
+    bottom: 16px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid rgba(0, 0, 0, 0.42);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.42);
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+#kwdb-download-card select:focus {
+    border-color: rgba(0, 86, 210, 0.40);
+    box-shadow: 0 0 0 4px rgba(0, 86, 210, 0.12);
+}
+
+#kwdb-download-card .kwdb-selection-hint {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+#kwdb-download-card .kwdb-download-btn.is-disabled {
+    opacity: 0.55;
+    pointer-events: none;
+    filter: grayscale(0.1);
+}
+
+#kwdb-source-build-card .card-desc {
+    margin-bottom: 16px;
+}
+
+#kwdb-source-build-card {
+    border: 1px solid rgba(0, 86, 210, 0.18);
+    background:
+        radial-gradient(900px 260px at 18% 0%, rgba(0, 86, 210, 0.10), transparent 60%),
+        radial-gradient(640px 220px at 88% 0%, rgba(16, 185, 129, 0.06), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    box-shadow: 0 18px 50px rgba(17, 24, 39, 0.10);
+}
+
+#kwdb-source-build-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 70px rgba(17, 24, 39, 0.16);
+    border-color: rgba(0, 86, 210, 0.28);
+}
+
+#kwdb-source-build-card .card-icon {
+    background: linear-gradient(135deg, rgba(0, 86, 210, 0.14), rgba(0, 86, 210, 0.06));
+    border: 1px solid rgba(0, 86, 210, 0.16);
+}
+
+#kwdb-source-build-card .kwdb-gs-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin: 2px 0 18px;
+}
+
+#kwdb-source-build-card .kwdb-gs-steps {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding-left: 0;
+}
+
+#kwdb-source-build-card .kwdb-gs-steps::before {
+    content: none;
+}
+
+#kwdb-source-build-card .kwdb-gs-step {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+}
+
+#kwdb-source-build-card .kwdb-gs-step + .kwdb-gs-step {
+    padding-top: 18px;
+    border-top: 1px solid rgba(0, 86, 210, 0.10);
+}
+
+#kwdb-source-build-card .kwdb-gs-step-badge {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #2F6BFF, #1D4ED8);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 10px 24px rgba(0, 86, 210, 0.20);
+}
+
+#kwdb-source-build-card .kwdb-gs-step-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 4px 0 10px;
+}
+
+#kwdb-source-build-card .code-snippet {
+    position: relative;
+    display: block;
+    padding: 14px 54px 14px 14px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.72);
+    border: none;
+    box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+    backdrop-filter: blur(10px);
+}
+
+#kwdb-source-build-card .code-snippet code {
+    display: block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(17, 24, 39, 0.72);
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+}
+
+#kwdb-source-build-card .copy-btn {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.9);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+#kwdb-source-build-card .copy-btn:hover {
+    background: #fff;
+    border-color: rgba(0, 86, 210, 0.25);
+    color: var(--color-accent);
+}
+
+#kwdb-source-build-card .copy-btn i {
+    width: 18px;
+    height: 18px;
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    background: #F0F7FF;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    flex-shrink: 0;
+}
+
+.card-icon i {
+    width: 24px;
+    height: 24px;
+}
+
+.card-title-wrap h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+}
+
+.version-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* Card Body */
+.card-body {
+    flex: 1;
+    margin-bottom: 32px;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 12px;
+}
+
+.feature-list li i {
+    width: 16px;
+    height: 16px;
+    color: var(--color-accent);
+}
+
+.card-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.code-snippet {
+    background: var(--color-bg-secondary);
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--color-border);
+}
+
+.code-snippet code {
+    font-family: 'SF Mono', Monaco, Consolas, monospace;
+    font-size: 0.85rem;
+    color: var(--color-text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.copy-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: var(--transition-fast);
+}
+
+.copy-btn:hover {
+    background: rgba(0,0,0,0.05);
+    color: var(--color-text-primary);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* Card Footer */
+.card-footer {
+    margin-top: auto;
+}
+
+.link-secondary {
+    display: block;
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    text-decoration: none;
+    transition: var(--transition-fast);
+    line-height: 1.5;
+}
+
+.link-secondary:hover {
+    color: var(--color-accent);
+}
+
+/* Tool Card Specifics */
+.tool-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.tool-icon.bg-blue { background: linear-gradient(135deg, #3B82F6, #2563EB); }
+.tool-icon.bg-green { background: linear-gradient(135deg, #10B981, #059669); }
+.tool-icon.bg-purple { background: linear-gradient(135deg, #8B5CF6, #7C3AED); }
+.tool-icon.bg-orange { background: linear-gradient(135deg, #F59E0B, #D97706); }
+.tool-icon.bg-cyan { background: linear-gradient(135deg, #06B6D4, #0891B2); }
+.tool-icon.bg-pink { background: linear-gradient(135deg, #EC4899, #DB2777); }
+
+.tool-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+/* Tools Tab: Tool Card Polish */
+.download-tab-panel#tools .download-card.tool-card {
+    border: 1px solid rgba(0, 86, 210, 0.12);
+    background:
+        radial-gradient(780px 220px at 20% 0%, rgba(0, 86, 210, 0.08), transparent 60%),
+        radial-gradient(520px 180px at 92% 0%, rgba(16, 185, 129, 0.06), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    box-shadow: 0 12px 40px rgba(17, 24, 39, 0.08);
+    padding: 26px;
+}
+
+.download-tab-panel#tools .download-card.tool-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.download-tab-panel#tools .download-card.tool-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 60px rgba(17, 24, 39, 0.14);
+    border-color: rgba(0, 86, 210, 0.22);
+}
+
+.download-tab-panel#tools .download-card.tool-card .card-header {
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.download-tab-panel#tools .download-card.tool-card .tool-icon {
+    border-radius: 14px;
+    box-shadow: 0 14px 30px rgba(17, 24, 39, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.download-tab-panel#tools .download-card.tool-card .card-title-wrap h4 {
+    font-size: 1.05rem;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+}
+
+.download-tab-panel#tools .download-card.tool-card .tool-subtitle {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(0, 86, 210, 0.08);
+    border: 1px solid rgba(0, 86, 210, 0.10);
+    font-size: 0.8rem;
+    line-height: 1;
+    margin-top: 8px;
+}
+
+.download-tab-panel#tools .download-card.tool-card .card-body {
+    margin-bottom: 18px;
+}
+
+.download-tab-panel#tools .download-card.tool-card .card-desc {
+    margin-bottom: 0;
+}
+
+.download-tab-panel#tools .download-card.tool-card .btn.btn-sm.btn-outline {
+    height: 40px;
+    border-radius: 12px;
+    border-color: rgba(0, 86, 210, 0.18);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+}
+
+.download-tab-panel#tools .download-card.tool-card .btn.btn-sm.btn-outline:hover {
+    border-color: rgba(0, 86, 210, 0.32);
+    box-shadow: 0 16px 34px rgba(17, 24, 39, 0.10);
+}
+
+/* Tool Sections */
+.tool-section {
+    margin-bottom: 60px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tool-section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 24px;
+    padding-left: 16px;
+    border-left: 4px solid var(--color-accent);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .download-grid.three-col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .download-hero {
+        padding: 80px 0 40px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .download-grid,
+    .download-grid.three-col {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .download-tabs {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 4px;
+    }
+    
+    .download-tab-btn {
+        padding: 8px 16px;
+        white-space: nowrap;
+    }
+
+    #kwdb-download-card .kwdb-select-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #kwdb-source-build-card .kwdb-gs-title {
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+    }
+
+    #kwdb-source-build-card .kwdb-gs-steps {
+        padding-left: 0;
+    }
+
+    #kwdb-source-build-card .kwdb-gs-steps::before {
+        content: none;
+    }
+}

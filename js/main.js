@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8. 初始化社区板块
     initCommunitySection();
 
-    initCaseArchitectureImage();
+    if (typeof initCaseArchitectureImage === 'function') initCaseArchitectureImage();
 
     // 9. 初始化技术创新 Tab (New Feature)
     initTechInnovationTabs();
@@ -1520,5 +1520,4 @@ function switchIndustryTab(key) {
         }, 300);
     }
 }
-
 
