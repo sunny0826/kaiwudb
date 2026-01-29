@@ -760,6 +760,46 @@
     flex-shrink: 0;
 }
 
+/* Version Select Style */
+.version-select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.version-select {
+    appearance: none;
+    background-color: rgba(0, 86, 210, 0.08);
+    border: 1px solid rgba(0, 86, 210, 0.1);
+    border-radius: 99px;
+    padding: 4px 28px 4px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    outline: none;
+    line-height: 1.2;
+}
+
+.version-select:hover {
+    background-color: rgba(0, 86, 210, 0.12);
+    border-color: rgba(0, 86, 210, 0.2);
+}
+
+.version-select-wrapper::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid var(--color-accent);
+    pointer-events: none;
+}
+
 /* Tool Icon Colors */
 .tool-icon.bg-blue {
     background: linear-gradient(135deg, rgba(0, 86, 210, 0.1), rgba(0, 86, 210, 0.04));
