@@ -40,15 +40,6 @@
                 <div class="download-tab-panels">
                     <!-- Enterprise Tab -->
                     <div class="download-tab-panel active" id="enterprise">
-                        <div class="panel-intro">
-                            <h3>企业级分布式多模数据库</h3>
-                            <p>面向工业物联网、数字能源、车联网等核心业务场景，提供高可用、高性能、高安全的数据服务。</p>
-                            <div class="intro-tags">
-                                <span class="tag">商业支持</span>
-                                <span class="tag">安全可靠</span>
-                                <span class="tag">多模融合</span>
-                            </div>
-                        </div>
                         
                         <div class="download-grid">
                             <!-- Card 1: Standard Edition -->
@@ -109,16 +100,161 @@
 
                     <!-- Community Tab -->
                     <div class="download-tab-panel" id="community">
-                        <div class="panel-intro">
-                            <h3>开源开放，社区共建</h3>
-                            <p>KWDB 是由开放原子开源基金会孵化的面向 AIoT 物联网场景的分布式多模数据库项目。</p>
-                            <div class="intro-tags">
-                                <span class="tag community">开源免费</span>
-                                <span class="tag community">开发者优先</span>
-                            </div>
-                        </div>
 
-                        <div class="download-grid">
+                        <div class="download-grid kwdb-community-grid">
+                            <div class="download-card featured" id="kwdb-download-card">
+                                <div class="card-header">
+                                    <div class="card-icon">
+                                        <i data-lucide="database"></i>
+                                    </div>
+                                    <div class="card-title-wrap">
+                                        <h4>下载安装包</h4>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-desc">KWDB 是 KaiwuDB 的社区版，是一款面向 AIoT 场景的分布式多模数据库产品，支持在同一实例同时建立时序库和关系库并融合处理多模数据，具备千万级设备接入、百万级数据秒级写入、亿级数据秒级读取等时序数据高效处理能力，具有稳定安全、高可用、易运维等特点，一站式满足 AIoT 等场景下数据管理需求及关键行业核心系统的自主可控需求。</p>
+                                    <div class="kwdb-download-controls">
+                                        <div class="kwdb-select-grid">
+                                            <label class="kwdb-select">
+                                                <span class="kwdb-select-label">版本</span>
+                                                <select id="kwdb-version-select" aria-label="选择版本">
+                                                    <option value="v3.0.0" selected>v3.0.0</option>
+                                                    <option value="v2.0.0">v2.0.0</option>
+                                                </select>
+                                            </label>
+                                            <label class="kwdb-select">
+                                                <span class="kwdb-select-label">操作系统</span>
+                                                <select id="kwdb-os-select" aria-label="选择操作系统">
+                                                    <option value="linux" selected>Linux</option>
+                                                    <option value="darwin">macOS</option>
+                                                    <option value="windows">Windows</option>
+                                                </select>
+                                            </label>
+                                            <label class="kwdb-select">
+                                                <span class="kwdb-select-label">架构</span>
+                                                <select id="kwdb-arch-select" aria-label="选择架构">
+                                                    <option value="x86_64" selected>x86_64</option>
+                                                    <option value="aarch64">ARM64 (aarch64)</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                        
+                                        <!-- Download Info Card (Reference Style) -->
+                                        <div class="kwdb-download-info-card">
+                                            <div class="info-main">
+                                                <div class="info-item filename">
+                                                    kaiwudb-community-linux-x86_64-v3.0.0.tar.gz
+                                                </div>
+                                                <div class="info-divider"></div>
+                                                <div class="info-item meta">
+                                                    <span>2.23GB</span>
+                                                    <span class="hash">MD5: 296a77b0cb1bd65eb496f38920d8b9d0</span>
+                                                </div>
+                                                <div class="info-divider"></div>
+                                                <div class="info-item action">
+                                                    <a href="#">Release Notes</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Usage Intro -->
+                                        <div class="kwdb-usage-intro">
+                                            <div class="usage-title">用法简介</div>
+                                            <div class="usage-steps">
+                                                <div class="usage-step">
+                                                    <span class="step-num">1</span>
+                                                    <div class="step-content">
+                                                        <span class="step-cmd">tar -zxvf kaiwudb-community-linux-x86_64-v3.0.0.tar.gz</span>
+                                                    </div>
+                                                </div>
+                                                <div class="usage-step">
+                                                    <span class="step-num">2</span>
+                                                    <div class="step-content">
+                                                        <span class="step-cmd">cd kaiwudb-community-linux-x86_64-v3.0.0</span>
+                                                    </div>
+                                                </div>
+                                                <div class="usage-step">
+                                                    <span class="step-num">3</span>
+                                                    <div class="step-content">
+                                                        <span class="step-cmd">./quick-deploy.sh</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Download Action Row -->
+                                        <div class="kwdb-download-action-row">
+                                            <div class="download-note">
+                                                <span class="note-label">说明：</span>
+                                                <span class="note-text">如果想要更多版本或操作系统，可以<a href="https://github.com/kwdb/kwdb/issues">在这里提交申请</a></span>
+                                            </div>
+                                            <a href="#" class="btn btn-outline-primary btn-sm btn-download-action">
+                                                下载
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="#" class="link-secondary">查看部署文档 &rarr;</a>
+                                </div>
+                            </div>
+                            <!-- Docker Card -->
+                            <div class="download-card" id="kwdb-docker-card">
+                                <div class="card-header">
+                                    <div class="card-icon">
+                                        <i data-lucide="container"></i>
+                                    </div>
+                                    <div class="card-title-wrap">
+                                        <h4>Docker 快速体验</h4>
+                                    </div>
+                                    <a href="https://hub.docker.com/r/kaiwudb/kaiwudb" target="_blank" class="btn btn-outline btn-sm ml-auto">
+                                        <i data-lucide="external-link"></i> 前往 Docker Hub
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-desc">无需复杂配置，通过 Docker 容器一键启动 KWDB，适合快速体验和开发测试。</p>
+                                    
+                                    <div class="kwdb-usage-intro">
+                                        <div class="usage-title">快速启动</div>
+                                        <div class="usage-steps">
+                                            <div class="usage-step">
+                                                <span class="step-num">1</span>
+                                                <div class="step-content">
+                                                    <div class="step-desc">拉取镜像</div>
+                                                    <div class="code-snippet">
+                                                        <code>docker pull kwdb/kwdb:latest</code>
+                                                        <button class="copy-btn" title="复制"><i data-lucide="copy"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="usage-step">
+                                                <span class="step-num">2</span>
+                                                <div class="step-content">
+                                                    <div class="step-desc">启动容器</div>
+                                                    <div class="code-snippet">
+                                                        <code>docker run -d --privileged --name kwdb \
+  -p 26257:26257 \
+  -p 8080:8080 \
+  -v /var/lib/kaiwudb:/kaiwudb/deploy/kaiwudb-container \
+  --ipc shareable \
+  -w /kaiwudb/bin \
+  kwdb/kwdb \
+  ./kwbase start-single-node \
+    --insecure \
+    --listen-addr=0.0.0.0:26257 \
+    --http-addr=0.0.0.0:8080 \
+    --store=/kaiwudb/deploy/kaiwudb-container</code>
+                                                        <button class="copy-btn" title="复制"><i data-lucide="copy"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="#" class="link-secondary">查看 Docker 部署文档 &rarr;</a>
+                                </div>
+                            </div>
                             <div class="download-card" id="kwdb-source-build-card">
                                 <div class="card-header">
                                     <div class="card-icon">
@@ -127,6 +263,9 @@
                                     <div class="card-title-wrap">
                                         <h4>源码编译</h4>
                                     </div>
+                                    <a href="https://github.com/kaiwudb" target="_blank" class="btn btn-outline btn-sm ml-auto">
+                                        <i data-lucide="github"></i> 前往 Gitee
+                                    </a>
                                 </div>
                                 <div class="card-body">
                                     <p class="card-desc">源码编译安装，获得最新功能。</p>
@@ -135,7 +274,7 @@
                                             <div class="kwdb-gs-step">
                                                 <div class="kwdb-gs-step-badge">1</div>
                                                 <div class="kwdb-gs-step-main">
-                                                    <div class="kwdb-gs-step-name">Pull</div>
+                                                    <div class="kwdb-gs-step-name">拉取源码</div>
                                                     <div class="code-snippet">
                                                         <code>git clone https://gitee.com/kwdb/kwdb.git /home/go/src/gitee.com/kwbasedb <br>
 # 请勿修改目录路径 <br>
@@ -148,7 +287,7 @@ cd /home/go/src/gitee.com/kwbasedb</code>
                                             <div class="kwdb-gs-step">
                                                 <div class="kwdb-gs-step-badge">2</div>
                                                 <div class="kwdb-gs-step-main">
-                                                    <div class="kwdb-gs-step-name">Sync</div>
+                                                    <div class="kwdb-gs-step-name">初始化&更新子模块</div>
                                                     <div class="code-snippet">
                                                         <code>git submodule update --init  #适用于首次拉取代码 <br>
 git submodule update --remote</code>
@@ -160,10 +299,10 @@ git submodule update --remote</code>
                                             <div class="kwdb-gs-step">
                                                 <div class="kwdb-gs-step-badge">3</div>
                                                 <div class="kwdb-gs-step-main">
-                                                    <div class="kwdb-gs-step-name">Build</div>
+                                                    <div class="kwdb-gs-step-name">构建源码</div>
                                                     <div class="code-snippet">
                                                         <code>mkdir build && cd build <br>
-cmake .. -DCMAKE_BUILD_TYPE=[Release|Debug] <br>
+cmake .. -DCMAKE_BUILD_TYPE=[Release|Debug] #指定构建类型 <br>
 make <br>
 make install</code>
                                                         <button class="copy-btn" title="复制"><i data-lucide="copy"></i></button>
@@ -174,65 +313,7 @@ make install</code>
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <a href="https://github.com/kaiwudb" target="_blank" class="btn btn-outline btn-block">
-                                        <i data-lucide="github"></i> 前往 Gitee
-                                    </a>
                                     <a href="#" class="link-secondary">查看详细指南 &rarr;</a>
-                                </div>
-                            </div>
-                            <div class="download-card featured" id="kwdb-download-card">
-                                <div class="card-header">
-                                    <div class="card-icon">
-                                        <i data-lucide="database"></i>
-                                    </div>
-                                    <div class="card-title-wrap">
-                                        <h4>下载安装包</h4>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-desc">KWDB 是 KaiwuDB 的社区版，是一款面向 AIoT 场景的分布式多模数据库产品，支持在同一实例同时建立时序库和关系库并融合处理多模数据，具备千万级设备接入、百万级数据秒级写入、亿级数据秒级读取等时序数据高效处理能力，具有稳定安全、高可用、易运维等特点，一站式满足 AIoT 等场景下数据管理需求及关键行业核心系统的自主可控需求。</p>
-                                    <ul class="feature-list">
-                                        <li><i data-lucide="check"></i>TB-PB 级海量数据存储与处理</li>
-                                        <li><i data-lucide="check"></i>原生分布式架构，弹性水平扩展</li>
-                                        <li><i data-lucide="check"></i>支持时序、关系型等多模数据融合</li>
-                                        <li><i data-lucide="check"></i>包含企业级可视化运维平台 (KWE)</li>
-                                    </ul>
-                                    <div class="kwdb-download-controls">
-                                        <div class="kwdb-select-grid">
-                                            <label class="kwdb-select">
-                                                <span class="kwdb-select-label">版本</span>
-                                                <select id="kwdb-version-select" aria-label="选择版本">
-                                                    <option value="" selected disabled>请选择</option>
-                                                    <option value="v3.0.0">v3.0.0</option>
-                                                    <option value="v2.0.0">v2.0.0</option>
-                                                </select>
-                                            </label>
-                                            <label class="kwdb-select">
-                                                <span class="kwdb-select-label">操作系统</span>
-                                                <select id="kwdb-os-select" aria-label="选择操作系统">
-                                                    <option value="" selected disabled>请选择</option>
-                                                    <option value="linux">Linux</option>
-                                                    <option value="darwin">macOS</option>
-                                                    <option value="windows">Windows</option>
-                                                </select>
-                                            </label>
-                                            <label class="kwdb-select">
-                                                <span class="kwdb-select-label">架构</span>
-                                                <select id="kwdb-arch-select" aria-label="选择架构">
-                                                    <option value="" selected disabled>请选择</option>
-                                                    <option value="x86_64">x86_64</option>
-                                                    <option value="aarch64">ARM64 (aarch64)</option>
-                                                </select>
-                                            </label>
-                                        </div>
-                                        <div class="kwdb-selection-hint" id="kwdb-selection-hint">请选择版本、操作系统与架构以获取安装包</div>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="#" class="btn btn-primary btn-block kwdb-download-btn is-disabled" id="kwdb-download-btn" aria-disabled="true">
-                                        <i data-lucide="download"></i> 下载安装包
-                                    </a>
-                                    <a href="#" class="link-secondary">查看部署文档 &rarr;</a>
                                 </div>
                             </div>
                         </div>
@@ -240,10 +321,6 @@ make install</code>
 
                     <!-- Tools Tab -->
                     <div class="download-tab-panel" id="tools">
-                        <div class="panel-intro">
-                            <h3>生态工具与连接器</h3>
-                            <p>提供丰富的数据迁移、监控报警、开发连接器等生态工具，提升开发运维效率。</p>
-                        </div>
 
                         <!-- Section 1: General Tools -->
                         <div class="tool-section">

@@ -139,6 +139,30 @@
     margin: 0 auto;
 }
 
+/* KWDB Tab Vertical Layout */
+.download-grid.kwdb-community-grid {
+    grid-template-columns: 1fr;
+    max-width: 900px;
+}
+
+@media (min-width: 1200px) {
+    /* Allow container to expand on download page */
+    .download-content .container {
+        max-width: 1200px;
+    }
+
+    .download-grid.kwdb-community-grid {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 1440px) {
+    /* Further expand on very large screens */
+    .download-content .container {
+        max-width: 1400px;
+    }
+}
+
 .download-grid.three-col {
     grid-template-columns: repeat(3, 1fr);
 }
@@ -203,51 +227,210 @@
 
 #kwdb-download-card .kwdb-select-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
 }
 
 #kwdb-download-card .kwdb-select {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     gap: 8px;
+    position: relative; /* Context for absolute arrow */
 }
 
 #kwdb-download-card .kwdb-select-label {
     font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
+    font-weight: 500;
+    color: #666;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 #kwdb-download-card select {
     appearance: none;
-    width: 100%;
-    height: 44px;
-    padding: 0 44px 0 14px;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.10);
-    background:
-        linear-gradient(180deg, #ffffff 0%, #f6f8ff 100%);
-    color: var(--color-text-primary);
+    flex: 1; /* Take remaining space */
+    width: 0; /* Prevent overflow in flex container */
+    min-width: 0;
+    height: 36px;
+    padding: 0 30px 0 10px;
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
+    background: #fff;
+    color: #333;
     outline: none;
     transition: var(--transition-fast);
-}
-
-#kwdb-download-card .kwdb-select {
-    position: relative;
+    font-size: 0.9rem;
 }
 
 #kwdb-download-card .kwdb-select::after {
     content: "";
     position: absolute;
-    right: 14px;
-    bottom: 16px;
-    width: 10px;
-    height: 10px;
-    border-right: 2px solid rgba(0, 0, 0, 0.42);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.42);
+    right: 10px;
+    bottom: 14px;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid #999;
+    border-bottom: 2px solid #999;
     transform: rotate(45deg);
     pointer-events: none;
+}
+
+/* Info Card Style */
+.kwdb-download-info-card {
+    margin-top: 20px;
+    background: #F0F7FF;
+    border-top: 1px solid #E1EAF5;
+    border-bottom: 1px solid #E1EAF5;
+    padding: 16px 20px;
+    /* Flush with parent container edges */
+    margin-left: -14px;
+    margin-right: -14px;
+    width: calc(100% + 28px);
+}
+
+.kwdb-download-info-card .info-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Usage Intro Style */
+.kwdb-usage-intro {
+    margin-top: 16px;
+    padding: 0 4px; /* Slight indent to align with selects */
+}
+
+.kwdb-usage-intro .usage-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.kwdb-usage-intro .usage-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.kwdb-usage-intro .usage-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.kwdb-usage-intro .step-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.kwdb-usage-intro .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: #e6f0ff;
+    color: #0056D2;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Removed .kwdb-usage-intro .step-cmd block as it is replaced by generic .code-snippet */
+
+.kwdb-download-info-card .info-item {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.kwdb-download-info-card .info-item.filename {
+    font-family: monospace;
+    font-weight: 500;
+    color: #333;
+    word-break: break-all;
+}
+
+.kwdb-download-info-card .info-item.meta {
+    display: flex;
+    gap: 16px;
+    color: #666;
+}
+
+.kwdb-download-info-card .info-item.action a {
+    color: #0056D2;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.kwdb-download-info-card .info-divider {
+    width: 1px;
+    height: 24px;
+    background: #D1D9E5;
+    display: none; /* Hide on small screens */
+}
+
+@media (min-width: 768px) {
+    .kwdb-download-info-card .info-divider {
+        display: block;
+    }
+}
+
+/* Action Row */
+.kwdb-download-action-row {
+    margin-top: 16px;
+    padding-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-top: 1px solid #eee;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+@media (max-width: 768px) {
+    #kwdb-download-card .kwdb-select-grid {
+        grid-template-columns: 1fr; /* Stack selects on mobile */
+    }
+    
+    .kwdb-download-action-row {
+        justify-content: center; /* Center content when wrapped */
+        text-align: center;
+    }
+}
+
+.kwdb-download-action-row .download-note {
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.kwdb-download-action-row .note-label {
+    font-weight: 600;
+}
+
+.btn-download-action {
+    padding: 6px 24px;
+    border-radius: 4px;
+    border: 1px solid #0056D2;
+    color: #0056D2;
+    background: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-download-action:hover {
+    background: #0056D2;
+    color: #fff;
 }
 
 #kwdb-download-card select:focus {
@@ -348,7 +531,7 @@
     margin: 4px 0 10px;
 }
 
-#kwdb-source-build-card .code-snippet {
+.code-snippet {
     position: relative;
     display: block;
     padding: 14px 54px 14px 14px;
@@ -359,18 +542,18 @@
     backdrop-filter: blur(10px);
 }
 
-#kwdb-source-build-card .code-snippet code {
+.code-snippet code {
     display: block;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 0.9rem;
     line-height: 1.7;
     color: rgba(17, 24, 39, 0.72);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: initial;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    word-break: break-all;
 }
 
-#kwdb-source-build-card .copy-btn {
+.copy-btn {
     position: absolute;
     right: 14px;
     top: 14px;
@@ -383,257 +566,168 @@
     align-items: center;
     justify-content: center;
     transition: var(--transition-fast);
+    cursor: pointer;
+    color: var(--color-text-secondary);
 }
 
-#kwdb-source-build-card .copy-btn:hover {
+.copy-btn:hover {
     background: #fff;
     border-color: rgba(0, 86, 210, 0.25);
     color: var(--color-accent);
 }
 
-#kwdb-source-build-card .copy-btn i {
-    width: 18px;
-    height: 18px;
+.copy-btn i {
+    width: 16px;
+    height: 16px;
 }
 
-/* Card Header */
-.card-header {
+/* Docker Card Style */
+#kwdb-docker-card {
+    border: 1px solid rgba(0, 86, 210, 0.18);
+    background:
+        radial-gradient(900px 260px at 16% 0%, rgba(14, 165, 233, 0.12), transparent 60%),
+        radial-gradient(640px 220px at 90% 0%, rgba(59, 130, 246, 0.08), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    box-shadow: 0 18px 50px rgba(17, 24, 39, 0.10);
+}
+
+#kwdb-docker-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 70px rgba(17, 24, 39, 0.16);
+    border-color: rgba(0, 86, 210, 0.28);
+}
+
+#kwdb-docker-card .card-icon {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.14), rgba(14, 165, 233, 0.06));
+    border: 1px solid rgba(14, 165, 233, 0.16);
+    color: #0ea5e9;
+}
+
+/* Update usage intro styles to support step-desc */
+.kwdb-usage-intro .step-desc {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #444;
+}
+
+/* =========================================
+   Utility Classes (Buttons, etc.)
+   ========================================= */
+.ml-auto {
+    margin-left: auto;
+}
+
+.btn-block {
     display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-sm {
+    height: 32px;
+    padding: 0 16px;
+    font-size: 0.85rem;
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-accent);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 86, 210, 0.2);
+}
+
+/* =========================================
+   Missing Generic Component Styles
+   ========================================= */
+
+/* Generic Card Header */
+.download-card .card-header {
+    display: flex;
+    align-items: center;
     gap: 16px;
     margin-bottom: 24px;
-    align-items: flex-start;
 }
 
-.card-icon {
+/* Generic Card Icon (for Enterprise/Lite/etc) */
+.download-card .card-icon {
     width: 48px;
     height: 48px;
-    background: #F0F7FF;
     border-radius: 12px;
+    background: linear-gradient(135deg, rgba(0, 86, 210, 0.1), rgba(0, 86, 210, 0.04));
+    color: var(--color-accent);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-accent);
     flex-shrink: 0;
+    border: 1px solid rgba(0, 86, 210, 0.1);
 }
 
-.card-icon i {
+.download-card .card-icon i {
     width: 24px;
     height: 24px;
 }
 
-.card-title-wrap h4 {
-    font-size: 1.2rem;
+/* Card Title Wrap */
+.download-card .card-title-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.download-card .card-title-wrap h4 {
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--color-text-primary);
     margin-bottom: 4px;
+    line-height: 1.2;
 }
 
-.version-badge {
-    display: inline-block;
-    font-size: 0.75rem;
-    padding: 2px 8px;
-    background: var(--color-bg-tertiary);
-    color: var(--color-text-secondary);
-    border-radius: 4px;
-    font-weight: 500;
-}
-
-/* Card Body */
-.card-body {
+.download-card .card-body {
     flex: 1;
-    margin-bottom: 32px;
+}
+
+.download-card .card-footer {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Feature List */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .feature-list li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
     font-size: 0.95rem;
     color: var(--color-text-secondary);
-    margin-bottom: 12px;
-}
-
-.feature-list li i {
-    width: 16px;
-    height: 16px;
-    color: var(--color-accent);
-}
-
-.card-desc {
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin-bottom: 24px;
-}
-
-.code-snippet {
-    background: var(--color-bg-secondary);
-    padding: 12px;
-    border-radius: var(--radius-sm);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid var(--color-border);
-}
-
-.code-snippet code {
-    font-family: 'SF Mono', Monaco, Consolas, monospace;
-    font-size: 0.85rem;
-    color: var(--color-text-primary);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.copy-btn {
-    background: transparent;
-    border: none;
-    color: var(--color-text-secondary);
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 4px;
-    transition: var(--transition-fast);
-}
-
-.copy-btn:hover {
-    background: rgba(0,0,0,0.05);
-    color: var(--color-text-primary);
-}
-
-.btn-block {
-    display: block;
-    width: 100%;
-    text-align: center;
-}
-
-/* Card Footer */
-.card-footer {
-    margin-top: auto;
-}
-
-.link-secondary {
-    display: block;
-    margin-top: 16px;
-    font-size: 0.85rem;
-    color: var(--color-text-secondary);
-    text-align: center;
-    text-decoration: none;
-    transition: var(--transition-fast);
     line-height: 1.5;
 }
 
-.link-secondary:hover {
-    color: var(--color-accent);
-}
-
-/* Tool Card Specifics */
-.tool-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: #fff;
+.feature-list li i {
+    width: 18px;
+    height: 18px;
+    color: var(--color-success);
     flex-shrink: 0;
+    margin-top: 3px;
 }
 
-.tool-icon.bg-blue { background: linear-gradient(135deg, #3B82F6, #2563EB); }
-.tool-icon.bg-green { background: linear-gradient(135deg, #10B981, #059669); }
-.tool-icon.bg-purple { background: linear-gradient(135deg, #8B5CF6, #7C3AED); }
-.tool-icon.bg-orange { background: linear-gradient(135deg, #F59E0B, #D97706); }
-.tool-icon.bg-cyan { background: linear-gradient(135deg, #06B6D4, #0891B2); }
-.tool-icon.bg-pink { background: linear-gradient(135deg, #EC4899, #DB2777); }
-
-.tool-subtitle {
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
-}
-
-/* Tools Tab: Tool Card Polish */
-.download-tab-panel#tools .download-card.tool-card {
-    border: 1px solid rgba(0, 86, 210, 0.12);
-    background:
-        radial-gradient(780px 220px at 20% 0%, rgba(0, 86, 210, 0.08), transparent 60%),
-        radial-gradient(520px 180px at 92% 0%, rgba(16, 185, 129, 0.06), transparent 55%),
-        linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
-    box-shadow: 0 12px 40px rgba(17, 24, 39, 0.08);
-    padding: 26px;
-}
-
-.download-tab-panel#tools .download-card.tool-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
-    opacity: 0.55;
-    pointer-events: none;
-}
-
-.download-tab-panel#tools .download-card.tool-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 22px 60px rgba(17, 24, 39, 0.14);
-    border-color: rgba(0, 86, 210, 0.22);
-}
-
-.download-tab-panel#tools .download-card.tool-card .card-header {
-    align-items: center;
-    margin-bottom: 18px;
-}
-
-.download-tab-panel#tools .download-card.tool-card .tool-icon {
-    border-radius: 14px;
-    box-shadow: 0 14px 30px rgba(17, 24, 39, 0.10);
-    border: 1px solid rgba(255, 255, 255, 0.55);
-}
-
-.download-tab-panel#tools .download-card.tool-card .card-title-wrap h4 {
-    font-size: 1.05rem;
-    line-height: 1.35;
-    letter-spacing: -0.01em;
-}
-
-.download-tab-panel#tools .download-card.tool-card .tool-subtitle {
-    display: inline-flex;
-    align-items: center;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(0, 86, 210, 0.08);
-    border: 1px solid rgba(0, 86, 210, 0.10);
-    font-size: 0.8rem;
-    line-height: 1;
-    margin-top: 8px;
-}
-
-.download-tab-panel#tools .download-card.tool-card .card-body {
-    margin-bottom: 18px;
-}
-
-.download-tab-panel#tools .download-card.tool-card .card-desc {
-    margin-bottom: 0;
-}
-
-.download-tab-panel#tools .download-card.tool-card .btn.btn-sm.btn-outline {
-    height: 40px;
-    border-radius: 12px;
-    border-color: rgba(0, 86, 210, 0.18);
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
-}
-
-.download-tab-panel#tools .download-card.tool-card .btn.btn-sm.btn-outline:hover {
-    border-color: rgba(0, 86, 210, 0.32);
-    box-shadow: 0 16px 34px rgba(17, 24, 39, 0.10);
-}
-
-/* Tool Sections */
+/* Tool Section Styles */
 .tool-section {
-    margin-bottom: 60px;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 48px;
 }
 
 .tool-section-title {
@@ -641,58 +735,74 @@
     font-weight: 600;
     color: var(--color-text-primary);
     margin-bottom: 24px;
-    padding-left: 16px;
+    padding-left: 12px;
     border-left: 4px solid var(--color-accent);
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .download-grid.three-col {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.tool-subtitle {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    font-weight: 400;
 }
 
-@media (max-width: 768px) {
-    .download-hero {
-        padding: 80px 0 40px;
-    }
+/* Tool Icons */
+.tool-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+}
 
-    .hero-title {
-        font-size: 2rem;
-    }
+/* Tool Icon Colors */
+.tool-icon.bg-blue {
+    background: linear-gradient(135deg, rgba(0, 86, 210, 0.1), rgba(0, 86, 210, 0.04));
+    color: var(--color-accent);
+    border: 1px solid rgba(0, 86, 210, 0.1);
+}
 
-    .download-grid,
-    .download-grid.three-col {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-    
-    .download-tabs {
-        width: 100%;
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding: 4px;
-    }
-    
-    .download-tab-btn {
-        padding: 8px 16px;
-        white-space: nowrap;
-    }
+.tool-icon.bg-purple {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(168, 85, 247, 0.04));
+    color: #a855f7;
+    border: 1px solid rgba(168, 85, 247, 0.1);
+}
 
-    #kwdb-download-card .kwdb-select-grid {
-        grid-template-columns: 1fr;
-    }
+.tool-icon.bg-orange {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(249, 115, 22, 0.04));
+    color: #f97316;
+    border: 1px solid rgba(249, 115, 22, 0.1);
+}
 
-    #kwdb-source-build-card .kwdb-gs-title {
-        font-size: 1.4rem;
-        margin-bottom: 16px;
-    }
+.tool-icon.bg-cyan {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(6, 182, 212, 0.04));
+    color: #06b6d4;
+    border: 1px solid rgba(6, 182, 212, 0.1);
+}
 
-    #kwdb-source-build-card .kwdb-gs-steps {
-        padding-left: 0;
-    }
+.tool-icon.bg-pink {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(236, 72, 153, 0.04));
+    color: #ec4899;
+    border: 1px solid rgba(236, 72, 153, 0.1);
+}
 
-    #kwdb-source-build-card .kwdb-gs-steps::before {
-        content: none;
-    }
+.tool-icon.bg-green {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.04));
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+/* Tool Card Specific Adjustments */
+.download-grid.three-col .download-card {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.download-grid.three-col .card-title-wrap h4 {
+    font-size: 1.1rem;
 }
