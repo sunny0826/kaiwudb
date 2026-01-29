@@ -1,6 +1,6 @@
 /* Scoped styles for Training Detail Page */
 #training-detail-page {
-    background-color: #F7F9FB; /* Light gray background like OceanBase */
+    background-color: #F7F9FB; /* Light gray background like KWDB */
     min-height: 100vh;
     padding-bottom: 60px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -428,27 +428,47 @@
     background: #F0F5FF;
 }
 
-#training-detail-page .lesson-item i {
+#training-detail-page .lesson-item i.type-icon {
     width: 16px;
     height: 16px;
     margin-right: 10px;
     color: #999;
+    flex-shrink: 0;
 }
 
-#training-detail-page .lesson-item:hover i {
+#training-detail-page .lesson-item:hover i.type-icon {
     color: #0056D2;
 }
 
-#training-detail-page .lesson-name {
+#training-detail-page .lesson-info {
     flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0; /* Ensure truncation works */
+}
+
+#training-detail-page .lesson-name {
     font-size: 14px;
     color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #training-detail-page .lesson-tags {
-    display: flex;
+    display: inline-flex;
     gap: 8px;
     align-items: center;
+    flex-shrink: 0;
+}
+
+#training-detail-page .status-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 12px;
+    color: #52C41A;
+    flex-shrink: 0;
 }
 
 #training-detail-page .lesson-tag {
@@ -472,13 +492,8 @@
     background: #FDFDFD;
 }
 
-#training-detail-page .lesson-item.pdf i {
+#training-detail-page .lesson-item.pdf i.type-icon {
     color: #FF4D4F; /* PDF icon color */
-}
-
-#training-detail-page .lesson-item.completed i,
-#training-detail-page .lesson-item.pdf.completed i {
-    color: #52C41A; /* Completed icon color (Green) overrides others */
 }
 
 #training-detail-page .lesson-item.completed .lesson-name {
