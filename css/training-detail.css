@@ -122,16 +122,58 @@
     gap: 16px;
 }
 
+#training-detail-page .learning-progress {
+    width: 100%;
+}
+
+#training-detail-page .progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+#training-detail-page .progress-percentage {
+    color: #0056D2;
+    font-weight: 600;
+}
+
+#training-detail-page .progress-track {
+    width: 100%;
+    height: 6px;
+    background: #e6f7ff;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+#training-detail-page .progress-fill {
+    height: 100%;
+    background: #0056D2;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
 #training-detail-page .btn-start-learning {
     background: #0056D2;
     color: #fff;
-    border: none;
-    padding: 12px 32px;
-    border-radius: 4px; /* Slightly rounded, OceanBase style */
-    font-size: 16px;
+    border: 1px solid #0056D2;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 14px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
+}
+
+#training-detail-page .btn-start-learning.btn-outline {
+    background: transparent;
+    color: #0056D2;
+}
+
+#training-detail-page .btn-start-learning.btn-outline:hover {
+    background: #f0f5ff;
+    box-shadow: none;
 }
 
 #training-detail-page .btn-start-learning:hover {
@@ -158,61 +200,33 @@
     border-color: #0056D2;
 }
 
-#training-detail-page .video-placeholder {
+#training-detail-page .course-cover-image {
     width: 100%;
     aspect-ratio: 16/9;
-    background: #000;
+    background: #f0f5ff;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-#training-detail-page .video-placeholder img {
+#training-detail-page .course-cover-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.8;
-    transition: opacity 0.3s;
+    transition: transform 0.3s ease;
 }
 
-#training-detail-page .video-placeholder:hover img {
-    opacity: 0.6;
-}
-
-#training-detail-page .play-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 64px;
-    height: 64px;
-    background: rgba(255,255,255,0.9);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #0056D2;
-    z-index: 2;
-    transition: transform 0.2s;
-}
-
-#training-detail-page .video-placeholder:hover .play-icon {
-    transform: translate(-50%, -50%) scale(1.1);
-    background: #fff;
-}
-
-#training-detail-page .play-icon svg {
-    width: 32px;
-    height: 32px;
+#training-detail-page .course-cover-image:hover img {
+    transform: scale(1.02);
 }
 
 /* Main Layout */
 #training-detail-page .main-layout {
     display: grid;
     grid-template-columns: 1fr 320px;
-    gap: 24px;
+    gap: 32px;
+    align-items: start;
 }
 
 @media (max-width: 992px) {
@@ -431,12 +445,52 @@
     color: #666;
 }
 
-#training-detail-page .lesson-tag.free {
-    background: #E6FFFB;
-    color: #00C853;
+#training-detail-page .lesson-tags {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+#training-detail-page .lesson-tag {
     font-size: 12px;
     padding: 2px 6px;
     border-radius: 2px;
+}
+
+#training-detail-page .lesson-tag.free {
+    background: #E6FFFB;
+    color: #00C853;
+}
+
+#training-detail-page .lesson-tag.required {
+    background: #FFF2F0;
+    color: #FF4D4F;
+    border: 1px solid #FFCCC7;
+}
+
+#training-detail-page .lesson-item.pdf {
+    background: #FDFDFD;
+}
+
+#training-detail-page .lesson-item.pdf i {
+    color: #FF4D4F; /* PDF icon color */
+}
+
+#training-detail-page .lesson-item.completed i,
+#training-detail-page .lesson-item.pdf.completed i {
+    color: #52C41A; /* Completed icon color (Green) overrides others */
+}
+
+#training-detail-page .lesson-item.completed .lesson-name {
+    color: #999;
+}
+
+#training-detail-page .lesson-meta {
+    font-size: 12px;
+    color: #999;
+    background: #f5f5f5;
+    padding: 2px 8px;
+    border-radius: 10px;
 }
 
 /* Comments */
@@ -516,86 +570,10 @@
     border-bottom: 1px solid #f0f0f0;
 }
 
-#training-detail-page .instructor-info {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 16px;
-}
-
-#training-detail-page .instructor-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #f0f0f0;
-}
-
-#training-detail-page .instructor-avatar img {
-    width: 100%;
-    height: 100%;
-}
-
-#training-detail-page .instructor-text .name {
-    font-weight: 600;
-    color: #333;
-    font-size: 16px;
-    margin-bottom: 4px;
-}
-
-#training-detail-page .instructor-text .title {
-    font-size: 12px;
-    color: #999;
-}
-
-#training-detail-page .instructor-desc {
-    font-size: 13px;
-    color: #666;
-    line-height: 1.6;
-}
-
-#training-detail-page .resource-list {
-    list-style: none;
-    padding: 0;
-}
-
-#training-detail-page .resource-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 0;
-    border-bottom: 1px solid #f9f9f9;
-}
-
-#training-detail-page .resource-list li:last-child {
-    border-bottom: none;
-}
-
-#training-detail-page .resource-list i {
-    color: #999;
-    width: 16px;
-}
-
-#training-detail-page .resource-list span {
-    flex: 1;
-    font-size: 14px;
-    color: #666;
-}
-
-#training-detail-page .download-link {
-    color: #0056D2;
-    font-size: 12px;
-    text-decoration: none;
-}
-
-#training-detail-page .recommend-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
 #training-detail-page .recommend-item {
     display: flex;
     gap: 12px;
+    margin-bottom: 16px;
     text-decoration: none;
     color: inherit;
     transition: opacity 0.2s;
@@ -605,11 +583,16 @@
     opacity: 0.8;
 }
 
+#training-detail-page .recommend-item:last-child {
+    margin-bottom: 0;
+}
+
 #training-detail-page .rec-img {
     width: 80px;
     height: 50px;
     background: #E6F7FF;
     border-radius: 4px;
+    flex-shrink: 0;
 }
 
 #training-detail-page .rec-info {
@@ -617,11 +600,11 @@
 }
 
 #training-detail-page .rec-title {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     color: #333;
-    margin-bottom: 4px;
     line-height: 1.4;
+    margin-bottom: 4px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -631,4 +614,64 @@
 #training-detail-page .rec-meta {
     font-size: 12px;
     color: #999;
+}
+
+/* Ad Card */
+#training-detail-page .ad-card {
+    padding: 0;
+    overflow: hidden;
+    border: none;
+}
+
+#training-detail-page .ad-link {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#training-detail-page .ad-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+#training-detail-page .ad-link:hover .ad-img {
+    transform: scale(1.03);
+}
+
+#training-detail-page .ad-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    backdrop-filter: blur(4px);
+}
+
+/* QR Code Card */
+#training-detail-page .qrcode-card .qrcode-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#training-detail-page .qrcode-img {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 16px;
+    padding: 8px;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+}
+
+#training-detail-page .qrcode-desc {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
 }

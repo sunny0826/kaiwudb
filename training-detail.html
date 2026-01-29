@@ -22,7 +22,7 @@
         <div class="breadcrumb-nav container">
             <a href="index.html">首页</a>
             <span class="separator">/</span>
-            <a href="#">培训认证</a>
+            <a href="training.html">培训认证</a>
             <span class="separator">/</span>
             <span class="current">课程详情</span>
         </div>
@@ -38,20 +38,15 @@
                     <h1 class="course-title">分布式数据库核心技术解析与实战</h1>
                     <div class="course-meta">
                         <span class="meta-item"><i data-lucide="clock"></i> 12 课时</span>
-                        <span class="meta-item"><i data-lucide="users"></i> 3,452 人在学</span>
-                        <span class="meta-item rating"><i data-lucide="star"></i> 4.9 分</span>
                     </div>
                     <div class="course-actions">
-                        <button class="btn-start-learning">开始学习</button>
-                        <button class="btn-share"><i data-lucide="share-2"></i></button>
+                        <button class="btn-start-learning">继续学习</button>
+                        <button class="btn-start-learning btn-outline">开始考试</button>
                     </div>
                 </div>
                 <div class="header-cover">
-                    <div class="video-placeholder">
-                        <div class="play-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
-                        <img src="data:image/svg+xml,%3Csvg width='400' height='225' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%230056D2' fill-opacity='0.1'/%3E%3C/svg%3E" alt="Course Cover">
+                    <div class="course-cover-image">
+                        <img src="data:image/svg+xml,%3Csvg width='800' height='450' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23E6F7FF'/%3E%3Ctext x='50%25' y='50%25' dy='.3em' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='48' fill='%231890FF' fill-opacity='0.1'%3EKWDB CORE%3C/text%3E%3Ccircle cx='700' cy='350' r='100' fill='%231890FF' fill-opacity='0.05'/%3E%3Cpath d='M0 450 L800 350 V450 Z' fill='%231890FF' fill-opacity='0.1'/%3E%3C/svg%3E" alt="Course Cover">
                     </div>
                 </div>
             </div>
@@ -66,7 +61,6 @@
                     <div class="course-tabs">
                         <button class="tab-item active" data-target="#intro">课程介绍</button>
                         <button class="tab-item" data-target="#outline">课程大纲</button>
-                        <button class="tab-item" data-target="#comments">学员评价</button>
                     </div>
 
                     <!-- 课程介绍 -->
@@ -117,14 +111,27 @@
                                     <span class="chapter-duration">45:00</span>
                                 </div>
                                 <ul class="lesson-list">
-                                    <li class="lesson-item">
-                                        <i data-lucide="play-circle"></i>
+                                    <li class="lesson-item pdf completed">
+                                        <i data-lucide="check-circle"></i>
                                         <span class="lesson-name">1.1 数据库技术演进路线</span>
-                                        <span class="lesson-tag free">免费试看</span>
+                                        <div class="lesson-tags">
+                                            <span class="lesson-tag required">必修</span>
+                                        </div>
                                     </li>
-                                    <li class="lesson-item">
-                                        <i data-lucide="play-circle"></i>
+                                    <li class="lesson-item completed">
+                                        <i data-lucide="check-circle"></i>
+                                        <span class="lesson-name">1.1 数据库技术演进路线（视频）</span>
+                                    </li>
+                                    <li class="lesson-item pdf completed">
+                                        <i data-lucide="check-circle"></i>
                                         <span class="lesson-name">1.2 分布式架构的核心挑战</span>
+                                        <div class="lesson-tags">
+                                            <span class="lesson-tag required">必修</span>
+                                        </div>
+                                    </li>
+                                    <li class="lesson-item completed">
+                                        <i data-lucide="check-circle"></i>
+                                        <span class="lesson-name">1.2 分布式架构的核心挑战（视频）</span>
                                     </li>
                                 </ul>
                             </div>
@@ -135,17 +142,38 @@
                                     <span class="chapter-duration">01:20:00</span>
                                 </div>
                                 <ul class="lesson-list">
-                                    <li class="lesson-item">
-                                        <i data-lucide="play-circle"></i>
+                                    <li class="lesson-item pdf">
+                                        <i data-lucide="file-text"></i>
                                         <span class="lesson-name">2.1 ACID 特性与 CAP 理论</span>
+                                        <div class="lesson-tags">
+                                            <span class="lesson-tag required">必修</span>
+                                        </div>
                                     </li>
                                     <li class="lesson-item">
                                         <i data-lucide="play-circle"></i>
+                                        <span class="lesson-name">2.1 ACID 特性与 CAP 理论（视频）</span>
+                                    </li>
+                                    <li class="lesson-item pdf">
+                                        <i data-lucide="file-text"></i>
                                         <span class="lesson-name">2.2 两阶段提交 (2PC) 详解</span>
+                                        <div class="lesson-tags">
+                                            <span class="lesson-tag required">必修</span>
+                                        </div>
                                     </li>
                                     <li class="lesson-item">
                                         <i data-lucide="play-circle"></i>
+                                        <span class="lesson-name">2.2 两阶段提交 (2PC) 详解（视频）</span>
+                                    </li>
+                                    <li class="lesson-item pdf">
+                                        <i data-lucide="file-text"></i>
                                         <span class="lesson-name">2.3 分布式隔离级别</span>
+                                        <div class="lesson-tags">
+                                            <span class="lesson-tag required">必修</span>
+                                        </div>
+                                    </li>
+                                    <li class="lesson-item">
+                                        <i data-lucide="play-circle"></i>
+                                        <span class="lesson-name">2.3 分布式隔离级别（视频）</span>
                                     </li>
                                 </ul>
                             </div>
@@ -164,72 +192,32 @@
                                         <i data-lucide="lock"></i>
                                         <span class="lesson-name">3.2 Compaction 策略优化</span>
                                     </li>
+                                    <li class="lesson-item pdf">
+                                        <i data-lucide="file-text"></i>
+                                        <span class="lesson-name">3.3 LSM-Tree 经典论文 (PDF)</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 学员评价 -->
-                    <div id="comments" class="tab-content">
-                        <div class="comments-list">
-                            <div class="comment-item">
-                                <div class="comment-avatar">T</div>
-                                <div class="comment-body">
-                                    <div class="comment-header">
-                                        <span class="user-name">TechLead_Bob</span>
-                                        <span class="comment-date">2026-01-25</span>
-                                    </div>
-                                    <div class="comment-rating">⭐⭐⭐⭐⭐</div>
-                                    <p class="comment-text">讲得非常透彻，特别是关于分布式事务的部分，解决了困扰我很久的疑问。强烈推荐！</p>
-                                </div>
-                            </div>
-                            <div class="comment-item">
-                                <div class="comment-avatar" style="background: #52c41a;">D</div>
-                                <div class="comment-body">
-                                    <div class="comment-header">
-                                        <span class="user-name">Database_Fan</span>
-                                        <span class="comment-date">2026-01-20</span>
-                                    </div>
-                                    <div class="comment-rating">⭐⭐⭐⭐⭐</div>
-                                    <p class="comment-text">理论结合实战，干货满满。希望后面能出更多关于性能调优的进阶课程。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- 右侧侧边栏 -->
                 <aside class="sidebar-col">
-                    <!-- 讲师卡片 -->
-                    <div class="sidebar-card instructor-card">
-                        <h3 class="card-title">授课讲师</h3>
-                        <div class="instructor-info">
-                            <div class="instructor-avatar">
-                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100%25' height='100%25' fill='%23e6f7ff'/%3E%3Ccircle cx='50' cy='40' r='20' fill='%231890ff'/%3E%3Cpath d='M20 90 Q50 60 80 90' fill='%231890ff'/%3E%3C/svg%3E" alt="讲师头像">
+
+                    <!-- 学习进度 -->
+                    <div class="sidebar-card progress-card">
+                        <h3 class="card-title">学习进度</h3>
+                        <div class="learning-progress">
+                            <div class="progress-info">
+                                <span class="progress-text">已学习 4/12 课时</span>
+                                <span class="progress-percentage">33%</span>
                             </div>
-                            <div class="instructor-text">
-                                <div class="name">张三</div>
-                                <div class="title">KaiwuDB 高级技术专家</div>
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 33%;"></div>
                             </div>
                         </div>
-                        <p class="instructor-desc">拥有10年+数据库内核研发经验，曾主导多个核心模块的设计与实现。擅长分布式事务、存储引擎优化等领域。</p>
-                    </div>
-
-                    <!-- 课程资料 -->
-                    <div class="sidebar-card resource-card">
-                        <h3 class="card-title">课程资料</h3>
-                        <ul class="resource-list">
-                            <li>
-                                <i data-lucide="file-text"></i>
-                                <span>课程讲义 PDF</span>
-                                <a href="#" class="download-link">下载</a>
-                            </li>
-                            <li>
-                                <i data-lucide="code"></i>
-                                <span>实战代码 Demo</span>
-                                <a href="#" class="download-link">下载</a>
-                            </li>
-                        </ul>
                     </div>
 
                     <!-- 相关推荐 -->
@@ -250,6 +238,23 @@
                                     <div class="rec-meta">2103 人在学</div>
                                 </div>
                             </a>
+                        </div>
+                    </div>
+
+                    <!-- 广告卡片 -->
+                    <div class="sidebar-card ad-card">
+                        <a href="#" class="ad-link">
+                            <img src="data:image/svg+xml,%3Csvg width='300' height='150' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%230056D2'/%3E%3Ctext x='50%25' y='50%25' dy='.3em' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='24' fill='white'%3EKWDB Cloud%3C/text%3E%3C/svg%3E" alt="广告" class="ad-img">
+                            <div class="ad-badge">广告</div>
+                        </a>
+                    </div>
+
+                    <!-- 二维码卡片 -->
+                    <div class="sidebar-card qrcode-card">
+                        <h3 class="card-title">关注我们</h3>
+                        <div class="qrcode-content">
+                            <img src="data:image/svg+xml,%3Csvg width='150' height='150' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='white'/%3E%3Crect x='20' y='20' width='40' height='40' fill='black'/%3E%3Crect x='90' y='20' width='40' height='40' fill='black'/%3E%3Crect x='20' y='90' width='40' height='40' fill='black'/%3E%3Crect x='80' y='80' width='50' height='50' fill='black' fill-opacity='0.2'/%3E%3C/svg%3E" alt="QR Code" class="qrcode-img">
+                            <p class="qrcode-desc">扫码关注 KaiwuDB 公众号<br>获取最新技术干货</p>
                         </div>
                     </div>
                 </aside>
