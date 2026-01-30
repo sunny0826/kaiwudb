@@ -1,0 +1,594 @@
+
+/* Flatpickr Shortcuts Sidebar */
+.flatpickr-calendar.has-shortcuts {
+    width: auto !important; /* Allow width to expand */
+    display: flex !important;
+    flex-direction: row;
+}
+
+.flatpickr-shortcuts {
+    display: flex;
+    flex-direction: column;
+    width: 140px;
+    border-right: 1px solid rgba(0,0,0,0.08);
+    padding: 8px;
+    background: #f9fafb;
+    border-radius: 12px 0 0 12px;
+}
+
+/* Move months container to the right */
+.flatpickr-calendar.has-shortcuts .flatpickr-rContainer {
+    margin-left: 0;
+    padding: 8px;
+}
+
+.flatpickr-shortcut-btn {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 4px;
+    text-align: left;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.flatpickr-shortcut-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--color-text-primary);
+}
+
+.flatpickr-shortcut-btn:active {
+    background: rgba(0, 86, 210, 0.1);
+    color: var(--color-accent);
+}
+
+/* Adjust calendar layout for 2 months */
+.flatpickr-calendar.has-shortcuts {
+    min-width: 660px; /* 140px sidebar + 2 * 260px months roughly */
+}
+
+/* Improve input styling to look more like a clickable component */
+.form-input-flatpickr {
+    cursor: pointer;
+    background-color: #fff !important; /* Override disabled/readonly bg */
+}
+
+.form-input-flatpickr:read-only {
+    cursor: pointer;
+}
+
+/* Ensure the calendar arrow is hidden or adjusted if needed, usually Flatpickr handles it */
+
+/* Dashboard Layout */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--color-bg-secondary);
+}
+
+/* Main Content */
+.dashboard-main {
+    flex: 1;
+    margin: 0 auto;
+    padding: 32px 40px;
+    max-width: 1600px;
+    width: 100%;
+}
+
+/* Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 32px;
+}
+
+.header-left h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 8px;
+    font-family: var(--font-display);
+}
+
+.header-subtitle {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+.header-controls {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+/* Date Picker Wrapper */
+.date-picker-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.date-picker-icon {
+    position: absolute;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    color: var(--color-text-tertiary);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.form-input-flatpickr {
+    padding: 10px 16px 10px 40px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+    background: #fff;
+    outline: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit;
+    font-weight: 500;
+    width: 240px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.form-input-flatpickr:hover {
+    border-color: var(--color-text-secondary);
+}
+
+.form-input-flatpickr:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(0, 86, 210, 0.1);
+}
+
+/* Customize Flatpickr Theme to match site */
+.flatpickr-calendar {
+    font-family: inherit !important;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 12px !important;
+}
+
+.flatpickr-day.selected, 
+.flatpickr-day.startRange, 
+.flatpickr-day.endRange, 
+.flatpickr-day.selected.inRange, 
+.flatpickr-day.startRange.inRange, 
+.flatpickr-day.endRange.inRange, 
+.flatpickr-day.selected:focus, 
+.flatpickr-day.startRange:focus, 
+.flatpickr-day.endRange:focus, 
+.flatpickr-day.selected:hover, 
+.flatpickr-day.startRange:hover, 
+.flatpickr-day.endRange:hover, 
+.flatpickr-day.selected.prevMonthDay, 
+.flatpickr-day.startRange.prevMonthDay, 
+.flatpickr-day.endRange.prevMonthDay, 
+.flatpickr-day.selected.nextMonthDay, 
+.flatpickr-day.startRange.nextMonthDay, 
+.flatpickr-day.endRange.nextMonthDay {
+    background: var(--color-accent) !important;
+    border-color: var(--color-accent) !important;
+}
+
+.flatpickr-day.inRange {
+    box-shadow: -5px 0 0 #e6f0fa, 5px 0 0 #e6f0fa !important;
+    background: #e6f0fa !important;
+    border-color: #e6f0fa !important;
+    color: var(--color-text-primary) !important;
+}
+
+.flatpickr-months .flatpickr-month {
+    background: transparent !important;
+    color: var(--color-text-primary) !important;
+    fill: var(--color-text-primary) !important;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+    font-weight: 600 !important;
+}
+
+.flatpickr-weekdays {
+    background: transparent !important;
+}
+
+.flatpickr-weekday {
+    color: var(--color-text-secondary) !important;
+    font-weight: 600 !important;
+}
+
+/* KPI Cards */
+.stats-grid {
+    display: grid;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.kpi-section {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1200px) {
+    .kpi-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .kpi-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.stat-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: var(--transition-smooth);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-icon i {
+    color: #fff;
+    width: 24px;
+    height: 24px;
+}
+
+.bg-blue { background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); }
+.bg-purple { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+.bg-orange { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+.bg-green { background: linear-gradient(135deg, #10b981, #34d399); }
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+}
+
+.stat-trend {
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+}
+
+.stat-trend.positive { color: #10b981; }
+.stat-trend.negative { color: #ef4444; }
+
+.stat-trend i {
+    width: 14px;
+    height: 14px;
+}
+
+/* Charts Section */
+.charts-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+@media (max-width: 992px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.chart-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.chart-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.chart-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.chart-container {
+    width: 100%;
+    height: 320px;
+}
+
+/* Distribution Section */
+.distribution-section {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1200px) {
+    .distribution-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .distribution-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Product Section */
+.product-section {
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 992px) {
+    .product-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Table Card & Data Table Styles */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.card-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.card-body {
+    position: relative;
+}
+
+.card-body.no-padding {
+    padding: 0;
+    margin: 0 -24px -24px -24px;
+    width: calc(100% + 48px);
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.data-table th {
+    padding: 14px 24px;
+    background: #f9fafb;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.data-table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    color: var(--color-text-primary);
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tr:hover td {
+    background-color: #fcfcfd;
+}
+
+.pkg-name {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.85rem;
+    color: var(--color-text-primary);
+}
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.badge-blue {
+    background: #eff6ff;
+    color: var(--color-accent);
+}
+
+.badge-green {
+    background: #ecfdf5;
+    color: var(--color-success);
+}
+
+.badge-orange {
+    background: #fffbeb;
+    color: #f59e0b;
+}
+
+/* Progress Bar */
+.progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.progress-track {
+    flex: 1;
+    height: 6px;
+    background: rgba(0,0,0,0.06);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 3px;
+}
+
+.progress-wrapper span {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    min-width: 36px;
+    text-align: right;
+    font-feature-settings: "tnum";
+}
+
+/* Button Sizes */
+.btn-sm {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 0.85rem;
+    gap: 6px;
+}
+
+/* Table Toolbar & Filters */
+.table-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px 24px 24px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.search-input-wrapper {
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: var(--color-text-secondary);
+}
+
+.table-toolbar .form-input, 
+.table-toolbar .form-select {
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.2s;
+    background: #fff;
+    color: var(--color-text-primary);
+}
+
+.search-input-wrapper .form-input {
+    padding-left: 36px;
+    width: 100%;
+}
+
+.table-toolbar .form-input:focus, 
+.table-toolbar .form-select:focus {
+    border-color: var(--color-blue);
+    box-shadow: 0 0 0 3px rgba(0, 86, 210, 0.1);
+}
+
+.filter-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Pagination */
+.pagination-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    background: #fcfcfc;
+}
+
+.pagination-info {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pagination-current {
+    font-size: 0.9rem;
+    font-weight: 500;
+    min-width: 24px;
+    text-align: center;
+    color: var(--color-text-primary);
+}
+
+.btn-icon:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: transparent;
+}

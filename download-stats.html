@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载数据洞察 | KaiwuDB</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/stats.css">
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- ECharts CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div id="global-background"></div>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-layout">
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1>数据洞察看板</h1>
+                    <p class="header-subtitle">实时监控安装包下载趋势</p>
+                </div>
+                <div class="header-controls">
+                    <div class="date-picker-wrapper" id="date-picker-wrapper">
+                        <i data-lucide="calendar" class="date-picker-icon" data-toggle></i>
+                        <input type="text" id="date-range-picker" class="form-input-flatpickr" placeholder="选择日期范围" readonly data-input>
+                    </div>
+                    <button class="btn btn-primary btn-sm">
+                        <i data-lucide="download-cloud"></i> 导出报告
+                    </button>
+                </div>
+            </header>
+
+            <!-- KPI Cards -->
+            <section class="stats-grid kpi-section">
+                <div class="stat-card">
+                    <div class="stat-icon bg-blue">
+                        <i data-lucide="download"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">总下载量</div>
+                        <div class="stat-value">12,845</div>
+                        <div class="stat-trend positive">
+                            <i data-lucide="trending-up"></i> +12.5%
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon bg-purple">
+                        <i data-lucide="package"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">社区版下载量</div>
+                        <div class="stat-value">9,245</div>
+                        <div class="stat-trend positive">
+                            <i data-lucide="trending-up"></i> +15.3%
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon bg-orange">
+                        <i data-lucide="briefcase"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">企业版申请量</div>
+                        <div class="stat-value">842</div>
+                        <div class="stat-trend positive">
+                            <i data-lucide="trending-up"></i> +5.4%
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon bg-green">
+                        <i data-lucide="check-circle-2"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">下载完成率</div>
+                        <div class="stat-value">98.5%</div>
+                        <div class="stat-trend positive">
+                            <i data-lucide="trending-up"></i> +0.5%
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Charts -->
+            <section class="stats-grid main-charts-section">
+                <!-- Line Chart -->
+                <div class="chart-card large">
+                    <div class="card-header">
+                        <h3>流量与下载趋势</h3>
+                        <div class="card-actions">
+                            <span class="legend-item"><span class="dot blue"></span>下载量</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="trend-chart" class="chart-container"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Distribution Charts (Source, Region, Device) -->
+            <section class="stats-grid distribution-section">
+                <!-- Source Analysis -->
+                <div class="chart-card">
+                    <div class="card-header">
+                        <h3>下载来源分析</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="source-chart" class="chart-container"></div>
+                    </div>
+                </div>
+
+                <!-- Region Distribution -->
+                <div class="chart-card">
+                    <div class="card-header">
+                        <h3>用户区域分布 (Top 5)</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="region-chart" class="chart-container"></div>
+                    </div>
+                </div>
+
+                <!-- Device Distribution -->
+                <div class="chart-card">
+                    <div class="card-header">
+                        <h3>终端设备类型</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="device-chart" class="chart-container"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product & Quality Charts -->
+            <section class="stats-grid product-section">
+                <!-- Version Distribution -->
+                <div class="chart-card">
+                    <div class="card-header">
+                        <h3>版本偏好分布</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="version-chart" class="chart-container"></div>
+                    </div>
+                </div>
+
+                <!-- Completion Status -->
+                <div class="chart-card">
+                    <div class="card-header">
+                        <h3>下载完成状态</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="completion-chart" class="chart-container"></div>
+                    </div>
+                </div>
+
+                <!-- Top Packages Table -->
+                <div class="chart-card table-card">
+                    <div class="card-header">
+                        <h3>热门安装包 Top 5</h3>
+                    </div>
+                    <div class="card-body no-padding">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>安装包名称</th>
+                                    <th>类型</th>
+                                    <th>下载量</th>
+                                    <th>占比</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="pkg-name">kaiwudb-enterprise-linux-x86_64-v3.0.0.tar.gz</span></td>
+                                    <td><span class="badge badge-blue">Enterprise</span></td>
+                                    <td>4,231</td>
+                                    <td>
+                                        <div class="progress-wrapper">
+                                            <div class="progress-track">
+                                                <div class="progress-bar" style="width: 85%"></div>
+                                            </div>
+                                            <span>32%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="pkg-name">kaiwudb-community-linux-x86_64-v3.0.0.tar.gz</span></td>
+                                    <td><span class="badge badge-green">Community</span></td>
+                                    <td>3,842</td>
+                                    <td>
+                                        <div class="progress-wrapper">
+                                            <div class="progress-track">
+                                                <div class="progress-bar" style="width: 70%"></div>
+                                            </div>
+                                            <span>29%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="pkg-name">kaiwudb-lite-linux-arm64-v2.0.3.tar.gz</span></td>
+                                    <td><span class="badge badge-orange">Lite</span></td>
+                                    <td>2,105</td>
+                                    <td>
+                                        <div class="progress-wrapper">
+                                            <div class="progress-track">
+                                                <div class="progress-bar" style="width: 45%"></div>
+                                            </div>
+                                            <span>16%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="pkg-name">kaiwudb-enterprise-linux-aarch64-v3.0.0.tar.gz</span></td>
+                                    <td><span class="badge badge-blue">Enterprise</span></td>
+                                    <td>1,540</td>
+                                    <td>
+                                        <div class="progress-wrapper">
+                                            <div class="progress-track">
+                                                <div class="progress-bar" style="width: 30%"></div>
+                                            </div>
+                                            <span>11%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="pkg-name">kaiwudb-community-darwin-x86_64-v2.0.0.tar.gz</span></td>
+                                    <td><span class="badge badge-green">Community</span></td>
+                                    <td>890</td>
+                                    <td>
+                                        <div class="progress-wrapper">
+                                            <div class="progress-track">
+                                                <div class="progress-bar" style="width: 15%"></div>
+                                            </div>
+                                            <span>6%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Application Leads Section -->
+            <section class="chart-card table-card" style="margin-top: 24px;">
+                <div class="card-header">
+                    <h3>企业版/KAT 申请列表</h3>
+                    <div class="card-actions">
+                        <button class="btn btn-outline btn-sm" id="export-leads-btn">
+                            <i data-lucide="download"></i> 导出 CSV
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-toolbar">
+                    <div class="search-input-wrapper">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="text" id="leads-search" class="form-input" placeholder="搜索手机号或邮箱...">
+                    </div>
+                    <div class="filter-actions">
+                        <select id="leads-filter-version" class="form-select">
+                            <option value="">所有版本</option>
+                            <option value="Enterprise v3.0">Enterprise v3.0</option>
+                            <option value="Enterprise v2.0">Enterprise v2.0</option>
+                            <option value="KAT v2.0 Beta">KAT v2.0 Beta</option>
+                            <option value="KAT v1.2">KAT v1.2</option>
+                        </select>
+                        <select id="leads-filter-status" class="form-select">
+                            <option value="">所有状态</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Contacted">Contacted</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card-body no-padding">
+                    <table class="data-table" id="leads-table">
+                        <thead>
+                            <tr>
+                                <th>申请时间</th>
+                                <th>联系人手机</th>
+                                <th>联系邮箱</th>
+                                <th>申请版本</th>
+                                <th>状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                    
+                    <div class="pagination-bar">
+                        <div class="pagination-info">
+                            显示 <span id="leads-start">0</span> - <span id="leads-end">0</span> 共 <span id="leads-total">0</span> 条
+                        </div>
+                        <div class="pagination-controls">
+                            <button class="btn btn-icon btn-sm" id="leads-prev" disabled>
+                                <i data-lucide="chevron-left"></i>
+                            </button>
+                            <span class="pagination-current" id="leads-current-page">1</span>
+                            <button class="btn btn-icon btn-sm" id="leads-next">
+                                <i data-lucide="chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/zh.js"></script>
+    <script src="js/stats.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
