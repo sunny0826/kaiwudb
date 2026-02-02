@@ -559,3 +559,11 @@
         padding: 0 16px;
     }
 }
+
+#about-page .banner-slogan {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-blue);
+    letter-spacing: 0.05em;
+}
