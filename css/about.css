@@ -568,3 +568,107 @@
     color: var(--color-blue);
     letter-spacing: 0.05em;
 }
+
+/* =========================================
+   2.5 Slogan Section
+   ========================================= */
+.section-divider-center {
+    width: 40px;
+    height: 4px;
+    background: var(--color-blue);
+    margin: 16px auto 0;
+    border-radius: 2px;
+}
+
+.slogan-card {
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15); /* Custom shadow if var not avail */
+    min-height: 480px;
+    background: #fff;
+}
+
+.slogan-card-left {
+    flex: 0 0 45%;
+    background: linear-gradient(135deg, #002b55 0%, #004080 100%);
+    padding: 64px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.slogan-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 48px;
+    opacity: 0.9;
+    letter-spacing: 0.05em;
+}
+
+.slogan-brand svg {
+    width: 32px;
+    height: 32px;
+}
+
+.slogan-quote {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+}
+
+.slogan-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.slogan-description p {
+    margin-bottom: 4px;
+}
+
+.slogan-card-right {
+    flex: 1;
+    background-image: url('../img/banner-background2.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Optional: Decorative line overlay on image like reference */
+.slogan-card-right::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -20px;
+    right: 20%;
+    bottom: 20%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: none; /* Connects to left panel */
+    border-radius: 0 16px 16px 0;
+    pointer-events: none;
+    z-index: 1;
+    display: none; /* Simplified for now, can enable */
+}
+
+@media (max-width: 992px) {
+    .slogan-card {
+        flex-direction: column;
+    }
+    
+    .slogan-card-left {
+        padding: 40px;
+        flex: auto;
+    }
+    
+    .slogan-card-right {
+        min-height: 240px;
+    }
+}
