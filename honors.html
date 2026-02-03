@@ -181,14 +181,6 @@
                 </div>
             </div>
 
-            <!-- Tabs (Client-side switching implemented in simple inline script for now or handled by logic below) -->
-            <div class="honors-tabs">
-                <button class="tab-btn active" onclick="filterHonors('all')">全部</button>
-                <button class="tab-btn" onclick="filterHonors('qualification')">企业资质</button>
-                <button class="tab-btn" onclick="filterHonors('product')">产品荣誉</button>
-                <button class="tab-btn" onclick="filterHonors('patent')">专利证书</button>
-            </div>
-
             <section class="honors-section">
                 <div class="honors-grid" id="honorsGrid">
                     <!-- Content injected by JS or Static -->
@@ -272,32 +264,6 @@
             document.body.classList.add('loaded');
             if (window.lucide) lucide.createIcons();
         });
-
-        // Simple filter logic
-        function filterHonors(category) {
-            // Update buttons
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('onclick').includes(category)) {
-                    btn.classList.add('active');
-                }
-            });
-
-            // Filter items
-            const items = document.querySelectorAll('.honor-card');
-            items.forEach(item => {
-                if (category === 'all' || item.dataset.category === category) {
-                    item.style.display = 'flex';
-                    // Animation reset
-                    item.style.opacity = '0';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                    }, 50);
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
     </script>
 </body>
 
